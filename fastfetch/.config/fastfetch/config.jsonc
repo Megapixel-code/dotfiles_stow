@@ -1,0 +1,67 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  
+  "logo": {
+    "type": "auto",        // Logo type: auto, builtin, small, file, etc.
+    "source": "debian",      // Built-in logo name or file path
+    "padding": {
+      "top": 1,          // Top padding
+      "bottom": 1,	 // Bottom padding
+      "left": 1,         // Left padding
+      "right": 2         // Right padding
+    },
+    "color": {             // Override logo colors
+      "1": "#CDB4DB",
+      "2": "#BDE0FE"
+    }
+  },
+
+  "display": {
+    "separator": ": ",     // Separator between keys and values
+    "color": {
+      "keys": "#FFC8DD",    // Key color
+      "title": "#A2D2FF"     // Title color
+    },
+    "percent": {
+      "type": 1         // 1=number, 2=bar, 3=both, 9=colored number
+    }
+  },
+
+  "modules": [
+    "title",
+    
+    "separator",
+    "os",
+    "kernel",
+    "packages",
+    "de",
+    "wm",
+    "terminal",
+    "uptime",
+    //"wmtheme",
+    //"shell",
+    
+    "separator",
+    "host",
+    "cpu",
+    "gpu",
+    "display",
+    
+    "separator",
+    "disk",
+    "memory",
+    "swap",
+    
+    "battery",
+    "locale",
+    "break"
+    //"theme",
+    //"font",
+    //"icons",
+    //"cursor",
+    //"terminalfont",
+    //"localip",
+    //"poweradapter",
+    //"colors"
+  ]
+}
