@@ -28,33 +28,53 @@
   },
 
   "modules": [
-    "title",
-    
+    {
+      "type": "title",
+      "format": "{user-name-colored}{at-symbol-colored}{host-name-colored}"
+    },
     "separator",
     "os",
     "kernel",
     "packages",
     "de",
-    "wm",
+    {
+      "type": "wm",
+      "key": "Window Manager",
+    },
+    {
+      "type": "custom",
+      "key": "Display Manager",
+      "format": "SDDM",
+    },
     "terminal",
-    "uptime",
+    //"uptime",
     //"wmtheme",
     //"shell",
     
     "separator",
     "host",
-    "cpu",
-    "gpu",
+    {
+      "type": "cpu",
+      "format": "{name}",
+    },
+    {
+      "type": "gpu",
+      "format": "{vendor} {name}"
+    },
     "display",
     
     "separator",
-    "disk",
+    {
+      "type":"disk",
+      "key": "Disk",
+    },
     "memory",
     "swap",
     
+    "separator",
     "battery",
-    "locale",
-    "break"
+    //"locale",
+    //"break"
     //"theme",
     //"font",
     //"icons",
