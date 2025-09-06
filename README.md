@@ -13,5 +13,5 @@ use stow to slink thoses files
 
 ```
 cd dotfiles_stow
-stow "name of the package you want to copy the config"
+stow "package file name"
 ```
