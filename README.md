@@ -1,3 +1,6 @@
+# Step 0
+create a backup of your config files.
+
 # Step 1
 clone repo :
 
@@ -10,5 +13,5 @@ use stow to slink thoses files
 
 ```
 cd dotfiles_stow
-stow *
+stow "name of the package you want to copy the config"
 ```
