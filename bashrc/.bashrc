@@ -114,5 +114,9 @@ fi
 
 
 uzip (){
-	unzip $1;
+	if [[ $1 == *.zip ]]; then
+		unzip $1;
+	elif [[ $1 == *.tar.gz ]] || [[ $1 == *.tar.xz ]]; then
+		tar -xf $1;
+	fi
 }
