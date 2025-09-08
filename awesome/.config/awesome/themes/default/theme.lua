@@ -33,7 +33,7 @@ theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(0)
 theme.border_width = dpi(8)
-theme.border_normal = main_color_dark
+theme.border_normal = main_color_mid
 theme.border_focus = main_color_light
 theme.border_marked = "#91231c"
 theme.maximized_hide_border = true

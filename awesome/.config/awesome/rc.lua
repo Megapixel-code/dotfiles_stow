@@ -1,3 +1,7 @@
+local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "default")
+local config_path = string.format("%s/.config/awesome/", os.getenv("HOME"))
+
+
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
@@ -8,6 +12,7 @@ local awful = require("awful")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
+local battery_widget = require("widgets/battery-widget")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
@@ -56,7 +61,6 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/default/theme.lua")
-local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "default")
 beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
@@ -257,7 +261,27 @@ awful.screen.connect_for_each_screen(function(s)
 		},
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
-			wibox.widget.systray(),
+			battery_widget {
+				ac_prefix = "AC: ",
+				battery_prefix = "Bat: ",
+				percent_colors = {
+		        		{ 25, "red"   },
+		        		{ 50, "orange"},
+		        		{999, "green" },
+				},
+				listen = true,
+				timeout = 60,
+				widget_text = "${AC_BAT}${color_on}${percent}%${color_off}",
+				widget_font = "W95FA",
+				tooltip_text = "Battery ${state}${time_est}",
+				alert_threshold = 10,
+				alert_timeout = 0,
+				alert_title = "Low battery !",
+				alert_text = "${AC_BAT}${time_est}",
+			    -- alert_icon = "~/Downloads/low_battery_icon.png",
+			    -- warn_full_battery = true,
+			    -- full_battery_icon = "~/Downloads/full_battery_icon.png",
+			},
 			s.mylayoutbox,
 		},
 	})
