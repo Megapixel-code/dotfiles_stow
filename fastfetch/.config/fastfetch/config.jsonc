@@ -3,7 +3,7 @@
   
   "logo": {
     "type": "auto",        // Logo type: auto, builtin, small, file, etc.
-    "source": "debian",      // Built-in logo name or file path
+    //"source": "debian",      // Built-in logo name or file path
     "padding": {
       "top": 1,          // Top padding
       "bottom": 1,	 // Bottom padding
@@ -72,7 +72,6 @@
     "swap",
     
     "separator",
-    "battery",
     //"locale",
     //"break"
     //"theme",
