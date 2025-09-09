@@ -1,7 +1,6 @@
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "default")
 local config_path = string.format("%s/.config/awesome/", os.getenv("HOME"))
 
-
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
@@ -13,6 +12,8 @@ require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
 local battery_widget = require("widgets/battery-widget")
+local brightness_widget = require("widgets/brightness-widget")
+local brightness = brightness_widget:new({})
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
@@ -261,13 +262,13 @@ awful.screen.connect_for_each_screen(function(s)
 		},
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
-			battery_widget {
+			battery_widget({
 				ac_prefix = "AC: ",
 				battery_prefix = "Bat: ",
 				percent_colors = {
-		        		{ 25, "red"   },
-		        		{ 50, "orange"},
-		        		{999, "green" },
+					{ 25, "red" },
+					{ 50, "orange" },
+					{ 999, "green" },
 				},
 				listen = true,
 				timeout = 60,
@@ -278,10 +279,10 @@ awful.screen.connect_for_each_screen(function(s)
 				alert_timeout = 0,
 				alert_title = "Low battery !",
 				alert_text = "${AC_BAT}${time_est}",
-			    -- alert_icon = "~/Downloads/low_battery_icon.png",
-			    -- warn_full_battery = true,
-			    -- full_battery_icon = "~/Downloads/full_battery_icon.png",
-			},
+				-- alert_icon = "~/Downloads/low_battery_icon.png",
+				-- warn_full_battery = true,
+				-- full_battery_icon = "~/Downloads/full_battery_icon.png",
+			}),
 			s.mylayoutbox,
 		},
 	})
@@ -395,7 +396,15 @@ globalkeys = gears.table.join(
 	-- Menubar
 	awful.key({ modkey }, "p", function()
 		menubar.show()
-	end, { description = "show the menubar", group = "launcher" })
+	end, { description = "show the menubar", group = "launcher" }),
+
+	-- widgets
+	awful.key({}, "XF86MonBrightnessDown", function()
+		brightness:down()
+	end),
+	awful.key({}, "XF86MonBrightnessUp", function()
+		brightness:up()
+	end)
 )
 
 clientkeys = gears.table.join(
