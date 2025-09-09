@@ -283,7 +283,6 @@ awful.screen.connect_for_each_screen(function(s)
 				-- warn_full_battery = true,
 				-- full_battery_icon = "~/Downloads/full_battery_icon.png",
 			}),
-			s.mylayoutbox,
 		},
 	})
 end)
@@ -380,10 +379,12 @@ globalkeys = gears.table.join(
 		end
 	end, { description = "restore minimized", group = "client" }),
 
-	-- Prompt
+	--[[ Prompt
 	awful.key({ modkey }, "r", function()
 		awful.screen.focused().mypromptbox:run()
 	end, { description = "run prompt", group = "launcher" }),
+	]]
+	--
 
 	awful.key({ modkey }, "x", function()
 		awful.prompt.run({
@@ -394,7 +395,7 @@ globalkeys = gears.table.join(
 		})
 	end, { description = "lua execute prompt", group = "awesome" }),
 	-- Menubar
-	awful.key({ modkey }, "p", function()
+	awful.key({ modkey }, "r", function()
 		menubar.show()
 	end, { description = "show the menubar", group = "launcher" }),
 

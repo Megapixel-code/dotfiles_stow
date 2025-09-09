@@ -16,8 +16,8 @@ theme.font = "W95FA"
 ------------------
 -- my variables --
 ------------------
-local main_color_light = "#D9CABA"
-local main_color_mid = "#BAAFA1"
+local main_color_light = "#efe9df"
+local main_color_mid = "#d0bfa1"
 local main_color_dark = "#3D3D39"
 
 theme.bg_normal = main_color_light
@@ -38,6 +38,12 @@ theme.border_focus = main_color_light
 theme.border_marked = "#91231c"
 theme.maximized_hide_border = true
 
+theme.taglist_bg_empty = main_color_light
+theme.taglist_fg_empty = main_color_light
+theme.taglist_bg_occupied = main_color_mid
+theme.taglist_bg_focus = main_color_dark
+theme.taglist_spacing = 2
+
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:
@@ -50,11 +56,6 @@ theme.maximized_hide_border = true
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
-
--- Generate taglist squares:
-local taglist_square_size = dpi(4)
-theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
-theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
 
 -- Variables set for theming notifications:
 -- notification_font
