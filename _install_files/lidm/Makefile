@@ -1,0 +1,158 @@
+VERSION = 1.2.3
+.DEFAULT_GOAL := lidm
+
+CDIR=src
+LDIR=lib
+IDIR=include
+ODIR=dist
+
+PREFIX=/usr
+
+CC?=gcc
+CFLAGS?=-O3 -Wall
+# C PreProcessor flags, not C Plus Plus
+CPPFLAGS?=
+ALLFLAGS=$(CFLAGS) $(CPPFLAGS) -I$(IDIR)
+
+LIBS=-lpam
+
+_DEPS = version.h log.h util.h ui.h ui_state.h config.h desktop.h desktop_exec.h auth.h ofield.h efield.h keys.h users.h sessions.h chvt.h macros.h launch_state.h
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+
+_OBJ = main.o log.o util.o ui.o ui_state.o config.o desktop.o desktop_exec.o auth.o ofield.o efield.o users.o sessions.o chvt.o launch_state.o
+OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+
+INFO_GIT_REV?=$$(git describe --long --tags --always || echo '?')
+INFO_BUILD_TS?=$$(date +%s)
+
+$(IDIR)/version.h: Makefile
+	@tmp=$$(mktemp); \
+	printf '' > $$tmp; \
+	echo '#define LIDM_VERSION "'$(VERSION)'"' >> $$tmp; \
+	echo '#define LIDM_GIT_REV "'$(INFO_GIT_REV)'"' >> $$tmp; \
+	echo '#define LIDM_BUILD_TS '$(INFO_BUILD_TS) >> $$tmp; \
+	if ! cmp -s $$tmp $@; then \
+		mv $$tmp $@; \
+	fi; \
+	rm -f $$tmp;
+
+$(ODIR)/%.o: $(CDIR)/%.c $(DEPS)
+	@mkdir -p $(ODIR)
+	$(CC) -c -o $@ $< $(ALLFLAGS)
+
+lidm: $(OBJ)
+	$(CC) -o $@ $^ $(ALLFLAGS) $(LIBS)
+
+clean:
+	rm -f $(ODIR)/*.o lidm
+
+# Copy lidm to ${DESTDIR}${PREFIX}/bin (/usr/bin)
+install: lidm
+	mkdir -p ${DESTDIR}${PREFIX}/bin ${DESTDIR}${PREFIX}/share/man/man{1,5}
+	install -Dm755 ./lidm ${DESTDIR}${PREFIX}/bin/
+	[ -f ${DESTDIR}/etc/lidm.ini ] || install -Dm644 ./themes/default.ini ${DESTDIR}/etc/lidm.ini
+	install -Dm644 ./assets/man/lidm.1 ${DESTDIR}${PREFIX}/share/man/man1/
+	install -Dm644 ./assets/man/lidm-config.5 ${DESTDIR}${PREFIX}/share/man/man5/
+
+uninstall:
+	rm -rf ${DESTDIR}${PREFIX}/bin/lidm ${DESTDIR}/etc/lidm.ini
+	rm -rf ${DESTDIR}/usr/share/man/man{1/lidm.1,5/lidm-config.5}.gz
+	rm -rf ${DESTDIR}/etc/systemd/system/lidm.service ${DESTDIR}/etc/dinit.d/lidm ${DESTDIR}/etc/runit/sv/lidm
+
+install-service:
+	@if command -v systemctl &> /dev/null; then \
+		make install-service-systemd; \
+	elif command -v dinitctl &> /dev/null; then \
+		make install-service-dinit; \
+	elif command -v sv &> /dev/null; then \
+		if [ -d /etc/sv ]; then \
+			make install-service-runit; \
+		elif [ -d /etc/runit/sv ]; then \
+			make install-service-runit-etc; \
+		else \
+			printf '\033[31m%s\033[0m\n' "Unknown init system structure, skipping service install..." >&2; \
+		fi \
+	elif command -v rc-update &> /dev/null; then \
+		make install-service-openrc; \
+	elif command -v s6-service &> /dev/null; then \
+		if [ -d /etc/sv ]; then \
+			make install-service-s6; \
+		elif [ -d /etc/r6nit/sv ]; then \
+			make install-service-s6-etc; \
+		else \
+			printf '\033[31m%s\033[0m\n' "Unknown init system structure, skipping service install..." >&2; \
+		fi \
+	else \
+		printf '\033[1;31m%s\033[0m\n' "Unknown init system, skipping service install..." >&2; \
+	fi
+
+install-service-systemd:
+	install -m644 ./assets/services/systemd.service ${DESTDIR}/etc/systemd/system/lidm.service
+	@printf '\033[1m%s\033[0m\n\n' " don't forget to run 'systemctl enable lidm'"
+install-service-dinit:
+	install -m644 ./assets/services/dinit ${DESTDIR}/etc/dinit.d/lidm
+	@printf '\033[1m%s\033[0m\n\n' " don't forget to run 'dinitctl enable lidm'"
+install-service-runit:
+	@if [ ! -e /etc/sv ] && [ -d /etc/runit/sv ] && [ -z "$FORCE" ]; then \
+		printf '\033[31m%s\033[0m\n' "/etc/sv doesn't exist but /etc/runit/sv does" >&2; \
+		printf '\033[31m%s\033[0m\n' "you probably meant to 'make install-service-runit-etc'" >&2; \
+		exit 1; \
+	fi
+	mkdir -p ${DESTDIR}/etc/sv/lidm
+	cp -r --update=all ./assets/services/runit/* ${DESTDIR}/etc/sv/lidm/
+	@printf '\033[1m%s\033[0m\n\n' " don't forget to run 'ln -s ${DESTDIR}/etc/sv/lidm /var/service' or your distro equivalent"
+install-service-runit-etc:
+	@if [ ! -e /etc/runit/sv ] && [ -d /etc/sv ] && [ -z "$FORCE" ]; then \
+		printf '\033[31m%s\033[0m\n' "/etc/runit/sv doesn't exist but /etc/sv does" >&2; \
+		printf '\033[31m%s\033[0m\n' "you probably meant to 'make install-service-runit'" >&2; \
+		exit 1; \
+	fi
+	mkdir -p ${DESTDIR}/etc/runit/sv/lidm
+	cp -r --update=all ./assets/services/runit/* ${DESTDIR}/etc/runit/sv/lidm/
+	@printf '\033[1m%s\033[0m\n\n' " don't forget to run 'ln -s ${DESTDIR}/etc/runit/sv/lidm /run/runit/service' or your distro equivalent"
+install-service-openrc:
+	install -m755 ./assets/services/openrc ${DESTDIR}/etc/init.d/lidm
+	@printf '\033[1m%s\033[0m\n\n' " don't forget to run 'rc-update add lidm'"
+install-service-s6:
+	@if [ ! -e /etc/sv ] && [ -d /etc/s6/sv ] && [ -z "$FORCE" ]; then \
+		printf '\033[31m%s\033[0m\n' "/etc/sv doesn't exist but /etc/s6/sv does" >&2; \
+		printf '\033[31m%s\033[0m\n' "you probably meant to 'make install-service-s6-etc'" >&2; \
+		exit 1; \
+	fi
+	mkdir -p ${DESTDIR}/etc/sv/lidm
+	cp -r --update=all ./assets/services/s6/* ${DESTDIR}/etc/sv/lidm/
+	@printf '\033[1m%s\033[0m\n\n' " don't forget to run 's6-service add default lidm' and 's6-db-reload'"
+install-service-s6-etc:
+	@if [ ! -e /etc/s6/sv ] && [ -d /etc/sv ] && [ -z "$FORCE" ]; then \
+		printf '\033[31m%s\033[0m\n' "/etc/s6/sv doesn't exist but /etc/sv does" >&2; \
+		printf '\033[31m%s\033[0m\n' "you probably meant to 'make install-service-s6'" >&2; \
+		exit 1; \
+	fi
+	mkdir -p ${DESTDIR}/etc/s6/sv/lidm
+	cp -r --update=all ./assets/services/s6/* ${DESTDIR}/etc/s6/sv/lidm/
+	@printf '\033[1m%s\033[0m\n\n' " don't forget to run 's6-service add default lidm' and 's6-db-reload'"
+
+pre-commit:
+	codespell
+	prettier -c "**/*.md"
+	git ls-files "*.sh" "*/PKGBUILD" | xargs shellcheck --shell=bash
+	clang-format -i $$(git ls-files "*.c" "*.h")
+	git ls-files -z "*.h" | \
+		parallel -j$$(nproc) -q0 --no-notice --will-cite --tty clang-tidy --quiet |& \
+		grep -v "warnings generated." || true
+
+print-version:
+	@echo $(VERSION)
+
+.PHONY: clean \
+	install uninstall \
+	install-service \
+	install-service-s6 \
+	install-service-s6-etc \
+	install-service-dinit \
+	install-service-runit \
+	install-service-runit-etc \
+	install-service-openrc \
+	install-service-systemd \
+	pre-commit \
+	print-version
