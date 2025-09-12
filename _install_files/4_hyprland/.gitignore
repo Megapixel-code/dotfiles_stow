@@ -1,0 +1,12 @@
+#ignore everything
+*
+
+#exept
+!.gitignore
+!assets/
+!install-scripts/
+!LICENCE.md
+!README.md
+!install.sh
+!preset.sh
+!uninstall.sh
