@@ -10,6 +10,6 @@ sudo nano /usr/share/wayland-sessions/sway.desktop	# edit line : Exec=sway --uns
 uname -r
 sudo apt install linux-headers-"previous comand result"
 
-sudo apt install software-properties-common
+sudo apt install nvidia-opencl-dev nvidia-kernel-dkms nvidia-driver
 ```
 
