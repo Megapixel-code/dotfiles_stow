@@ -69,6 +69,15 @@ https://github.com/user-attachments/assets/49bc12b2-abaf-45de-a21c-67aacd9bb872
 > Download this script on a directory where you have write permissions. ie. HOME. Or any directory within your home directory. Else script will fail
 
 #### ⚠️ Pre-requisites and VERY Important! ### 
+- make sure your locales are set
+```bash
+locale -a
+```
+- if not run :
+```bash
+su -
+dpkg-reconfigure locales
+```
 - Do not run this installer as sudo or as root
 - This Installer requires a user with a priviledge to install packages
 - Needs a Debian 13 Testing (Trixie) Branch  as it needs a newer wayland packages! I have tried on Stable Debian 12 Bookworm in which, Hyprland wont build.
