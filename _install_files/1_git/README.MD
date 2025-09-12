@@ -1,6 +1,7 @@
-# How to store your git token 
+# use git with github 
 
-```sh
+```bash
 git config --global credential.helper store
-git config --global username
+git config --global user.name "Your Name"
+git config --global user.email you@exemple.com
 ```
