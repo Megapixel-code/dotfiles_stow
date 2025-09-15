@@ -120,4 +120,4 @@ uzip (){
 		tar -xf $1;
 	fi
 }
-. "$HOME/.cargo/env"
+

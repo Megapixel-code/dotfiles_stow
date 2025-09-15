@@ -6,6 +6,12 @@ if using nvidia card, make sure you have the nouveau drivers running and not the
 
 ## 2 :
 
-```bash
+```sh
 sudo apt install sway
+```
+
+# configure your keyboard in sway :
+
+```sh
+sway input type:keyboard xkb_layout fr
 ```
