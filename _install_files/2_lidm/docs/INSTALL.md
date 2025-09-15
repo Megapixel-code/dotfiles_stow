@@ -15,7 +15,7 @@ Firstly, you'll need to build the package, this also includes man pages, default
 To build it you only need to have some basic packages (should come pre-installed in almost all distros): `make`, `gcc` or another `gcc`ish compiler, and libpam headers. If it builds, it surely works anyways.
 
 ```sh
-sudo apt install git make libpam0g libpam0g-dev
+sudo apt install git make libpam0g-dev
 git clone https://github.com/javalsai/lidm.git
 cd lidm
 make
