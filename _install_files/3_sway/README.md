@@ -6,8 +6,20 @@ if using nvidia card, make sure you have the nouveau drivers running and not the
 
 ## 2 :
 
+sway :
+
 ```sh
 sudo apt install sway
+```
+
+dependencies :
+```sh
+sudo apt install pulseaudio brightnessctl waybar fonts-font-awesome swaybg
+```
+to make pulseaudio work right there :
+
+```sh
+systemctl --user restart pulseaudio.service
 ```
 
 # configure your keyboard in sway :
@@ -15,3 +27,4 @@ sudo apt install sway
 ```sh
 sway input type:keyboard xkb_layout fr
 ```
+
