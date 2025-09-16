@@ -1,4 +1,5 @@
 # Read `man 5 sway` for a complete reference.
+include /etc/sway/config-vars.d/*
 
 ### Variables
 #
@@ -13,9 +14,7 @@ set $right l
 set $term kitty
 set $browser firefox
 # application luncher
-set $menu wmenu-run
-
-include /etc/sway/config-vars.d/*
+set $menu "wofi --show run --hide-scroll --insensitive"
 
 ### Output configuration
 #
@@ -69,7 +68,8 @@ gaps inner 8
 #
 # Autostart:
 #
-exec waybar
+# exec waybar
+exec ~/.config/waybar/scripts/launch-waybar.sh
 
 
 ### Key bindings
@@ -159,9 +159,9 @@ exec waybar
     # bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    # bindsym $mod+s layout stacking
+    # bindsym $mod+w layout tabbed
+    # bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
