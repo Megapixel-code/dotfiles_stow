@@ -1,7 +1,3 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
 # Read `man 5 sway` for a complete reference.
 
 ### Variables
@@ -13,10 +9,10 @@ set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+# Your preferred aplications
 set $term kitty
 set $browser firefox
-# Your preferred application launcher
+# application luncher
 set $menu wmenu-run
 
 include /etc/sway/config-vars.d/*
@@ -64,6 +60,17 @@ include /etc/sway/config-vars.d/*
 input "type:keyboard" {
 	xkb_layout fr
 }
+
+### Decoration
+default_border pixel 1
+gaps inner 8
+
+
+#
+# Autostart:
+#
+exec waybar
+
 
 ### Key bindings
 #
@@ -217,22 +224,5 @@ bindsym $mod+r mode "resize"
     # Special key to take a screenshot with grim
     bindsym Print exec grim
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
 
 include /etc/sway/config.d/*
