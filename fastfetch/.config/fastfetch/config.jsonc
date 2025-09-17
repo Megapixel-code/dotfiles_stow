@@ -44,7 +44,7 @@
     {
       "type": "custom",
       "key": "Display Manager",
-      "format": "SDDM",
+      "format": "lidm",
     },
     "terminal",
     //"uptime",
