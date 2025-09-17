@@ -22,9 +22,3 @@ to make pulseaudio work right there :
 systemctl --user restart pulseaudio.service
 ```
 
-# configure your keyboard in sway :
-
-```sh
-sway input type:keyboard xkb_layout fr
-```
-
