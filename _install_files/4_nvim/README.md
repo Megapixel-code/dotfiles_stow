@@ -3,7 +3,7 @@
 ## prerequisites :
 
 ```sh
-sudo apt install gcc ninja-build gettext cmake curl build-essential git
+sudo apt install gcc ninja-build gettext cmake curl build-essential git fonts-font-awesome
 ```
 
 ## Install from source (V.0.11.4)
