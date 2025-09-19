@@ -28,18 +28,13 @@ set $menu "wofi --show run --hide-scroll --insensitive"
 output HDMI-A-1 transform 270 position 0 0
 output DP-1 position 1080 688
 
-# binding workspaces to outputs :
-workspace 1 output HDMI-A-1
-workspace 2 output HDMI-A-1
-workspace 3 output HDMI-A-1
-workspace 4 output HDMI-A-1
-workspace 5 output HDMI-A-1
-
-workspace 6 output DP-1
-workspace 7 output DP-1
-workspace 8 output DP-1
-workspace 9 output DP-1
-workspace 10 output DP-1
+# colors
+#                       border    bg     text    ind    child border
+client.focused          #d8d8d8 #141216 #d8d8d8 #d8d8d8 #d8d8d8
+client.focused_inactive #9b9b9b #141216 #d8cab8 #9b9b9b #9b9b9b
+client.unfocused        #9b9b9b #141216 #d8cab8 #9b9b9b #9b9b9b
+client.urgent           #fca002 #141216 #d8cab8 #fca002 #fca002
+client.placeholder      #bababa #141216 #d8cab8 #bababa #bababa
 
 ### wrapping mouse on workspace change
 mouse_warping container
@@ -76,13 +71,15 @@ input "type:keyboard" {
 
 ### Decoration
 default_border pixel 1
+default_floating_border pixel 1
 gaps inner 8
+gaps outer 4
 
 
 #
 # Autostart:
 #
-# exec waybar
+# exec waybar  TODO: add it back when waybar config is done
 exec ~/.config/waybar/scripts/launch-waybar.sh
 
 
@@ -162,6 +159,20 @@ exec ~/.config/waybar/scripts/launch-waybar.sh
     bindsym $mod+Shift+underscore move container to workspace number 8
     bindsym $mod+Shift+ccedilla move container to workspace number 9
     bindsym $mod+Shift+agrave move container to workspace number 10
+
+
+    # binding workspaces to outputs :
+    workspace 1 output HDMI-A-1
+    workspace 2 output HDMI-A-1
+    workspace 3 output HDMI-A-1
+    workspace 4 output HDMI-A-1
+    workspace 5 output HDMI-A-1
+
+    workspace 6 output DP-1
+    workspace 7 output DP-1
+    workspace 8 output DP-1
+    workspace 9 output DP-1
+    workspace 10 output DP-1
 
 #
 # Layout stuff:
