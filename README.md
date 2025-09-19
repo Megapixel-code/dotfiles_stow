@@ -1,3 +1,35 @@
+# Dependencies :
+
+## all :
+```sh
+sudo apt install git make libpam0g-dev gcc sway swaybg waybar wofi pulseaudio brightnessctl inotify-tools fonts-font-awesome unzip ripgrep fd-find xclip kitty fastfetch
+```
+
+### lidm
+```sh
+sudo apt install git make libpam0g-dev gcc
+```
+### sway
+```sh
+sudo apt install sway swaybg waybar wofi pulseaudio brightnessctl inotify-tools fonts-font-awesome
+```
+to make pulseaudio work :
+```sh
+systemctl --user restart pulseaudio.service
+```
+### my nvim config
+```sh
+sudo apt install make unzip gcc ripgrep fd-find xclip fonts-font-awesome
+```
+### kitty
+```sh
+sudo apt install kitty
+```
+### fastfetch
+```sh
+sudo apt install fastfetch
+```
+
 # Step 0
 create a backup of your config files.
 
