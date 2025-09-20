@@ -2,7 +2,7 @@
 
 ## all :
 ```sh
-sudo apt install git make libpam0g-dev gcc sway swaybg waybar wofi pulseaudio brightnessctl inotify-tools fonts-font-awesome unzip ripgrep fd-find xclip kitty fastfetch
+sudo apt install git make libpam0g-dev gcc sway swaybg waybar wofi pulseaudio brightnessctl inotify-tools unzip ripgrep fd-find xclip kitty fastfetch
 ```
 
 ### lidm
@@ -11,7 +11,7 @@ sudo apt install git make libpam0g-dev gcc
 ```
 ### sway
 ```sh
-sudo apt install sway swaybg waybar wofi pulseaudio brightnessctl inotify-tools fonts-font-awesome
+sudo apt install sway swaybg waybar wofi pulseaudio brightnessctl inotify-tools psmisc
 ```
 to make pulseaudio work :
 ```sh
@@ -19,7 +19,7 @@ systemctl --user restart pulseaudio.service
 ```
 ### my nvim config
 ```sh
-sudo apt install make unzip gcc ripgrep fd-find xclip fonts-font-awesome
+sudo apt install make unzip gcc ripgrep fd-find xclip
 ```
 ### kitty
 ```sh

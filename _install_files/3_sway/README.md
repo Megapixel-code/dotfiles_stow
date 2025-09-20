@@ -14,7 +14,7 @@ sudo apt install sway
 
 dependencies :
 ```sh
-sudo apt install pulseaudio brightnessctl waybar inotify-tools fonts-font-awesome swaybg wofi
+sudo apt install pulseaudio brightnessctl waybar inotify-tools psmisc swaybg wofi
 ```
 to make pulseaudio work right there :
 

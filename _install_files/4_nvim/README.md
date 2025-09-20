@@ -3,7 +3,7 @@
 ## prerequisites :
 
 ```sh
-sudo apt install gcc ninja-build gettext cmake curl build-essential git fonts-font-awesome
+sudo apt install gcc ninja-build gettext cmake curl build-essential git
 ```
 
 ## Install from source (V.0.11.4)
@@ -20,5 +20,5 @@ sudo apt install gcc ninja-build gettext cmake curl build-essential git fonts-fo
 # nvim kickstart
 
 ```sh
-sudo apt install make unzip gcc ripgrep fd-find xclip fonts-font-awesome
+sudo apt install make unzip gcc ripgrep fd-find xclip
 ```
