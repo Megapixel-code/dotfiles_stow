@@ -1,15 +1,16 @@
 // TODO: network config use `nmtui` command in "https://wiki.debian.org/NetworkManager"
+[
 {
     "layer": "top",
+    "output": "!HDMI-A-1",
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height
     // "width": 1280, // Waybar width
-
     "spacing": 4, // Gaps between modules (4px)
 
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
     "modules-center": ["clock"],
-    "modules-right": ["network", "pulseaudio", "battery", "tray"],
+    "modules-right": ["bluetooth", "network", "pulseaudio", "battery"],
 
     // Modules configuration
 
@@ -26,14 +27,16 @@
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
-    },
     "clock": {
         "interval": 1,
         "format": "{:%H:%M:%S}",
         "tooltip-format": "<big>{:%B %d %Y}</big>",
+    },
+    "bluetooth": {
+        "format-on": "bt : on",
+        "format-connected": "bt : {controller_alias}",
+        "format-no-controller": "bt : disconnected",
+        "on-click-right": "killall blueman-manager; [ $? -ne 0 ] && blueman-manager", // problem (exec on terminal to see warnings).
     },
     "network": {
         "format": "ntwk : {essid}",
@@ -73,17 +76,21 @@
         "on-click-right": "killall pavucontrol; [ $? -ne 0 ] && pavucontrol",
         "scroll-step": 2,
     },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    }
+}, {
+    "output": "HDMI-A-1",
+    "layer": "top",
+    "position": "bottom",
+    "height": 30,
+    "spacing": 4,
+
+    "modules-left": ["sway/workspaces"],
+    "modules-right": ["clock"],
+
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M:%S}",
+        "tooltip-format": "<big>{:%B %d %Y}</big>",
+    },
 }
+]
 

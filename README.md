@@ -1,8 +1,10 @@
+this config has only been tested on debian testing, some parts might not work on other distribs and you would need to find the dependencies yourself.
+
 # Dependencies :
 
 ## all :
 ```sh
-sudo apt install git make libpam0g-dev gcc sway swaybg waybar wofi pulseaudio brightnessctl pavucontrol inotify-tools psmisc nm-connection-editor unzip ripgrep fd-find xclip kitty fastfetch
+sudo apt install git make libpam0g-dev gcc sway swaybg waybar wofi pulseaudio brightnessctl pavucontrol blueman inotify-tools psmisc nm-connection-editor unzip ripgrep fd-find xclip kitty fastfetch
 ```
 
 ### lidm
@@ -11,7 +13,7 @@ sudo apt install git make libpam0g-dev gcc
 ```
 ### sway
 ```sh
-sudo apt install sway swaybg waybar wofi pulseaudio brightnessctl pavucontrol inotify-tools psmisc nm-connection-editor
+sudo apt install sway swaybg waybar wofi pulseaudio brightnessctl pavucontrol nm-connection-editor blueman inotify-tools psmisc
 ```
 to make pulseaudio work :
 ```sh
