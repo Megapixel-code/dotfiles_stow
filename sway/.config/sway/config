@@ -28,6 +28,13 @@ set $menu "wofi --show run --hide-scroll --insensitive"
 output HDMI-A-1 transform 270 position 0 0
 output DP-1 position 1080 688
 
+### set special windows
+# `swaymsg -t get_tree` to get windows info
+# `man 5 sway` and `/CRITERIA` to see the params inside []
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
+for_window [app_id="nm-connection-editor"] floating enable
+
+#
 # colors
 #                       border    bg     text    ind    child border
 client.focused          #d8d8d8 #141216 #d8d8d8 #d8d8d8 #d8d8d8
@@ -37,7 +44,7 @@ client.urgent           #fca002 #141216 #d8cab8 #fca002 #fca002
 client.placeholder      #bababa #141216 #d8cab8 #bababa #bababa
 
 ### wrapping mouse on workspace change
-mouse_warping container
+mouse_warping output
 
 ### Idle configuration
 #

@@ -2,7 +2,7 @@
 
 ## all :
 ```sh
-sudo apt install git make libpam0g-dev gcc sway swaybg waybar wofi pulseaudio brightnessctl inotify-tools unzip ripgrep fd-find xclip kitty fastfetch
+sudo apt install git make libpam0g-dev gcc sway swaybg waybar wofi pulseaudio brightnessctl pavucontrol inotify-tools psmisc nm-connection-editor unzip ripgrep fd-find xclip kitty fastfetch
 ```
 
 ### lidm
@@ -11,7 +11,7 @@ sudo apt install git make libpam0g-dev gcc
 ```
 ### sway
 ```sh
-sudo apt install sway swaybg waybar wofi pulseaudio brightnessctl inotify-tools psmisc
+sudo apt install sway swaybg waybar wofi pulseaudio brightnessctl pavucontrol inotify-tools psmisc nm-connection-editor
 ```
 to make pulseaudio work :
 ```sh
