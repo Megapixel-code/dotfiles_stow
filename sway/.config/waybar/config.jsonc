@@ -49,18 +49,16 @@
         "on-click-right": "killall nm-connection-editor; [ $? -ne 0 ] && nm-connection-editor",
     },
     "battery": {
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        // "states": {
+        //     // "good": 95,
+        //     "warning": 30,
+        //     "critical": 15
+        // },
+        // "format-icons": ["", "", "", "", ""] can add {icon} to format to have this option
+        "format": "bat : {capacity}%",
+        "format-charging": "bat (charging) : {capacity}%",
+        "format-plugged": "bat (plugged) : {capacity}%",
+        "format-alt": "{time}",
     },
     "pulseaudio": {
         //"format-icons": {
@@ -72,7 +70,7 @@
         "format": "vol : {volume}%", // can add {format_source} and {icon}
         "format-muted": "vol : muted",
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle", // mute
-        "on-click-right": "killall pavucontrol; [ $? -ne 0 ] && pavucontrol", // open source control
+        "on-click-right": "killall pavucontrol; [ $? -ne 0 ] && pavucontrol",
         "scroll-step": 2,
     },
     "custom/media": {

@@ -44,7 +44,7 @@ client.urgent           #fca002 #141216 #d8cab8 #fca002 #fca002
 client.placeholder      #bababa #141216 #d8cab8 #bababa #bababa
 
 ### wrapping mouse on workspace change
-mouse_warping output
+mouse_warping container
 
 ### Idle configuration
 #
