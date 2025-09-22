@@ -4,7 +4,6 @@ this config has only been tested on debian testing, some parts might not work on
 
 ## all :
 ```sh
-sudo apt install git make libpam0g-dev gcc sway swaybg waybar wofi pulseaudio brightnessctl pavucontrol network-manager blueman inotify-tools psmisc unzip ripgrep fd-find xclip kitty fastfetch
 ```
 
 ### lidm
@@ -13,12 +12,24 @@ sudo apt install git make libpam0g-dev gcc
 ```
 ### sway
 ```sh
-sudo apt install sway swaybg waybar wofi pulseaudio brightnessctl pavucontrol network-manager blueman inotify-tools psmisc
+sudo apt install sway swaybg waybar wofi brightnessctl pulseaudio network-manager inotify-tools psmisc
 ```
+
+bluetooth :
+```sh
+sudo apt install bluez libdbus-1-dev pkg-config
+```
+
+volume control :
+```sh
+sudo apt install pulseaudio cmake gcc pandoc libncurses-dev libpulse-dev
+```
+
 to make pulseaudio work :
 ```sh
 systemctl --user restart pulseaudio.service
 ```
+
 ### my nvim config
 ```sh
 sudo apt install make unzip gcc ripgrep fd-find xclip

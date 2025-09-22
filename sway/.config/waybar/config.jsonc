@@ -36,7 +36,7 @@
         "format-on": "bt : on",
         "format-connected": "bt : {controller_alias}",
         "format-no-controller": "bt : disconnected",
-        "on-click-right": "~/.config/waybar/scripts/open_setting.sh blueman", // problem (exec on terminal to see warnings).
+        "on-click-right": "~/.config/waybar/scripts/open_setting.sh ~/dotfiles_stow/_install_files/5_bluetui/target/release/bluetui", // problem (exec on terminal to see warnings).
     },
     "network": {
         "format": "ntwk : {essid}",
@@ -49,7 +49,20 @@
         // "tooltip-format-ethernet": "ip : {ipaddr}/{cidr}",
         "tooltip-format-disconnected": "HELP ME AHHHHHH",
         "max-length": 40,
-        "on-click-right": "~/.config/waybar/scripts/open_setting.sh 'kitty nmtui'",
+        "on-click-right": "~/.config/waybar/scripts/open_setting.sh nmtui",
+    },
+    "pulseaudio": {
+        //"format-icons": {
+        //    "default": ["", "", ""]
+        //},
+        //"format-source": "",
+        //"format-source-muted": "",
+        "tooltip-format": "device : {desc}",
+        "format": "vol : {volume}%", // can add {format_source} and {icon}
+        "format-muted": "vol : muted",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle", // mute
+           "on-click-right": "~/.config/waybar/scripts/open_setting.sh ~/dotfiles_stow/_install_files/6_ncpamixer__audio_control/build/ncpamixer",
+        "scroll-step": 2,
     },
     "battery": {
         // "states": {
@@ -62,19 +75,6 @@
         "format-charging": "bat (charging) : {capacity}%",
         "format-plugged": "bat (plugged) : {capacity}%",
         "format-alt": "{time}",
-    },
-    "pulseaudio": {
-        //"format-icons": {
-        //    "default": ["", "", ""]
-        //},
-        //"format-source": "",
-        //"format-source-muted": "",
-        "tooltip-format": "device : {desc}",
-        "format": "vol : {volume}%", // can add {format_source} and {icon}
-        "format-muted": "vol : muted",
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle", // mute
-        "on-click-right": "~/.config/waybar/scripts/open_setting.sh pavucontrol",
-        "scroll-step": 2,
     },
 }, {
     "output": "HDMI-A-1",

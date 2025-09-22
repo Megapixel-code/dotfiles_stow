@@ -7,15 +7,15 @@ if [ $? -ne 0 ]
 then 
    sway mouse_warping none
 
-   `$1` &
+   MARGIN=130
+
+   `kitty $1` &
    PID="$!"
    echo "$PID" > ~/.config/waybar/scripts/settings.pid
+
    sway for_window [pid="$((PID+1))"] floating enable
-   sway for_window [pid="$((PID+1))"] resize set height 436
-   sway for_window [pid="$((PID+1))"] resize set width 456
-   # x = 1920 - 456
-   # y = 1080 - 42 - 436
-   sway for_window [pid="$((PID+1))"] move position 1464 px 602 px
+   sway for_window [pid="$((PID+1))"] resize set width $((1920 - MARGIN))
+   sway for_window [pid="$((PID+1))"] resize set height $((1080 - MARGIN))
 
    wait $PID
    sway mouse_warping container

@@ -121,3 +121,4 @@ uzip (){
 	fi
 }
 
+. "$HOME/.cargo/env"
