@@ -4,7 +4,7 @@ this config has only been tested on debian testing, some parts might not work on
 
 ## all :
 ```sh
-sudo apt install git make libpam0g-dev gcc sway swaybg waybar wofi pulseaudio brightnessctl pavucontrol blueman inotify-tools psmisc nm-connection-editor unzip ripgrep fd-find xclip kitty fastfetch
+sudo apt install git make libpam0g-dev gcc sway swaybg waybar wofi pulseaudio brightnessctl pavucontrol network-manager blueman inotify-tools psmisc unzip ripgrep fd-find xclip kitty fastfetch
 ```
 
 ### lidm
@@ -13,7 +13,7 @@ sudo apt install git make libpam0g-dev gcc
 ```
 ### sway
 ```sh
-sudo apt install sway swaybg waybar wofi pulseaudio brightnessctl pavucontrol nm-connection-editor blueman inotify-tools psmisc
+sudo apt install sway swaybg waybar wofi pulseaudio brightnessctl pavucontrol network-manager blueman inotify-tools psmisc
 ```
 to make pulseaudio work :
 ```sh
@@ -31,6 +31,8 @@ sudo apt install kitty
 ```sh
 sudo apt install fastfetch
 ```
+
+ TODO : use nmtui
 
 # Step 0
 create a backup of your config files.

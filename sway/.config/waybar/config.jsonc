@@ -36,7 +36,7 @@
         "format-on": "bt : on",
         "format-connected": "bt : {controller_alias}",
         "format-no-controller": "bt : disconnected",
-        "on-click-right": "killall blueman-manager; [ $? -ne 0 ] && blueman-manager", // problem (exec on terminal to see warnings).
+        "on-click-right": "~/.config/waybar/scripts/open_setting.sh blueman", // problem (exec on terminal to see warnings).
     },
     "network": {
         "format": "ntwk : {essid}",
@@ -49,7 +49,7 @@
         // "tooltip-format-ethernet": "ip : {ipaddr}/{cidr}",
         "tooltip-format-disconnected": "HELP ME AHHHHHH",
         "max-length": 40,
-        "on-click-right": "killall nm-connection-editor; [ $? -ne 0 ] && nm-connection-editor",
+        "on-click-right": "~/.config/waybar/scripts/open_setting.sh 'kitty nmtui'",
     },
     "battery": {
         // "states": {
@@ -73,7 +73,7 @@
         "format": "vol : {volume}%", // can add {format_source} and {icon}
         "format-muted": "vol : muted",
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle", // mute
-        "on-click-right": "killall pavucontrol; [ $? -ne 0 ] && pavucontrol",
+        "on-click-right": "~/.config/waybar/scripts/open_setting.sh pavucontrol",
         "scroll-step": 2,
     },
 }, {

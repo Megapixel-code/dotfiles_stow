@@ -31,8 +31,8 @@ output DP-1 position 1080 688
 ### set special windows
 # `swaymsg -t get_tree` to get windows info
 # `man 5 sway` and `/CRITERIA` to see the params inside []
-for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
-for_window [app_id="nm-connection-editor"] floating enable
+## for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
+## for_window [app_id="nm-connection-editor"] floating enable
 
 #
 # colors
