@@ -36,7 +36,7 @@
         "format-on": "bt : on",
         "format-connected": "bt : {controller_alias}",
         "format-no-controller": "bt : disconnected",
-        "on-click-right": "~/.config/waybar/scripts/open_setting.sh ~/dotfiles_stow/_install_files/5_bluetui/target/release/bluetui", // problem (exec on terminal to see warnings).
+        "on-click-right": "~/.config/waybar/scripts/open_setting.sh ~/dotfiles_stow/_install_files/5_bluetui/target/release/bluetui",
     },
     "network": {
         "format": "ntwk : {essid}",

@@ -43,8 +43,6 @@ sudo apt install kitty
 sudo apt install fastfetch
 ```
 
- TODO : use nmtui
-
 # Step 0
 create a backup of your config files.
 
