@@ -34,6 +34,10 @@ systemctl --user restart pulseaudio.service
 ```sh
 sudo apt install make unzip gcc ripgrep fd-find xclip
 ```
+### zsh
+```sh
+sudo apt install zsh zsh-syntax-highlighting
+```
 ### kitty
 ```sh
 sudo apt install kitty
@@ -41,6 +45,11 @@ sudo apt install kitty
 ### fastfetch
 ```sh
 sudo apt install fastfetch
+```
+### other
+be able to mount ntfs filesystems
+```sh
+sudo apt install ntfs-3g
 ```
 
 # Step 0
