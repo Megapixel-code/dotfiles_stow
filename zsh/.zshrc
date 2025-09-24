@@ -1,9 +1,22 @@
 #!/bin/sh
 
-# follow XDG base dir specification
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
+
+### source :
+# aliases
+[ -f "$HOME/.config/zsh/aliases.zsh" ] && source "$HOME/.config/zsh/aliases.zsh"
+# .zprofile
+[ -f "$HOME/.config/zsh/.zprofile" ] && source "$HOME/.config/zsh/.zprofile"
+# syntax highlighting
+# required : sudo apt install zsh-syntax-highlighting
+[ -f "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+
+### load modules
+autoload -U colors && colors
+# autocomplete / completion list
+autoload -U compinit && compinit
+zmodload zsh/complist
+
 
 # make electron work / enable the display for XWindows (didnt manage to do it)
 # export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
@@ -11,35 +24,32 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # export ELECTRON_OZONE_PLATFORM_HINT=auto
 # export ELECTRON_ENABLE_LOGGING=true
 
-# source
-[ -f "$HOME/.config/zsh/aliases.zsh" ] && source "$HOME/.config/zsh/aliases.zsh"
 
-# history
-HISTFILE=~/.zsh_history
-HISTSIZE=3000
-SAVEHIST=1000
+### history
+HISTFILE="$XDG_CACHE_HOME/.zsh_history"
+HISTSIZE=100000
+SAVEHIST=100000
 HISTCONTROL=ignoreboth # consecutive duplicates & commands starting with space are not saved
 
-# settings
-unsetopt autocd beep extendedglob nomatch notify
 
+### completion options
+zstyle ':completion:*' menu select # tab opens cmp menu
+zstyle ':completion:*' special-dirs true # force . and .. to show
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} ma=0\;33 # colorize cmp menu
+
+
+### settings
+unsetopt autocd # dont autocd
 setopt no_case_glob no_case_match # make cmp case insensitive
 
-# autocomplete
-autoload -Uz compinit && compinit
 
+### custom prompt :
 # get git branch ($vcs_info_msg_0_)
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 zstyle ':vcs_info:git:*' formats ' ( %b)'
-# RPROMPT=\$vcs_info_msg_0_
 
 NEWLINE=$'\n'
 PROMPT='${NEWLINE}${vcs_info_msg_0_} %n %~ ❯ '
-
-# syntax highlighting
-# requires zsh-syntax-highlighting package
-# sudo apt install zsh-syntax-highlighting
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
