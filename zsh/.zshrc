@@ -5,10 +5,11 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-# make electron work / enable the display for XWindows
+# make electron work / enable the display for XWindows (didnt manage to do it)
 # export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
-export DISPLAY=:0
-export ELECTRON_OZONE_PLATFORM_HINT=auto
+# export DISPLAY=:0
+# export ELECTRON_OZONE_PLATFORM_HINT=auto
+# export ELECTRON_ENABLE_LOGGING=true
 
 # source
 [ -f "$HOME/.config/zsh/aliases.zsh" ] && source "$HOME/.config/zsh/aliases.zsh"
