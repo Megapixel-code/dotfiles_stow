@@ -6,8 +6,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
 # make electron work / enable the display for XWindows
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
-# export DISPLAY=:0
+# export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+export DISPLAY=:0
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 
 # source
