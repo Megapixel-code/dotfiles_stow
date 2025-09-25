@@ -9,6 +9,19 @@
 # syntax highlighting
 # required : sudo apt install zsh-syntax-highlighting
 [ -f "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+### plugins :
+# plugin list
+plug_locations=(
+   "$ZDOTDIR/plugins/zsh_vi_mode/zsh-vi-mode.plugin.zsh" # have a real vi mode in terminal
+)
+# load plugins
+for plug_loc in "${plug_locations[@]}"; do
+   if [ -f "${plug_loc}" ]; then
+      source "${plug_loc}"
+   else
+      echo "plugin not found at location : ${plug_loc}"
+   fi
+done
 
 
 ### load modules
@@ -51,6 +64,29 @@ precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 zstyle ':vcs_info:git:*' formats ' ( %b)'
+# get vim mode [require plugin zsh_vi_mode]
+# The plugin will auto execute this zvm_after_select_vi_mode function
+vim_mode="[I]"
+function zvm_after_select_vi_mode() {
+  case $ZVM_MODE in
+    $ZVM_MODE_NORMAL)
+      vim_mode="[N]"
+    ;;
+    $ZVM_MODE_INSERT)
+      vim_mode="[I]"
+    ;;
+    $ZVM_MODE_VISUAL)
+      vim_mode="[V]"
+    ;;
+    $ZVM_MODE_VISUAL_LINE)
+      vim_mode="[V-L]"
+    ;;
+    $ZVM_MODE_REPLACE)
+      vim_mode="[R]"
+    ;;
+  esac
+}
 
 NEWLINE=$'\n'
-PROMPT='${NEWLINE}${vcs_info_msg_0_} %n %~ ❯ '
+PROMPT='${NEWLINE}${vcs_info_msg_0_} %n %~ ${vim_mode} ❯ '
+zle && zle reset-prompt
