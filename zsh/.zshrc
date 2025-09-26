@@ -54,6 +54,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} ma=0\;33 # colorize cmp me
 ### settings
 setopt no_case_glob no_case_match # make completion case insensitive
 setopt auto_param_slash # when a dir is completed, add a / instead of a trailing space
+setopt globdots # lets files beginning with a . be matched without explicitly specifying the dot
 unsetopt autocd # dont autocd
 
 
