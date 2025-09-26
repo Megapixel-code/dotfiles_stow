@@ -22,6 +22,7 @@ require("lazy").setup({
 	   -- { "nvim-treesitter/nvim-treesitter", branch = "master", lazy = false, build = ":TSUpdate" },
 		{ import = "plugins.themes" },
 		{ import = "plugins.interface" },
+		{ import = "plugins.lsp_stuff" },
 	},
    performance = {
       rtp = {

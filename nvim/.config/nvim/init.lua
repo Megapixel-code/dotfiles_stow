@@ -31,7 +31,7 @@ vim.g.maplocalleader = " "
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 vim.schedule(function()
-	vim.o.clipboard = "unnamedplus"
+	vim.opt.clipboard = "unnamedplus"
 end)
 
 -- [[ Setting options ]]
@@ -83,8 +83,10 @@ vim.o.inccommand = "split"
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- reload nvim config :
+vim.keymap.set("n", "<space><space>x", "<cmd>source ~/.config/nvim/init.lua<CR>")
+
 -- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
