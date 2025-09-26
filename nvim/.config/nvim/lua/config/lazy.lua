@@ -12,14 +12,20 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 		os.exit(1)
 	end
 end
-
 -- rtp = runtimepath
 -- put lazy in rtp for neovim
 vim.opt.rtp:prepend(lazypath)
 
+-- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
-		-- import your plugins
-		{ import = "plugins" },
+	   -- { "nvim-treesitter/nvim-treesitter", branch = "master", lazy = false, build = ":TSUpdate" },
+		{ import = "plugins.themes" },
+		{ import = "plugins.interface" },
 	},
+   performance = {
+      rtp = {
+         reset = false,
+      },
+   },
 })
