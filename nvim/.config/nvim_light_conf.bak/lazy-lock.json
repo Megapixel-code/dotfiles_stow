@@ -1,0 +1,4 @@
+{
+  "evergarden": { "branch": "main", "commit": "951d0c459f5d7fff8e90e0c0803dad8faf5180ff" },
+  "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" }
+}
