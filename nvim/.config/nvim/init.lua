@@ -31,18 +31,18 @@ vim.g.maplocalleader = " "
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
+   vim.opt.clipboard = "unnamedplus"
 end)
 
 -- [[ Setting options ]]
 --  NOTE: See `:help vim.o` more options `:help option-list`
 
-vim.o.number = true -- see current line number, if !relativenumber see all lines numbers
+vim.o.number = true         -- see current line number, if !relativenumber see all lines numbers
 vim.o.relativenumber = true -- relative line numbers
-vim.o.cursorline = true -- highlight the cursor line
-vim.o.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor.
-vim.o.showmode = false -- show mode in the last line, unnessesary cause we aleready show the mode elsewhere
-vim.o.signcolumn = "yes" -- Keep signcolumn on by default
+vim.o.cursorline = true     -- highlight the cursor line
+vim.o.scrolloff = 10        -- Minimal number of screen lines to keep above and below the cursor.
+vim.o.showmode = false      -- show mode in the last line, unnessesary cause we aleready show the mode elsewhere
+vim.o.signcolumn = "yes"    -- Keep signcolumn on by default
 vim.g.have_nerd_font = true -- true if you have a Nerd Font installed and selected in the terminal
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  Notice listchars is set using `vim.opt` instead of `vim.o`.
@@ -57,12 +57,12 @@ vim.o.mouse = "a" -- enable mouse mode
 -- vim.g.rust_recommended_style = 0
 vim.opt.tabstop = 3
 vim.opt.shiftwidth = 3
-vim.opt.smartindent = true -- auto indent new lines eg : after {
-vim.opt.expandtab = true -- in insert mode adds the correct amount of spaces when you tab
-vim.o.breakindent = true -- wrapped line will continue visually indented
+vim.opt.smartindent = true -- auto indent new lines eg : after '{'
+vim.opt.expandtab = true   -- in insert mode adds the correct amount of spaces when you tab
+vim.o.breakindent = true   -- wrapped line will continue visually indented
 
-vim.o.undofile = true -- Save undo history
-vim.o.confirm = true -- ask confirmation when you quit while unsaved
+vim.o.undofile = true      -- Save undo history
+vim.o.confirm = true       -- ask confirmation when you quit while unsaved
 
 -- Case-insensitive searching UNLESS or one or more capital letters in the search term
 vim.o.ignorecase = true
@@ -71,7 +71,7 @@ vim.o.smartcase = true
 -- Decrease update time
 vim.o.updatetime = 250
 -- Decrease mapped sequence wait time
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 500
 
 -- Configure how new splits should be opened
 vim.o.splitbelow = true
@@ -84,7 +84,7 @@ vim.o.inccommand = "split"
 --  See `:help vim.keymap.set()`
 
 -- reload nvim config :
-vim.keymap.set("n", "<space><space>x", "<cmd>source ~/.config/nvim/init.lua<CR>")
+vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>")
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -113,20 +113,47 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
--- [[ Basic Autocommands ]]
+-- [[ Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-	callback = function()
-		vim.hl.on_yank()
-	end,
+   desc = "Highlight when yanking (copying) text",
+   group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+   callback = function()
+      vim.hl.on_yank()
+   end,
 })
+
+-- autoformat on save
+vim.api.nvim_create_autocmd('LspAttach', {
+   group = vim.api.nvim_create_augroup('my.lsp', {}),
+   callback = function(args)
+      local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+      -- Auto-format ("lint") on save.
+      if not client:supports_method('textDocument/willSaveWaitUntil')
+          and client:supports_method('textDocument/formatting') then
+         vim.api.nvim_create_autocmd('BufWritePre', {
+            group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
+            buffer = args.buf,
+            callback = function()
+               vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+            end,
+         })
+      end
+   end,
+})
+--[[ document-higligting
+autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
+autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+--]]
 
 -- [[ LOADING PLUGINS ]]
 require("config.lazy")
 
 -- loading colorscheme
 vim.cmd.colorscheme("evergarden-winter")
+
+-- loading lsp
+vim.env.PATH = vim.env.PATH .. ':$HOME/.local/bin'
