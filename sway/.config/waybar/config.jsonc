@@ -14,7 +14,7 @@
     // Modules configuration
 
     "sway/workspaces": {
-       "on-click-right": "echo right clicked on a workspace",
+       "on-click-right": "echo right clicked on a workspace", // important to make them look clickable
     },
     "sway/mode": {
         "format": "<span weight=\"bold\" text_transform=\"uppercase\">{}</span>"
@@ -29,6 +29,7 @@
     "clock": {
         "interval": 1,
         "format": "{:%d %B %Y | %H:%M:%S}",
+        "tooltip": false,
     },
     "bluetooth": {
         "format-on": "bt : on",
