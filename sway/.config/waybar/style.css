@@ -27,7 +27,8 @@ label.module:last-child {
    margin-right: 2px;
 }
 
-label.module {}
+box.module {
+}
 /* center module */
 .modules-center .module {}
 /* right module */
@@ -45,8 +46,10 @@ label.module {}
 
 /* all modules exept workspaces */
 .modules-center .module, .modules-right .module{
-   padding: 2px;
+   padding-left: 4px;
+   padding-right: 4px;
    padding-bottom: 0px;
+   padding-top: 2px;
 }
 
 .modules-left{
@@ -60,11 +63,8 @@ label.module {}
    border-right-color: @color-purple-light;
 }
 
-#workspaces button {
-   background-color: @color-purple;
-
-}
-#workspaces button.visible {
+#workspaces button.visible, #workspaces button.visible:hover {
+   padding-top: 2px;
    border: 2px solid;
    border-radius: 0px;
    border-top-color: @color-purple-light;
@@ -72,11 +72,17 @@ label.module {}
    border-bottom-color: @color-purple-dark;
    border-right-color: @color-purple-dark;
 }
-#workspaces button:hover {
-   box-shadow: none; /* Remove predefined box-shadow */
-   text-shadow: none; /* Remove predefined text-shadow */
-   background: none; /* Remove predefined background color (white) */
-   transition: none; /* Disable predefined animations */
+#workspaces button, #workspaces button:hover {
+   padding-top: 2px;
+   background-color: @color-purple;
+   box-shadow: none;
+   text-shadow: none;
+   background: none;
+   transition: none;
+
+   border: 2px solid;
+   border-radius: 0px;
+   border-color: transparent;
 }
 
 #mode,

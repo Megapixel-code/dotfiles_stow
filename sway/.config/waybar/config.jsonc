@@ -14,7 +14,7 @@
     // Modules configuration
 
     "sway/workspaces": {
-
+       "on-click-right": "echo right clicked on a workspace",
     },
     "sway/mode": {
         "format": "<span weight=\"bold\" text_transform=\"uppercase\">{}</span>"
@@ -82,6 +82,10 @@
 
     "modules-left": ["sway/workspaces"],
     "modules-right": ["clock"],
+
+    "sway/workspaces": {
+       "on-click-right": "echo right clicked on a workspace",
+    },
 
     "clock": {
         "interval": 1,
