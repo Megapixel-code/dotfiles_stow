@@ -83,11 +83,21 @@ vim.o.inccommand = "split"
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- reload nvim config :
-vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>")
+-- Reload nvim config :
+vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>", {desc = "Rel[O]ad nvim config"})
 
 -- Clear highlights on search when pressing <Esc> in normal mode
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clears higlighting of search" })
+
+-- Adding lines on normal mode
+vim.keymap.set('n', '<CR>', 'm`o<Esc>``', {desc = "Adds a line down"})
+vim.keymap.set('n', '<S-CR>', 'm`O<Esc>``', {desc = "Adds a line above"})
+
+-- Going up or down
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-f>', '<C-f>zz')
+vim.keymap.set('n', '<C-b>', '<C-b>zz')
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
@@ -153,7 +163,5 @@ autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
 require("config.lazy")
 
 -- loading colorscheme
-vim.cmd.colorscheme("evergarden-winter")
-
--- loading lsp
-vim.env.PATH = vim.env.PATH .. ':$HOME/.local/bin'
+-- vim.cmd.colorscheme("evergarden-winter")
+vim.cmd.colorscheme('github_dark_default')
