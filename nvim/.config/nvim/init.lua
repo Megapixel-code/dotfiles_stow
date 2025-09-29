@@ -84,14 +84,14 @@ vim.o.inccommand = "split"
 --  See `:help vim.keymap.set()`
 
 -- Reload nvim config :
-vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>", {desc = "Rel[O]ad nvim config"})
+vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>", { desc = "Rel[O]ad nvim config" })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clears higlighting of search" })
 
 -- Adding lines on normal mode
-vim.keymap.set('n', '<CR>', 'm`o<Esc>``', {desc = "Adds a line down"})
-vim.keymap.set('n', '<S-CR>', 'm`O<Esc>``', {desc = "Adds a line above"})
+vim.keymap.set('n', '<CR>', 'm`o<Esc>``', { desc = "Adds a line down" })
+vim.keymap.set('n', '<S-CR>', 'm`O<Esc>``', { desc = "Adds a line above" })
 
 -- Going up or down
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
@@ -153,6 +153,45 @@ vim.api.nvim_create_autocmd('LspAttach', {
       end
    end,
 })
+
+-- TODO : Look at it later; set terminal colorscheme automatically
+local function autoscheme()
+   vim.cmd("e $HOME/.config/alacritty/alacritty.yml")
+   vim.api.nvim_win_set_cursor(0, { 1, 0 })
+   vim.cmd("/autoscheme")
+   local ln = unpack(vim.api.nvim_win_get_cursor(0))
+   local bg = ("#%06x"):format(vim.api.nvim_get_hl_by_name("Normal", true).background)
+   local fg = ("#%06x"):format(vim.api.nvim_get_hl_by_name("Normal", true).foreground)
+   vim.api.nvim_buf_set_lines(0, ln, ln + 24, false, {
+      "    primary:",
+      '      background: "' .. bg .. '"',
+      '      foreground: "' .. fg .. '"',
+      "    selection:",
+      '      background: "' .. fg .. '"',
+      '      text: "' .. bg .. '"',
+      "    normal:",
+      '      black: "' .. vim.g.terminal_color_0 .. '"',
+      '      red: "' .. vim.g.terminal_color_1 .. '"',
+      '      green: "' .. vim.g.terminal_color_2 .. '"',
+      '      yellow: "' .. vim.g.terminal_color_3 .. '"',
+      '      blue: "' .. vim.g.terminal_color_4 .. '"',
+      '      magenta: "' .. vim.g.terminal_color_5 .. '"',
+      '      cyan: "' .. vim.g.terminal_color_6 .. '"',
+      '      white: "' .. vim.g.terminal_color_7 .. '"',
+      "    bright:",
+      '      black: "' .. vim.g.terminal_color_8 .. '"',
+      '      red: "' .. vim.g.terminal_color_9 .. '"',
+      '      green: "' .. vim.g.terminal_color_10 .. '"',
+      '      yellow: "' .. vim.g.terminal_color_11 .. '"',
+      '      blue: "' .. vim.g.terminal_color_12 .. '"',
+      '      magenta: "' .. vim.g.terminal_color_13 .. '"',
+      '      cyan: "' .. vim.g.terminal_color_14 .. '"',
+      '      white: "' .. vim.g.terminal_color_15 .. '"',
+   })
+   vim.cmd("w | noh | bd")
+end
+vim.keymap.set("n", "<leader>ct", autoscheme, { silent = true, desc = "Set terminal colorscheme" })
+
 --[[ document-higligting
 autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
 autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
