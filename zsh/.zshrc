@@ -30,7 +30,6 @@ autoload -U colors && colors
 autoload -U compinit && compinit
 zmodload zsh/complist
 
-
 # make electron work / enable the display for XWindows (didnt manage to do it)
 # export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 # export DISPLAY=:0
@@ -47,9 +46,7 @@ HISTCONTROL=ignoreboth # consecutive duplicates & commands starting with space a
 
 ### completion options
 zstyle ':completion:*' menu select # tab opens cmp menu
-zstyle ':completion:*' special-dirs true # force . and .. to show
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} ma=0\;33 # colorize cmp menu
-
 
 ### settings
 setopt no_case_glob no_case_match # make completion case insensitive
