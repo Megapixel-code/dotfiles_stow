@@ -160,8 +160,8 @@ local function autoscheme()
    vim.api.nvim_win_set_cursor(0, { 1, 0 })
    vim.cmd("/autoscheme")
    local ln = unpack(vim.api.nvim_win_get_cursor(0))
-   local bg = ("#%06x"):format(vim.api.nvim_get_hl_by_name("Normal", true).background)
-   local fg = ("#%06x"):format(vim.api.nvim_get_hl_by_name("Normal", true).foreground)
+   local bg = ("#%06x"):format(vim.api.nvim_get_hl("Normal", true).background)
+   local fg = ("#%06x"):format(vim.api.nvim_get_hl("Normal", true).foreground)
    vim.api.nvim_buf_set_lines(0, ln, ln + 24, false, {
       "    primary:",
       '      background: "' .. bg .. '"',
