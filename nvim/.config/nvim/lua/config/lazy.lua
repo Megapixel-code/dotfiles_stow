@@ -25,6 +25,10 @@ require("lazy").setup({
       { import = "plugins.lsp" },
       { import = "plugins.motions" },
    },
+   change_detection = {
+      enabled = false,
+      notify = false,
+   },
    performance = {
       rtp = {
          reset = false,
