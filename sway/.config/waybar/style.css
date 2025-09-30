@@ -31,25 +31,23 @@ box.module {
 }
 /* center module */
 .modules-center .module {}
-/* right module */
-.modules-right .module, .modules-center .module{
+
+/* all modules exept workspaces */
+.modules-center .module, .modules-right .module{
    background-color: @color-purple;
    margin-top: 4px;
    margin-bottom: 4px;
+
+   padding-left: 4px;
+   padding-right: 4px;
+   padding-bottom: 0px;
+   padding-top: 2px;
 
    border: 2px solid;
    border-top-color: @color-purple-dark;
    border-left-color: @color-purple-dark;
    border-bottom-color: @color-purple-light;
    border-right-color: @color-purple-light;
-}
-
-/* all modules exept workspaces */
-.modules-center .module, .modules-right .module{
-   padding-left: 4px;
-   padding-right: 4px;
-   padding-bottom: 0px;
-   padding-top: 2px;
 }
 
 .modules-left{
