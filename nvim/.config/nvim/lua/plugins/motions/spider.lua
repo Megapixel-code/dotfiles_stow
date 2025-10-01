@@ -7,7 +7,8 @@ return {
          skipInsignificantPunctuation = true,
          consistentOperatorPending = false,
          subwordMovement = true,
-         customPatterns = {},
+         customPatterns = { "[()]", "[[]]", "[{}]" },
+         overrideDefault = false,
       }
    end,
    keys = {
