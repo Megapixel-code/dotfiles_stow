@@ -15,7 +15,7 @@ set $right l
 set $term kitty
 set $browser firefox
 # application luncher
-set $menu "wofi --show run --hide-scroll --insensitive"
+set $menu "wofi --show drun --hide-scroll --insensitive"
 
 ### Output configuration
 #
