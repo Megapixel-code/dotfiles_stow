@@ -2,6 +2,14 @@ return {
    "chrisgrieser/nvim-spider",
    lazy = true,
 
+   config = function()
+      require("spider").setup {
+         skipInsignificantPunctuation = true,
+         consistentOperatorPending = false,
+         subwordMovement = true,
+         customPatterns = {},
+      }
+   end,
    keys = {
       { "w", "<cmd>lua require('spider').motion('w')<CR>", mode = { "n", "o", "x" } },
       { "e", "<cmd>lua require('spider').motion('e')<CR>", mode = { "n", "o", "x" } },
