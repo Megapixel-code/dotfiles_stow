@@ -5,7 +5,7 @@ return {
    {
       "mason-org/mason-lspconfig.nvim",
       opts = {
-         ensure_installed = { "lua_ls" },
+         ensure_installed = { "lua_ls", "java_language_server" },
 
          vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       },
@@ -28,6 +28,7 @@ return {
       },
       setup = function()
          vim.lsp.config("lua_ls", {})
+         vim.lsp.config("java_language_server", {})
       end,
    },
 }
