@@ -32,9 +32,9 @@ systemctl --user restart pulseaudio.service
 
 ### my nvim config
 ```sh
-sudo apt install make unzip gcc ripgrep fd-find wl-clipboard
+sudo apt install make unzip gcc ripgrep fd-find 
 # starting over :
-sudo apt install git curl unzip tar gzip gcc
+sudo apt install git curl unzip tar gzip gcc wl-clipboard fzf
 ```
 ### zsh
 ```sh
