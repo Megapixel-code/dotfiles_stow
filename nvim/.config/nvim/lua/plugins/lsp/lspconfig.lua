@@ -14,7 +14,8 @@ return {
    {
       "neovim/nvim-lspconfig",
       dependencies = {
-         "folke/lazydev.nvim",
+         'saghen/blink.cmp',
+         'folke/lazydev.nvim',
          -- ft = "lua", -- only load on lua files
          opts = {
             library = {
@@ -25,7 +26,10 @@ return {
          },
       },
       config = function()
-         vim.lsp.config("lua_ls", {})
+         -- capabilities for completion
+         local capabilities = require('blink.cmp').get_lsp_capabilities()
+
+         vim.lsp.config("lua_ls", { capabilities = capabilities })
 
          -- Auto-format ("lint") on save.
          vim.api.nvim_create_autocmd('LspAttach', {
