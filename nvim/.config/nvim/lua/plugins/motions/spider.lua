@@ -4,7 +4,7 @@ return {
 
    config = function()
       require("spider").setup {
-         skipInsignificantPunctuation = true,
+         skipInsignificantPunctuation = false,
          consistentOperatorPending = false,
          subwordMovement = true,
          -- customPatterns = { "[()]", "[[]]", "[{}]" },
