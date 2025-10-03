@@ -34,7 +34,7 @@ systemctl --user restart pulseaudio.service
 ```sh
 sudo apt install make unzip gcc ripgrep fd-find 
 # starting over :
-sudo apt install git curl unzip tar gzip gcc wl-clipboard fzf
+sudo apt install git curl unzip tar gzip gcc wl-clipboard fzf ripgrep
 ```
 ### zsh
 ```sh
