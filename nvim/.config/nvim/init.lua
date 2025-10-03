@@ -81,7 +81,6 @@ vim.o.splitright = true
 vim.o.inccommand = "split"
 
 -- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
 
 -- Reload nvim config :
 vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>", { desc = "Rel[O]ad nvim config" })
@@ -98,6 +97,10 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-f>', '<C-f>zz')
 vim.keymap.set('n', '<C-b>', '<C-b>zz')
+
+-- Quickfix
+vim.keymap.set('n', '<M-j>', '<cmd>cnext<CR>')
+vim.keymap.set('n', '<M-k>', '<cmd>cprev<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
@@ -135,24 +138,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
    end,
 })
 
-vim.api.nvim_create_autocmd('LspAttach', {
-   group = vim.api.nvim_create_augroup('my.lsp', {}),
-   callback = function(args)
-      local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-      if not client then return end
-
-      -- Auto-format ("lint") on save.
-      if client:supports_method('textDocument/formatting') then
-         vim.api.nvim_create_autocmd('BufWritePre', {
-            group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
-            buffer = args.buf,
-            callback = function()
-               vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
-            end,
-         })
-      end
-   end,
-})
 
 -- TODO : Look at it later; set terminal colorscheme automatically
 local function autoscheme()
