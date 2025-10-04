@@ -5,10 +5,25 @@ return {
    {
       "mason-org/mason-lspconfig.nvim",
       opts = {
-         ensure_installed = { "lua_ls" },
+         ensure_installed = {
+            "lua_ls",
+            "jdtls",
+         },
 
          vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       },
+   },
+
+   {
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      config = function()
+         require('mason-tool-installer').setup({
+            ensure_installed = {
+               "java-debug-adapter",
+               "java-test",
+            }
+         })
+      end
    },
 
    {
@@ -29,6 +44,7 @@ return {
          -- capabilities for completion
          local capabilities = require('blink.cmp').get_lsp_capabilities()
 
+         -- per language config, dont add jdtls here
          vim.lsp.config("lua_ls", { capabilities = capabilities })
 
          -- Auto-format ("lint") on save.
