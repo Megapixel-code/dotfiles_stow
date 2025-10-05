@@ -1,108 +1,47 @@
--- JDTLS (Java LSP) configuration
--- taken from : https://github.com/bcampolo/nvim-starter-kit/blob/java/.config/nvim/ftplugin/java.lua
--- tutorial video : https://www.youtube.com/watch?v=TryxysOh-fI
-local home = vim.env.HOME -- Get the home directory
+-- config taken from
+-- https://github.com/exosyphon/nvim/blob/0aa48126c7f35f2009c5a695860a53c8a450485f/ftplugin/java.lua#L1
 
-local jdtls = require("jdtls")
-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = home .. "/.local/share/jdtls-workspace/" .. project_name
+local home = os.getenv 'HOME'
+local workspace_path = home .. '/.local/share/nvim/jdtls-workspace/'
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+local workspace_dir = workspace_path .. project_name
 
-local system_os = ""
-
--- Determine OS
-if vim.fn.has("mac") == 1 then
-   system_os = "mac"
-elseif vim.fn.has("unix") == 1 then
-   system_os = "linux"
-elseif vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
-   system_os = "win"
-else
-   print("OS not found, defaulting to 'linux'")
-   system_os = "linux"
+local status, jdtls = pcall(require, 'jdtls')
+if not status then
+   return
 end
+local extendedClientCapabilities = jdtls.extendedClientCapabilities
 
--- Needed for debugging
-local bundles = {
-   vim.fn.glob(home .. "/.local/share/nvim/mason/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar"),
-}
-
--- Needed for running/debugging unit tests
-vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.local/share/nvim/mason/share/java-test/*.jar", 1), "\n"))
-
--- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
-   -- The command that starts the language server
-   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
    cmd = {
-      "java",
-      "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-      "-Dosgi.bundles.defaultStartLevel=4",
-      "-Declipse.product=org.eclipse.jdt.ls.core.product",
-      "-Dlog.protocol=true",
-      "-Dlog.level=ALL",
-      "-javaagent:" .. home .. "/.local/share/nvim/mason/share/jdtls/lombok.jar",
-      "-Xmx4g",
-      "--add-modules=ALL-SYSTEM",
-      "--add-opens", "java.base/java.util=ALL-UNNAMED",
-      "--add-opens", "java.base/java.lang=ALL-UNNAMED",
-
-      -- Eclipse jdtls location
-      "-jar",
-      home .. "/.local/share/nvim/mason/share/jdtls/plugins/org.eclipse.equinox.launcher.jar",
-      "-configuration",
-      home .. "/.local/share/nvim/mason/packages/jdtls/config_" .. system_os,
-      "-data",
+      'java',
+      '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+      '-Dosgi.bundles.defaultStartLevel=4',
+      '-Declipse.product=org.eclipse.jdt.ls.core.product',
+      '-Dlog.protocol=true',
+      '-Dlog.level=ALL',
+      '-Xmx1g',
+      '--add-modules=ALL-SYSTEM',
+      '--add-opens',
+      'java.base/java.util=ALL-UNNAMED',
+      '--add-opens',
+      'java.base/java.lang=ALL-UNNAMED',
+      '-javaagent:' .. home .. '/.local/share/nvim/mason/packages/jdtls/lombok.jar',
+      '-jar',
+      vim.fn.glob(home .. '/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar'),
+      '-configuration',
+      home .. '/.local/share/nvim/mason/packages/jdtls/config_mac',
+      '-data',
       workspace_dir,
    },
+   root_dir = require('jdtls.setup').find_root { '.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle' },
 
-   -- This is the default if not provided, you can remove it. Or adjust as needed.
-   -- One dedicated LSP server & client will be started per unique root_dir
-   root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "pom.xml", "build.gradle" }),
-
-   -- Here you can configure eclipse.jdt.ls specific settings
-   -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
    settings = {
       java = {
-         -- TODO Replace this with the absolute path to your main java version (JDTLS requires JDK 21 or higher)
-         -- aleready the right place but keeping the todo for debugging
-         home = "/usr/lib/jvm/java-21-openjdk-amd64",
-         eclipse = {
-            downloadSources = true,
-         },
-         configuration = {
-            updateBuildConfiguration = "interactive",
-            -- TODO Update this by adding any runtimes that you need to support your Java projects and removing any that you don't have installed
-            -- The runtimes' name parameter needs to match a specific Java execution environments.  See https://github.com/eclipse-jdtls/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request and search "ExecutionEnvironment".
-            runtimes = {
-               --[[ examples
-               {
-                  name = "JavaSE-1.8",
-                  path = "/usr/lib/jvm/java-8-openjdk-amd64",
-               },
-               {
-                  name = "JavaSE-11",
-                  path = "/usr/lib/jvm/java-11-openjdk-amd64",
-               },
-               {
-                  name = "JavaSE-17",
-                  path = "/usr/lib/jvm/java-17-openjdk-amd64",
-               },
-               {
-                  name = "JavaSE-19",
-                  path = "/usr/lib/jvm/java-19-openjdk-amd64",
-               },
-               --]]
-               {
-                  name = "JavaSE-21",
-                  path = "/usr/lib/jvm/java-21-openjdk-amd64",
-               },
-            },
-         },
+         signatureHelp = { enabled = true },
+         extendedClientCapabilities = extendedClientCapabilities,
          maven = {
             downloadSources = true,
-         },
-         implementationsCodeLens = {
-            enabled = true,
          },
          referencesCodeLens = {
             enabled = true,
@@ -110,66 +49,28 @@ local config = {
          references = {
             includeDecompiledSources = true,
          },
-         signatureHelp = { enabled = true },
+         inlayHints = {
+            parameterNames = {
+               enabled = 'all', -- literals, all, none
+            },
+         },
          format = {
-            enabled = true,
-            -- Formatting works by default, but you can refer to a specific file/URL if you choose
-            -- settings = {
-            --   url = "https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml",
-            --   profile = "GoogleStyle",
-            -- },
-         },
-         completion = {
-            favoriteStaticMembers = {
-               "org.hamcrest.MatcherAssert.assertThat",
-               "org.hamcrest.Matchers.*",
-               "org.hamcrest.CoreMatchers.*",
-               "org.junit.jupiter.api.Assertions.*",
-               "java.util.Objects.requireNonNull",
-               "java.util.Objects.requireNonNullElse",
-               "org.mockito.Mockito.*",
-            },
-            importOrder = {
-               "java",
-               "javax",
-               "com",
-               "org",
-            },
-         },
-         sources = {
-            organizeImports = {
-               starThreshold = 9999,
-               staticStarThreshold = 9999,
-            },
-         },
-         codeGeneration = {
-            toString = {
-               template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
-            },
-            useBlocks = true,
+            enabled = false,
          },
       },
    },
-   -- Needed for auto-completion with method signatures and placeholders
-   capabilities = require("cmp_nvim_lsp").default_capabilities(),
-   flags = {
-      allow_incremental_sync = true,
-   },
+
    init_options = {
-      -- References the bundles defined above to support Debugging and Unit Testing
-      bundles = bundles,
-      extendedClientCapabilities = jdtls.extendedClientCapabilities,
+      bundles = {},
    },
 }
+require('jdtls').start_or_attach(config)
 
--- Needed for debugging
-config["on_attach"] = function(client, bufnr)
-   jdtls.setup_dap({ hotcodereplace = "auto" })
-   require("jdtls.dap").setup_dap_main_class_configs()
-end
-
--- This starts a new client & server, or attaches to an existing client & server based on the `root_dir`.
-jdtls.start_or_attach(config)
-
--- start treesitter
-vim.cmd("TSBufEnable highlight")
+vim.keymap.set('n', '<leader>co', "<Cmd>lua require'jdtls'.organize_imports()<CR>", { desc = 'Organize Imports' })
+vim.keymap.set('n', '<leader>crv', "<Cmd>lua require('jdtls').extract_variable()<CR>", { desc = 'Extract Variable' })
+vim.keymap.set('v', '<leader>crv', "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>",
+   { desc = 'Extract Variable' })
+vim.keymap.set('n', '<leader>crc', "<Cmd>lua require('jdtls').extract_constant()<CR>", { desc = 'Extract Constant' })
+vim.keymap.set('v', '<leader>crc', "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>",
+   { desc = 'Extract Constant' })
+vim.keymap.set('v', '<leader>crm', "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", { desc = 'Extract Method' })
