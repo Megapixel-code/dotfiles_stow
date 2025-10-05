@@ -6,7 +6,7 @@ include /etc/sway/config-vars.d/*
 set $XDG_CONFIG_HOME "~/.config/"
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
-# Home row direction keys, like vim
+# Home row direction keys, like nvim
 set $left h
 set $down j
 set $up k
@@ -19,29 +19,24 @@ set $menu "wofi --show drun --hide-scroll --insensitive"
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# This is commented in Debian, because the Sway wallpaper files are in a separate
-# package `sway-backgrounds`. Installing this package drops a config file to
-# /etc/sway/config.d/
-# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output HDMI-A-1 transform 270 position 0 0
 output DP-1 position 1080 688
 
 ### background
+#
 output * bg $XDG_CONFIG_HOME/sway/backgrounds/metropolis.png fill
 output DP-1 bg $XDG_CONFIG_HOME/sway/backgrounds/metropolis_horizontal.png fill
 output HDMI-A-1 bg $XDG_CONFIG_HOME/sway/backgrounds/metropolis_vertical.png fill
 
 ### set special windows
+#
 # `swaymsg -t get_tree` to get windows info
 # `man 5 sway` and `/CRITERIA` to see the params inside []
 ## for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 ## for_window [app_id="nm-connection-editor"] floating enable
 
-#
-# colors
+### colors
 #                       border    bg     text    ind    child border
 client.focused          #9764B4 #141216 #9764B4 #9764B4 #9764B4
 client.focused_inactive #CDB4DB #141216 #d8cab8 #CDB4DB #CDB4DB
@@ -50,6 +45,7 @@ client.urgent           #fca002 #141216 #d8cab8 #fca002 #fca002
 client.placeholder      #bababa #141216 #d8cab8 #bababa #bababa
 
 ### wrapping mouse on workspace change
+#
 mouse_warping container
 
 ### Idle configuration
@@ -77,23 +73,24 @@ mouse_warping container
 #   }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-## input "type:keyboard" {
-## 	xkb_layout fr
-## }
+# input "type:keyboard" {
+# 	xkb_layout fr
+# }
 
 ### Decoration
+#
 default_border pixel 2
 default_floating_border pixel 2
 gaps inner 8
 gaps outer 4
 
 
-#
 # Autostart:
 #
 # exec waybar  TODO: add it back when waybar config is done
 exec ~/.config/waybar/scripts/launch-waybar.sh
+
+exec_always autotiling -l 2
 
 
 ### Key bindings
@@ -102,13 +99,18 @@ exec ~/.config/waybar/scripts/launch-waybar.sh
 #
     # Start a terminal
     bindsym $mod+Return exec $term
-    bindsym $mod+b exec $browser
 
-    # Kill focused window
-    bindsym $mod+Shift+q kill
+    # Start a browser
+    bindsym $mod+b exec $browser
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    # Special key to take a screenshot with grim
+    bindsym Print exec grim
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -259,8 +261,6 @@ bindsym $mod+r mode "resize"
     # Special keys to adjust brightness via brightnessctl
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-    # Special key to take a screenshot with grim
-    bindsym Print exec grim
 
 
 include /etc/sway/config.d/*

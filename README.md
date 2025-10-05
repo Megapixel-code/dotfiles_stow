@@ -12,7 +12,7 @@ sudo apt install git make libpam0g-dev gcc
 ```
 ### sway
 ```sh
-sudo apt install sway swaybg waybar wofi brightnessctl pulseaudio network-manager inotify-tools psmisc
+sudo apt install sway swaybg waybar wofi brightnessctl pulseaudio network-manager inotify-tools psmisc autotiling
 ```
 
 bluetooth :
