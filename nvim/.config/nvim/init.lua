@@ -176,8 +176,8 @@ local function autoscheme()
    })
    vim.cmd("w | noh | bd")
 end
-vim.api.nvim_create_autocmd("ColorScheme", {
-   desc = "Set terminal theme on colorscheme change",
+vim.api.nvim_create_autocmd("VimLeavePre", {
+   desc = "Set terminal theme when vim quit",
    callback = autoscheme,
 })
 
