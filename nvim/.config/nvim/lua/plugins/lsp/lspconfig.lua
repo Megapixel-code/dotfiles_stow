@@ -9,7 +9,7 @@ return {
             "lua_ls",
             "jdtls",
          },
-         automatic_installation = true,
+         -- automatic_installation = true,
 
          vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       },
