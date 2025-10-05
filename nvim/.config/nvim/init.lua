@@ -131,51 +131,56 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
-   desc = "Highlight when yanking (copying) text",
-   group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+   desc = "Highlight when yanking text",
    callback = function()
       vim.hl.on_yank()
    end,
 })
 
 
--- TODO : Look at it later; set terminal colorscheme automatically
 local function autoscheme()
-   vim.cmd("e $HOME/.config/alacritty/alacritty.yml")
+   if not vim.g.terminal_color_0 then
+      return
+   end
+
+   vim.cmd("e $HOME/.config/kitty/current-theme.conf")
    vim.api.nvim_win_set_cursor(0, { 1, 0 })
-   vim.cmd("/autoscheme")
-   local ln = unpack(vim.api.nvim_win_get_cursor(0))
-   local bg = ("#%06x"):format(vim.api.nvim_get_hl("Normal", true).background)
-   local fg = ("#%06x"):format(vim.api.nvim_get_hl("Normal", true).foreground)
-   vim.api.nvim_buf_set_lines(0, ln, ln + 24, false, {
-      "    primary:",
-      '      background: "' .. bg .. '"',
-      '      foreground: "' .. fg .. '"',
-      "    selection:",
-      '      background: "' .. fg .. '"',
-      '      text: "' .. bg .. '"',
-      "    normal:",
-      '      black: "' .. vim.g.terminal_color_0 .. '"',
-      '      red: "' .. vim.g.terminal_color_1 .. '"',
-      '      green: "' .. vim.g.terminal_color_2 .. '"',
-      '      yellow: "' .. vim.g.terminal_color_3 .. '"',
-      '      blue: "' .. vim.g.terminal_color_4 .. '"',
-      '      magenta: "' .. vim.g.terminal_color_5 .. '"',
-      '      cyan: "' .. vim.g.terminal_color_6 .. '"',
-      '      white: "' .. vim.g.terminal_color_7 .. '"',
-      "    bright:",
-      '      black: "' .. vim.g.terminal_color_8 .. '"',
-      '      red: "' .. vim.g.terminal_color_9 .. '"',
-      '      green: "' .. vim.g.terminal_color_10 .. '"',
-      '      yellow: "' .. vim.g.terminal_color_11 .. '"',
-      '      blue: "' .. vim.g.terminal_color_12 .. '"',
-      '      magenta: "' .. vim.g.terminal_color_13 .. '"',
-      '      cyan: "' .. vim.g.terminal_color_14 .. '"',
-      '      white: "' .. vim.g.terminal_color_15 .. '"',
+   vim.cmd(".,$d")
+
+   -- https://stackoverflow.com/questions/27870682/how-to-get-the-background-color-in-vim
+   local bg = vim.api.nvim_exec2('echo synIDattr(hlID("Normal"), "bg")', { output = true }).output
+   local fg = vim.api.nvim_exec2('echo synIDattr(hlID("Normal"), "fg")', { output = true }).output
+
+   vim.api.nvim_buf_set_lines(0, 0, 25, false, {
+      "background " .. bg,
+      "foreground " .. fg,
+      "selection_background " .. fg,
+      "selection_foreground " .. bg,
+      "cursor " .. fg,
+      "color0 " .. vim.g.terminal_color_0,
+      "color1 " .. vim.g.terminal_color_1,
+      "color2 " .. vim.g.terminal_color_2,
+      "color3 " .. vim.g.terminal_color_3,
+      "color4 " .. vim.g.terminal_color_4,
+      "color5 " .. vim.g.terminal_color_5,
+      "color6 " .. vim.g.terminal_color_6,
+      "color7 " .. vim.g.terminal_color_7,
+      "color8 " .. vim.g.terminal_color_8,
+      "color9 " .. vim.g.terminal_color_9,
+      "color10 " .. vim.g.terminal_color_10,
+      "color11 " .. vim.g.terminal_color_11,
+      "color12 " .. vim.g.terminal_color_12,
+      "color13 " .. vim.g.terminal_color_13,
+      "color14 " .. vim.g.terminal_color_14,
+      "color15 " .. vim.g.terminal_color_15,
    })
    vim.cmd("w | noh | bd")
 end
-vim.keymap.set("n", "<leader>ct", autoscheme, { silent = true, desc = "Set terminal colorscheme" })
+vim.api.nvim_create_autocmd("ColorScheme", {
+   desc = "Set terminal theme on colorscheme change",
+   callback = autoscheme,
+})
+
 
 --[[ document-higligting
 autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
