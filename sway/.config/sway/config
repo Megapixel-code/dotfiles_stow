@@ -89,8 +89,11 @@ gaps outer 4
 #
 # exec waybar  TODO: add it back when waybar config is done
 exec ~/.config/waybar/scripts/launch-waybar.sh
-
+# add autotiling (package autotiling on debian)
 exec_always autotiling -l 2
+# autostart my programs :
+workspace 10
+exec $browser
 
 
 ### Key bindings
