@@ -185,7 +185,3 @@ autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
 
 -- [[ LOADING PLUGINS ]]
 require("config.lazy")
-
--- loading colorscheme
-vim.cmd.colorscheme("evergarden-winter")
--- vim.cmd.colorscheme('github_dark_default')
