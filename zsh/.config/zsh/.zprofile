@@ -21,8 +21,8 @@ export BROWSER="firefox"
 [ -f "$HOME/.config/zsh/.zshrc" ] && source "$HOME/.config/zsh/.zshrc"
 
 
-
-export CATALINA_HOME="/home/cytech/documents/school/ing_2/jee/apache-tomcat-10.1.46"
+# apache tomcat config temp
+export CATALINA_HOME="$HOME/documents/web/school_jee_apache_tomcat"
 export JAVA_HOME="/usr/lib/jvm/default-java"
 PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
 export PATH
