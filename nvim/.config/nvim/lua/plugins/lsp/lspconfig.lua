@@ -8,6 +8,7 @@ return {
          ensure_installed = {
             "lua_ls",
             "jdtls",
+            "bashls",
          },
          -- automatic_installation = true,
 
@@ -47,6 +48,7 @@ return {
 
          -- per language config, dont add jdtls here
          vim.lsp.config("lua_ls", { capabilities = capabilities })
+         vim.lsp.config("bashls", { capabilities = capabilities })
 
          -- Auto-format ("lint") on save.
          vim.api.nvim_create_autocmd('LspAttach', {

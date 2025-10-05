@@ -34,6 +34,11 @@ systemctl --user restart pulseaudio.service
 ```sh
 sudo apt install git make curl unzip tar gzip gcc wl-clipboard fzf ripgrep
 ```
+for language server :
+```sh
+#bash
+sudo apt install npm shellcheck
+```
 ### zsh
 ```sh
 sudo apt install zsh zsh-syntax-highlighting
