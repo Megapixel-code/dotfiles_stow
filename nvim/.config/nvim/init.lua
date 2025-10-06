@@ -59,7 +59,8 @@ vim.opt.tabstop = 3
 vim.opt.shiftwidth = 3
 vim.opt.smartindent = true -- auto indent new lines eg : after '{'
 vim.opt.expandtab = true   -- in insert mode adds the correct amount of spaces when you tab
-vim.o.breakindent = true   -- wrapped line will continue visually indented
+vim.o.wrap = false         -- dont allow line to wrap on the right
+vim.o.sidescroll = 5       -- enable horizontal scroll
 
 vim.o.undofile = true      -- Save undo history
 vim.o.confirm = true       -- ask confirmation when you quit while unsaved
