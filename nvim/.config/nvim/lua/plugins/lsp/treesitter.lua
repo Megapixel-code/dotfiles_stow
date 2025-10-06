@@ -11,6 +11,7 @@ return {
             "python",
             "java",
             "lua",
+            "html",
             "markdown",
             "markdown_inline",
          },

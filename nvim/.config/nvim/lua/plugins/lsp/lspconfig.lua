@@ -9,6 +9,7 @@ return {
             "lua_ls",
             "jdtls",
             "bashls",
+            "html",
          },
          -- automatic_installation = true,
 
@@ -52,6 +53,7 @@ return {
             capabilities = capabilities,
             filetypes = { "bash", "sh", "zsh" },
          })
+         vim.lsp.config("html", { capabilities = capabilities })
 
          -- Auto-format ("lint") on save.
          vim.api.nvim_create_autocmd('LspAttach', {
