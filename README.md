@@ -56,6 +56,11 @@ be able to mount ntfs filesystems
 ```sh
 sudo apt install ntfs-3g
 ```
+tree filestructure:
+```sh
+sudo apt install tree
+```
+
 
 # Step 0
 create a backup of your config files.
