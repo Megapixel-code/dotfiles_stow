@@ -5,8 +5,9 @@ return {
          options = {
             icons_enabled = true,
             theme = 'auto',
+            -- https://www.nerdfonts.com/cheat-sheet : search for "ple"
             component_separators = { left = '', right = '' },
-            section_separators = { left = '', right = '' },
+            section_separators = { left = '', right = '' },
             disabled_filetypes = {
                statusline = {},
                winbar = {},
