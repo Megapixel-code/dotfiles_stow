@@ -48,7 +48,10 @@ return {
 
          -- per language config, dont add jdtls here
          vim.lsp.config("lua_ls", { capabilities = capabilities })
-         vim.lsp.config("bashls", { capabilities = capabilities })
+         vim.lsp.config("bashls", {
+            capabilities = capabilities,
+            filetypes = { "bash", "sh", "zsh" },
+         })
 
          -- Auto-format ("lint") on save.
          vim.api.nvim_create_autocmd('LspAttach', {
