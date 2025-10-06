@@ -11,16 +11,16 @@
       "right": 2         // Right padding
     },
     "color": {             // Override logo colors
-      "1": "#CDB4DB",
-      "2": "#BDE0FE"
+      "1": "yellow",
+      "2": "magenta",
     }
   },
 
   "display": {
     "separator": ": ",     // Separator between keys and values
     "color": {
-      "keys": "#FFC8DD",    // Key color
-      "title": "#A2D2FF"     // Title color
+      "title": "light_blue",     // Title color
+      "keys": "light_yellow",    // Key color
     },
     "percent": {
       "type": 1         // 1=number, 2=bar, 3=both, 9=colored number
@@ -52,7 +52,10 @@
     //"shell",
     
     "separator",
-    "host",
+    {
+       "type": "host",
+       "key": "Motherboard",
+    },
     {
       "type": "cpu",
       "format": "{name}",
