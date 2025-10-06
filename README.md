@@ -1,16 +1,18 @@
-this config has only been tested on debian testing, some parts might not work on other distribs and you would need to find the dependencies yourself.
+# introduction
+
+this config has only been tested on debian testing, some parts might not work on other distros.
 
 # Dependencies :
 
-## all :
+### all :
 ```sh
 ```
 
-### lidm
+#### lidm
 ```sh
 sudo apt install git make libpam0g-dev gcc
 ```
-### sway
+#### sway
 ```sh
 sudo apt install sway swaybg waybar wofi brightnessctl pulseaudio network-manager inotify-tools psmisc autotiling
 ```
@@ -30,7 +32,7 @@ to make pulseaudio work :
 systemctl --user restart pulseaudio.service
 ```
 
-### my nvim config
+#### my nvim config
 ```sh
 sudo apt install git make curl unzip tar gzip gcc wl-clipboard fzf ripgrep
 ```
@@ -39,19 +41,19 @@ for language server :
 #bash
 sudo apt install npm shellcheck
 ```
-### zsh
+#### zsh
 ```sh
 sudo apt install zsh zsh-syntax-highlighting
 ```
-### kitty
+#### kitty
 ```sh
 sudo apt install kitty
 ```
-### fastfetch
+#### fastfetch
 ```sh
 sudo apt install fastfetch
 ```
-### other
+#### other
 be able to mount ntfs filesystems
 ```sh
 sudo apt install ntfs-3g
