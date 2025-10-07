@@ -58,6 +58,16 @@ return {
                   vim.g.sonokai_style = 'espresso'
                ]],
             },
+            {
+               colorscheme = "fluoromachine",
+               name = "fluoromachine",
+               before = [[
+                  require("fluoromachine").setup {
+                     theme = 'delta',
+                     glow = false,
+                  }
+               ]],
+            },
          },
       })
    end
