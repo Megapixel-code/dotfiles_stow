@@ -5,7 +5,8 @@ return {
       event = 'VeryLazy',
       opts = {
          indent_char = '▏', -- character to use for the line
-         highlight = 'NonText', -- color of non active indentation lines
+         -- see help highlight-groups
+         highlight = 'LineNr', -- color of non active indentation lines
          context_highlight = 'ModeMsg', -- color of the context under the cursor
 
          animation = 'from_cursor', -- 'from_cursor' | 'to_cursor' | 'top_down' | 'bottom_up' | 'none'

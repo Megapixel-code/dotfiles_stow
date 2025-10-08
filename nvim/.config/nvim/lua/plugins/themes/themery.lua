@@ -54,15 +54,6 @@ return {
             {
                colorscheme = "kanagawa-paper-ink",
                name = "kanagawa-paper-ink",
-               before = [[
-                  local kanagawa_paper = require("lualine.themes.kanagawa-paper-ink")
-
-                  require("lualine").setup({
-                     options = {
-                        theme = kanagawa_paper,
-                     },
-                  })
-               ]]
             },
             {
                colorscheme = "evergarden-winter",
@@ -89,7 +80,3 @@ return {
       })
    end
 }
---[[
-material dark medium
-material light medium
---]]
