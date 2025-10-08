@@ -17,6 +17,10 @@ return {
                colorscheme = "github_dark_default",
                name = "github",
             },
+            {
+               colorscheme = "monochrome",
+               name = "monochrome",
+            },
 
             --[[ medium themes : ]]
             {
@@ -47,6 +51,19 @@ return {
             },
 
             --[[ original themes : ]]
+            {
+               colorscheme = "kanagawa-paper-ink",
+               name = "kanagawa-paper-ink",
+               before = [[
+                  local kanagawa_paper = require("lualine.themes.kanagawa-paper-ink")
+
+                  require("lualine").setup({
+                     options = {
+                        theme = kanagawa_paper,
+                     },
+                  })
+               ]]
+            },
             {
                colorscheme = "evergarden-winter",
                name = "evergarden",
