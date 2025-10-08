@@ -3,7 +3,7 @@ return {
    lazy = false,
    config = function()
       -- set keymap
-      vim.keymap.set("n", "<leader>st", "<cmd>Themery<CR>", { desc = "Search themes" })
+      vim.keymap.set("n", "<leader>st", "<cmd>Themery<CR>", { desc = "Search Themes" })
 
       require("themery").setup({
          livePreview = true,
