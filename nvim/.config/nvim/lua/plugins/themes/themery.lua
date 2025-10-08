@@ -10,16 +10,16 @@ return {
          themes = {
             --[[ dark themes : ]]
             {
+               colorscheme = "monochrome",
+               name = "monochrome",
+            },
+            {
                colorscheme = "moonfly",
                name = "moonfly",
             },
             {
                colorscheme = "github_dark_default",
                name = "github",
-            },
-            {
-               colorscheme = "monochrome",
-               name = "monochrome",
             },
 
             --[[ medium themes : ]]
@@ -32,26 +32,6 @@ return {
                ]]
             },
             {
-               colorscheme = "sonokai",
-               name = "sonokai",
-               before = [[
-                  vim.g.sonokai_style = 'default'
-               ]],
-            },
-
-
-            --[[ light themes : ]]
-            {
-               colorscheme = "gruvbox-material",
-               name = "gruvbox_light",
-               before = [[
-                  vim.g.gruvbox_material_background = 'soft'
-                  vim.cmd('set background=light')
-               ]]
-            },
-
-            --[[ original themes : ]]
-            {
                colorscheme = "kanagawa-paper-ink",
                name = "kanagawa-paper-ink",
             },
@@ -59,6 +39,15 @@ return {
                colorscheme = "evergarden-winter",
                name = "evergarden",
             },
+            {
+               colorscheme = "sonokai",
+               name = "sonokai",
+               before = [[
+                  vim.g.sonokai_style = 'default'
+               ]],
+            },
+
+            --[[ original themes : ]]
             {
                colorscheme = "sonokai",
                name = "sonokai_espresso",
@@ -69,12 +58,16 @@ return {
             {
                colorscheme = "fluoromachine",
                name = "fluoromachine",
+            },
+
+            --[[ light themes : ]]
+            {
+               colorscheme = "gruvbox-material",
+               name = "gruvbox_light",
                before = [[
-                  require("fluoromachine").setup {
-                     theme = 'delta',
-                     glow = false,
-                  }
-               ]],
+                  vim.g.gruvbox_material_background = 'soft'
+                  vim.cmd('set background=light')
+               ]]
             },
          },
       })
