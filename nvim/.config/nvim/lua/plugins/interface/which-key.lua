@@ -166,4 +166,10 @@ return {
          desc = "Buffer Local Keymaps (which-key)",
       },
    },
+   config = function()
+      require("which-key").add({            -- [ add groups ]
+         { "<leader>s", group = "Search" }, -- search group
+         { "g",         group = "Go" },     -- Go group
+      })
+   end
 }
