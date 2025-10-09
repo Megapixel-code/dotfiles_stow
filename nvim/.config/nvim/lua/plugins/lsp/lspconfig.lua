@@ -14,8 +14,6 @@ return {
 
             "html",
          },
-
-         vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "Hover Information" })
       },
    },
 
@@ -46,6 +44,9 @@ return {
          },
       },
       config = function()
+         -- keymaps
+         vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "Hover Information" })
+
          -- capabilities for completion
          local capabilities = require('blink.cmp').get_lsp_capabilities()
 
