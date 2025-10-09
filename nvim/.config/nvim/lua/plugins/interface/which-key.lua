@@ -26,15 +26,13 @@ return {
          return ctx.mode == "V" or ctx.mode == "<C-V>"
       end,
       plugins = {
-         marks = true,     -- shows a list of your marks on ' and `
-         registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
-         -- the presets plugin, adds help for a bunch of default keybindings in Neovim
-         -- No actual key bindings are created
+         marks = true,           -- shows a list of your marks on ' and `
+         registers = true,       -- shows your registers on " in NORMAL or <C-r> in INSERT mode
          spelling = {
-            enabled = true,   -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-            suggestions = 20, -- how many suggestions should be shown in the list?
+            enabled = true,      -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+            suggestions = 20,    -- how many suggestions should be shown in the list?
          },
-         presets = {
+         presets = {             -- [ Base nvim keybinds ]
             operators = true,    -- adds help for operators like d, y, ...
             motions = true,      -- adds help for motions
             text_objects = true, -- help for text objects triggered after entering an operator
@@ -46,8 +44,7 @@ return {
       },
       ---@type wk.Win.opts
       win = {
-         -- don't allow the popup to overlap with the cursor
-         no_overlap = true,
+         no_overlap = true, -- don't allow the popup to overlap with the cursor
          -- width = 1,
          -- height = { min = 4, max = 25 },
          -- col = 0,
@@ -84,12 +81,8 @@ return {
       sort = { "local", "order", "group", "alphanum", "mod" },
       ---@type number|fun(node: wk.Node):boolean?
       expand = 0, -- expand groups when <= n mappings
-      -- expand = function(node)
-      --   return not node.desc -- expand all nodes without a description
-      -- end,
-      -- Functions/Lua Patterns for formatting the labels
       ---@type table<string, ({[1]:string, [2]:string}|fun(str:string):string)[]>
-      replace = {
+      replace = { -- Functions/Lua Patterns for formatting the labels
          key = {
             function(key)
                return require("which-key.view").format(key)
