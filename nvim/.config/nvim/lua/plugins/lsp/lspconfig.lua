@@ -6,14 +6,16 @@ return {
       "mason-org/mason-lspconfig.nvim",
       opts = {
          ensure_installed = {
-            "lua_ls",
-            "jdtls",
+            "clangd",
             "bashls",
+
+            "lua_ls",
+            "jdtls", -- do not configure, configured in java.lua
+
             "html",
          },
-         -- automatic_installation = true,
 
-         vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+         vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "Hover Information" })
       },
    },
 
@@ -49,6 +51,7 @@ return {
 
          -- per language config, dont add jdtls here
          vim.lsp.config("lua_ls", { capabilities = capabilities })
+         vim.lsp.config("clangd", { capabilities = capabilities })
          vim.lsp.config("bashls", {
             capabilities = capabilities,
             filetypes = { "bash", "sh", "zsh" },
@@ -66,7 +69,14 @@ return {
                      group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
                      buffer = args.buf,
                      callback = function()
-                        vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+                        vim.lsp.buf.format({
+                           bufnr = args.buf,
+                           id = client.id,
+                           timeout_ms = 1000,
+                           formatting_options = {
+                              tabSize = 3,
+                           },
+                        })
                      end,
                   })
                end
