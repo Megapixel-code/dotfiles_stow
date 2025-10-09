@@ -93,12 +93,6 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clears higlighting
 vim.keymap.set('n', '<CR>', 'm`o<Esc>``', { desc = "Adds a line down" })
 vim.keymap.set('n', '<S-CR>', 'm`O<Esc>``', { desc = "Adds a line above" })
 
--- Going up or down
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = "Move Up" })
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = "Move Down" })
-vim.keymap.set('n', '<C-f>', '<C-f>zz', { desc = "?" })
-vim.keymap.set('n', '<C-b>', '<C-b>zz', { desc = "?" })
-
 -- Quickfix
 vim.keymap.set('n', '<M-j>', '<cmd>cnext<CR>')
 vim.keymap.set('n', '<M-k>', '<cmd>cprev<CR>')
