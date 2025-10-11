@@ -38,6 +38,8 @@ sudo apt install git make curl unzip tar gzip gcc wl-clipboard fzf ripgrep
 ```
 for language server :
 ```sh
+#java
+sudo apt install default-jre default-jdk nodejs
 #bash
 sudo apt install npm shellcheck
 ```
