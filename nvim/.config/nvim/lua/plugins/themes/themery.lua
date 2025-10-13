@@ -21,6 +21,10 @@ return {
                colorscheme = "github_dark_default",
                name = "github",
             },
+            {
+               colorscheme = "vague",
+               name = "vague",
+            },
 
             --[[ medium themes : ]]
             {
