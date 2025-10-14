@@ -13,13 +13,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export EDITOR="nvim"
-export TERM="kitty"
 export BROWSER="firefox"
-
-
-
-[ -f "$HOME/.config/zsh/.zshrc" ] && source "$HOME/.config/zsh/.zshrc"
-
 
 # apache tomcat config temp
 export CATALINA_HOME="$HOME/documents/web/school_jee_apache_tomcat"

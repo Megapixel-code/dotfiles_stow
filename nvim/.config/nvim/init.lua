@@ -44,6 +44,8 @@ vim.o.scrolloff = 10        -- Minimal number of screen lines to keep above and 
 vim.o.showmode = false      -- show mode in the last line, unnessesary cause we aleready show the mode elsewhere
 vim.o.signcolumn = "yes"    -- Keep signcolumn on by default
 vim.g.have_nerd_font = true -- true if you have a Nerd Font installed and selected in the terminal
+vim.o.termguicolors = true  -- enable true color support
+
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  Notice listchars is set using `vim.opt` instead of `vim.o`.
 --  It is very similar to `vim.o` but offers an interface for conveniently interacting with tables
@@ -62,8 +64,9 @@ vim.opt.expandtab = true   -- in insert mode adds the correct amount of spaces w
 vim.o.wrap = false         -- dont allow line to wrap on the right
 vim.o.sidescroll = 5       -- enable horizontal scroll
 
-vim.o.undofile = true      -- Save undo history
-vim.o.confirm = true       -- ask confirmation when you quit while unsaved
+
+vim.o.undofile = true -- Save undo history
+vim.o.confirm = true  -- ask confirmation when you quit while unsaved
 
 -- Case-insensitive searching UNLESS or one or more capital letters in the search term
 vim.o.ignorecase = true
