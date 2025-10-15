@@ -55,6 +55,10 @@ sudo apt install kitty
 ```sh
 sudo apt install fastfetch
 ```
+#### tmux
+```sh
+sudo apt install tmux
+```
 #### other
 be able to mount ntfs filesystems
 ```sh
