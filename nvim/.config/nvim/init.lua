@@ -172,21 +172,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 
--- Terminal
-vim.api.nvim_create_autocmd("TermOpen", {
-   desc = "terminal",
-   group = vim.api.nvim_create_augroup("custom-term-open", { clear = true }),
-   callback = function()
-   end,
-})
-vim.keymap.set("n", "<leader>t", function()
-   vim.cmd.vnew()
-   vim.cmd.term()
-   vim.cmd.wincmd("J")
-   vim.api.nvim_win_set_height(0, 15)
-end, { desc = "open a Terminal" })
-
-
 -- [[ automatically change terminal theme on quit ]]
 local function autoscheme()
    if not vim.g.terminal_color_0 then
