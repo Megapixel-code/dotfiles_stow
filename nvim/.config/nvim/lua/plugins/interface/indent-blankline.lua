@@ -17,6 +17,7 @@ return {
             "gitcommit",
             "TelescopePrompt",
             "TelescopeResults",
+            "text",
          },
          buftypes = {
             "terminal",
