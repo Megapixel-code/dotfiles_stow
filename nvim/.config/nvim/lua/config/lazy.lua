@@ -19,10 +19,11 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
    spec = {
-      { import = "plugins.themes" },
+      { import = "plugins.dynamic_interface" },
       { import = "plugins.interface" },
       { import = "plugins.lsp" },
       { import = "plugins.motions" },
+      { import = "plugins.themes" },
    },
    change_detection = {
       enabled = false,
