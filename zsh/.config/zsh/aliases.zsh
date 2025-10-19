@@ -8,7 +8,10 @@
 # p = indicator for dirs (/)
 # group-directories-first = pretty explicit
 # time-style=iso = show either Y-M-D or M-D H:m depending if current year or not
-# color=auto = add color
-alias ll='ls -A -o -h -p --group-directories-first --time-style=iso --color=auto'
+# color=always = forces color
+# sed -> removes the second argument (number of hard links)
+ll() {
+   ls -Aohp --group-directories-first --time-style=iso --color=always | sed -E '2,$s/ +[0-9]+//'
+}
 
 alias lt='tree -a'
