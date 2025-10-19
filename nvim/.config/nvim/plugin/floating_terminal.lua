@@ -50,5 +50,6 @@ local toggle_terminal = function()
    end
 end
 
-vim.keymap.set("n", "<leader>t", toggle_terminal, { desc = "open a Terminal" })
 vim.api.nvim_create_user_command("FloatingTerminal", toggle_terminal, {})
+vim.keymap.set("n", "<leader>t", toggle_terminal, { desc = "open a Terminal" })
+vim.keymap.set("t", "<Esc><Esc>", toggle_terminal, { desc = "Exit Floating Terminal" })
