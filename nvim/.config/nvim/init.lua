@@ -41,6 +41,7 @@ vim.opt.shiftwidth = 3
 vim.opt.smartindent = true -- auto indent new lines eg : after '{'
 vim.opt.expandtab = true   -- in insert mode adds the correct amount of spaces when you tab
 vim.o.wrap = true          -- allow line to wrap on the right
+vim.o.linebreak = true     -- wrap by word instead of letter
 -- vim.o.sidescroll = 5    -- enable horizontal scroll
 
 
