@@ -53,4 +53,7 @@ return {
          return path_of_buffer
       end,
    },
+   config = function()
+      vim.keymap.set("n", "<leader>p", ":TypstPreview<CR>", { desc = "Preview typst file" })
+   end
 }
