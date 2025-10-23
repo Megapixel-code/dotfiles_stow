@@ -7,7 +7,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 # partialy suported
-export CARGO_HOME"$XDG_CACHE_HOME/cargo"
+export CARGO_HOME="$XDG_CACHE_HOME/cargo"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export EDITOR="nvim"
