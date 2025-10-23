@@ -23,6 +23,7 @@ require("lazy").setup({
       { import = "plugins.interface" },
       { import = "plugins.lsp" },
       { import = "plugins.motions" },
+      { import = "plugins.others" },
       { import = "plugins.themes" },
    },
    change_detection = {

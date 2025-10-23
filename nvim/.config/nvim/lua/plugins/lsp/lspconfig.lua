@@ -6,13 +6,14 @@ return {
       "mason-org/mason-lspconfig.nvim",
       opts = {
          ensure_installed = {
-            "clangd",
-            "bashls",
+            "clangd",   --c and cpp
+            "bashls",   --bash
 
-            "lua_ls",
-            "jdtls", -- do not configure, configured in java.lua
+            "lua_ls",   -- lua
+            "jdtls",    -- java; do not configure, configured in java.lua
 
-            "html",
+            "html",     --html
+            "tinymist", --typst
          },
       },
    },
@@ -57,6 +58,7 @@ return {
             filetypes = { "bash", "sh", "zsh" },
          })
          vim.lsp.config("html", { capabilities = capabilities })
+         vim.lsp.config("tinymist", { capabilities = capabilities })
 
          -- Auto-format ("lint") on save.
          vim.api.nvim_create_autocmd('LspAttach', {
