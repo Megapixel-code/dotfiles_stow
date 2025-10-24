@@ -80,7 +80,7 @@ AlwaysBreakBeforeMultilineStrings: false
 AttributeMacros:
   - __capability
 BinPackArguments: false
-BinPackParameters: false
+BinPackParameters: OnePerLine
 BitFieldColonSpacing: Both
 BraceWrapping:
   AfterCaseLabel: false
@@ -110,9 +110,10 @@ BreakBeforeBraces: Attach
 BreakBeforeConceptDeclarations: Never
 BreakBeforeInlineASMColon: OnlyMultiline
 BreakBeforeTernaryOperators: true
-BreakConstructorInitializers: BeforeComma
+BreakBinaryOperations: RespectPrecedence
+BreakConstructorInitializers: AfterColon
 BreakFunctionDefinitionParameters: false
-BreakInheritanceList: BeforeColon
+BreakInheritanceList: AfterColon
 BreakStringLiterals: true
 BreakTemplateDeclarations: No
 ColumnLimit: 80
@@ -204,6 +205,7 @@ QualifierAlignment: Leave
 ReferenceAlignment: Pointer
 ReflowComments: true
 RemoveBracesLLVM: false
+RemoveEmptyLinesInUnwrappedLines: true
 RemoveParentheses: MultipleParentheses
 RemoveSemicolon: false
 RequiresClausePosition: WithPreceding
