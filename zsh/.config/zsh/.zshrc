@@ -8,6 +8,9 @@
 # required : sudo apt install zsh-syntax-highlighting
 [ -f "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
+# source rust
+. "$CARGO_HOME/env"
+
 ### plugins :
 # plugin list
 plug_locations=(
