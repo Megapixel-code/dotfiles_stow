@@ -29,13 +29,6 @@ output * bg $XDG_CONFIG_HOME/sway/backgrounds/metropolis.png fill
 output DP-1 bg $XDG_CONFIG_HOME/sway/backgrounds/metropolis_horizontal.png fill
 output HDMI-A-1 bg $XDG_CONFIG_HOME/sway/backgrounds/metropolis_vertical.png fill
 
-### set special windows
-#
-# `swaymsg -t get_tree` to get windows info
-# `man 5 sway` and `/CRITERIA` to see the params inside []
-## for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
-## for_window [app_id="nm-connection-editor"] floating enable
-
 ### colors
 #                       border    bg     text    ind    child border
 client.focused          #9764B4 #141216 #9764B4 #9764B4 #9764B4
@@ -89,8 +82,11 @@ gaps outer 4
 #
 # exec waybar  TODO: add it back when waybar config is done
 exec ~/.config/waybar/scripts/launch-waybar.sh
-# add autotiling (package autotiling on debian)
+# blue color filter
+exec /usr/local/bin/sunsetr
+# autotiling (package autotiling on debian)
 exec_always autotiling -l 2
+
 # autostart my programs :
 workspace 10
 exec $browser
