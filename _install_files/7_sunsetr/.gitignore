@@ -1,0 +1,15 @@
+# Binaries and build artifacts
+docs/
+release/
+target/
+result
+**/*.rs.bk
+*.bak
+
+# Temporary files
+*.swp
+*.swo
+*.tmp
+
+# Logs
+*.log
