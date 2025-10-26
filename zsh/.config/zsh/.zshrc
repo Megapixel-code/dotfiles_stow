@@ -97,5 +97,6 @@ function zvm_after_select_vi_mode() {
 }
 
 NEWLINE=$'\n'
-PROMPT="$(git_super_status)%n %~ ${vim_mode}${NEWLINE}λ "
+GIT=$'$GITSTATUS_PROMPT'
+PROMPT="${GIT}%n %~ ${vim_mode}${NEWLINE}λ "
 zle && zle reset-prompt

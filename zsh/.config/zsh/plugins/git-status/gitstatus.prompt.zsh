@@ -34,10 +34,10 @@ function gitstatus_prompt_update() {
   gitstatus_query 'MY'                  || return 1  # error
   [[ $VCS_STATUS_RESULT == 'ok-sync' ]] || return 0  # not a git repo
 
-  local      clean='%76F'   # green foreground
-  local   modified='%178F'  # yellow foreground
-  local  untracked='%39F'   # blue foreground
-  local conflicted='%196F'  # red foreground
+  local      clean='%F{green}'   # green foreground
+  local   modified='%F{yellow}'  # yellow foreground
+  local  untracked='%F{blue}'   # blue foreground
+  local conflicted='%F{red}'     # red foreground
 
   local p
 
@@ -78,7 +78,7 @@ function gitstatus_prompt_update() {
   # ?42 if have untracked files. It's really a question mark, your font isn't broken.
   (( VCS_STATUS_NUM_UNTRACKED  )) && p+=" ${untracked}?${VCS_STATUS_NUM_UNTRACKED}"
 
-  GITSTATUS_PROMPT="${p}%f"
+  GITSTATUS_PROMPT="[ ${p}%f] "
 
   # The length of GITSTATUS_PROMPT after removing %f and %F.
   GITSTATUS_PROMPT_LEN="${(m)#${${GITSTATUS_PROMPT//\%\%/x}//\%(f|<->F)}}"
