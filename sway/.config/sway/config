@@ -83,7 +83,7 @@ gaps outer 4
 # exec waybar  TODO: add it back when waybar config is done
 exec ~/.config/waybar/scripts/launch-waybar.sh
 # blue color filter
-exec /usr/local/bin/sunsetr
+exec_always /usr/local/bin/sunsetr
 # autotiling (package autotiling on debian)
 exec_always autotiling -l 2
 
