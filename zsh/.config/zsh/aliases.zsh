@@ -15,3 +15,4 @@ ll() {
 }
 
 alias lt='tree -a'
+alias python=python3

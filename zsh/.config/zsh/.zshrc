@@ -1,8 +1,9 @@
-#!/bin/sh
+# https://www.shellcheck.net/wiki/SC3046
+# shellcheck disable=SC3000-SC4000
 
 ### source :
 # aliases
-[ -f "$HOME/.config/zsh/aliases.zsh" ] && source "$HOME/.config/zsh/aliases.zsh"
+[ -f "$ZDOTDIR/aliases.zsh" ] && source "$ZDOTDIR/aliases.zsh"
 
 # syntax highlighting
 # required : sudo apt install zsh-syntax-highlighting
@@ -15,6 +16,7 @@
 # plugin list
 plug_locations=(
    "$ZDOTDIR/plugins/zsh_vi_mode/zsh-vi-mode.plugin.zsh" # have a real vi mode in terminal
+   "$ZDOTDIR/plugins/git-status/gitstatus.prompt.zsh" # have a real vi mode in terminal
 )
 # load plugins
 for plug_loc in "${plug_locations[@]}"; do
@@ -71,35 +73,29 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 
 ### custom prompt :
-# get git branch ($vcs_info_msg_0_)
-autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-setopt prompt_subst
-zstyle ':vcs_info:git:*' formats ' ( %b)'
 # get vim mode [require plugin zsh_vi_mode]
 # The plugin will auto execute this zvm_after_select_vi_mode function
 vim_mode="[I]"
 function zvm_after_select_vi_mode() {
   case $ZVM_MODE in
-    $ZVM_MODE_NORMAL)
+    "$ZVM_MODE_NORMAL")
       vim_mode="[N]"
     ;;
-    $ZVM_MODE_INSERT)
+    "$ZVM_MODE_INSERT")
       vim_mode="[I]"
     ;;
-    $ZVM_MODE_VISUAL)
+    "$ZVM_MODE_VISUAL")
       vim_mode="[V]"
     ;;
-    $ZVM_MODE_VISUAL_LINE)
+    "$ZVM_MODE_VISUAL_LINE")
       vim_mode="[V-L]"
     ;;
-    $ZVM_MODE_REPLACE)
+    "$ZVM_MODE_REPLACE")
       vim_mode="[R]"
     ;;
   esac
 }
 
 NEWLINE=$'\n'
-PROMPT='${NEWLINE}${vcs_info_msg_0_} %n %~ ${vim_mode} ❯ '
+PROMPT="$(git_super_status)%n %~ ${vim_mode}${NEWLINE}λ "
 zle && zle reset-prompt
