@@ -42,11 +42,10 @@ vim.opt.smartindent = true -- auto indent new lines eg : after '{'
 vim.opt.expandtab = true   -- in insert mode adds the correct amount of spaces when you tab
 vim.o.wrap = true          -- allow line to wrap on the right
 vim.o.linebreak = true     -- wrap by word instead of letter
--- vim.o.sidescroll = 5    -- enable horizontal scroll
+vim.o.breakindent = true   -- wrapped lines will be indent
 
-
-vim.o.undofile = true -- Save undo history
-vim.o.confirm = true  -- ask confirmation when you quit while unsaved
+vim.o.undofile = true      -- Save undo history
+vim.o.confirm = true       -- ask confirmation when you quit while unsaved
 
 -- Case-insensitive searching UNLESS or one or more capital letters in the search term
 vim.o.ignorecase = true
