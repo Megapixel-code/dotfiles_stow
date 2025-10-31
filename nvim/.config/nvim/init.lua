@@ -154,6 +154,8 @@ local function autoscheme()
       "color15 " .. vim.g.terminal_color_15,
    })
    vim.cmd("w | noh | bd")
+
+   vim.cmd("term kill -SIGUSR1 $(pidof kitty)") -- reload terminal
 end
 vim.api.nvim_create_autocmd("VimLeavePre", {
    desc = "Set terminal theme when nvim quit",
