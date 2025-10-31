@@ -14,12 +14,16 @@ return {
                name = "monochrome",
             },
             {
-               colorscheme = "moonfly",
-               name = "moonfly",
-            },
-            {
                colorscheme = "github_dark_default",
                name = "github",
+            },
+            {
+               colorscheme = "lackluster",
+               name = "lackluster",
+            },
+            {
+               colorscheme = "moonfly",
+               name = "moonfly",
             },
             {
                colorscheme = "vague",
@@ -28,27 +32,12 @@ return {
 
             --[[ medium themes : ]]
             {
-               colorscheme = "gruvbox-material",
-               name = "gruvbox",
-               before = [[
-                  vim.g.gruvbox_material_background = 'medium'
-                  vim.cmd('set background=dark')
-               ]]
-            },
-            {
                colorscheme = "kanagawa-paper-ink",
                name = "kanagawa-paper-ink",
             },
             {
                colorscheme = "evergarden-winter",
                name = "evergarden",
-            },
-            {
-               colorscheme = "sonokai",
-               name = "sonokai",
-               before = [[
-                  vim.g.sonokai_style = 'default'
-               ]],
             },
 
             --[[ original themes : ]]
