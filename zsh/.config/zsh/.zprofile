@@ -14,6 +14,8 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export EDITOR="nvim"
 export BROWSER="firefox"
 
+export MOZ_ENABLE_WAYLAND=1 # tells mozilla you are on wayland
+
 # apache tomcat config temp
 export CATALINA_HOME="$HOME/documents/web/school_jee_apache_tomcat"
 export JAVA_HOME="/usr/lib/jvm/default-java"
