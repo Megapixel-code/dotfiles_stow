@@ -1,4 +1,4 @@
--- [[ Basic Keymaps ]]
+-- ~~~ [[ Basic Keymaps ]] ~~~
 
 -- Reload nvim config :
 vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>", { desc = "Rel[O]ad file" })
