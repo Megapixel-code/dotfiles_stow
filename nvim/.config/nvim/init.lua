@@ -14,9 +14,9 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.o.number = true         -- see current line number, if !relativenumber see all lines numbers
 vim.o.relativenumber = true -- relative line numbers
 vim.o.cursorline = true     -- highlight the cursor line
-vim.o.scrolloff = 10        -- Minimal number of screen lines to keep above and below the cursor.
+vim.o.scrolloff = 10        -- minimal number of screen lines to keep above and below the cursor.
 vim.o.showmode = false      -- show mode in the last line, disabled because we have lualine
-vim.o.signcolumn = "yes"    -- Keep signcolumn on by default
+vim.o.signcolumn = "yes"    -- keep signcolumn on by default
 vim.g.have_nerd_font = true -- true if you have a Nerd Font installed and selected in the terminal
 vim.o.termguicolors = true  -- enable true color support
 
@@ -33,13 +33,13 @@ vim.o.breakindent = true   -- wrapped lines will be indented
 
 -- [[ utilities ]]
 vim.o.mouse = "a"          -- enable mouse mode
-vim.o.undofile = true      -- Save undo history
+vim.o.undofile = true      -- save undo history
 vim.o.confirm = true       -- ask confirmation when you quit while unsaved
 vim.o.ignorecase = true    -- case-insensitive searching
 vim.o.smartcase = true     -- removes case-insensitive searching if one or more capital letter
 vim.o.updatetime = 250     -- time with nothing typed before writing swap to disk (ex crash recovery)
 vim.o.timeoutlen = 500     -- mapped sequence wait time
-vim.o.inccommand = "split" -- Preview substitutions live, as you type!
+vim.o.inccommand = "split" -- preview substitutions live, as you type!
 vim.o.splitbelow = true    -- new splits open on the bottom
 vim.o.splitright = true    -- new splits open on the right
 
