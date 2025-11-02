@@ -14,9 +14,6 @@ ll() {
    ls -Aohp --group-directories-first --time-style=iso --color=always | sed -E '2,$s/ +[0-9]+//'
 }
 
-alias lt='tree -a'
-alias python=python3
-
 y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -24,3 +21,7 @@ y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+alias lt='tree -a'
+alias python=python3
+
