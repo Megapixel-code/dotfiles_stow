@@ -3,13 +3,7 @@
 vim.g.mapleader = " "      -- sets space as the leader key
 vim.g.maplocalleader = " " -- must be before loading plugins
 
--- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
-vim.schedule(function()
-   vim.opt.clipboard = "unnamedplus"
-end)
-
--- ~~~ [[ Setting options ]] ~~~
+-- ~~~ [[ SETTING OPTIONS ]] ~~~
 
 -- [[ interface ]]
 -- sets how neovim will display certain whitespace characters in the editor
@@ -49,6 +43,12 @@ vim.o.inccommand = "split" -- Preview substitutions live, as you type!
 vim.o.splitbelow = true    -- new splits open on the bottom
 vim.o.splitright = true    -- new splits open on the right
 
+-- ~~~ [[ OTHER ]] ~~~
+-- Sync clipboard between OS and Neovim.
+--  Schedule the setting after `UiEnter` because it can increase startup-time.
+vim.schedule(function()
+   vim.opt.clipboard = "unnamedplus"
+end)
 
--- [[ LOADING PLUGINS ]]
+-- ~~~ [[ LOADING PLUGINS ]] ~~~
 require("config.lazy")
