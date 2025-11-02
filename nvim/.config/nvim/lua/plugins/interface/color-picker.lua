@@ -22,9 +22,22 @@ return {
             { ccc.picker.css_hsl,  ccc.output.hex },
          },
          pickers = {
+            ccc.picker.hex,
+            ccc.picker.css_rgb,
+            ccc.picker.css_hsl,
+            ccc.picker.css_hwb,
+            ccc.picker.css_lab,
+            ccc.picker.css_lch,
+            ccc.picker.css_oklab,
+            ccc.picker.css_oklch,
+
             ccc.picker.custom_entries({ -- custom pickers when a word apears
-               red = "#ff0000",
-               green = "#00ff00",
+               red = "#FF0000",
+               green = "#00FF00",
+               blue = "#0000FF",
+               yellow = "#FFFF00",
+               cyan = "#00FFFF",
+               purple = "#FF00FF",
             }),
          },
       })
