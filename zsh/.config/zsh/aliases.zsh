@@ -33,7 +33,7 @@ git() {
 
 cbonsai() {
    if [[ $@ == "" ]]; then
-      command cbonsai -S --time=0.1 --wait=2 --base=2 --leaf="$" --color="1,3,9,11" --multiplier=16 --life=70
+      command cbonsai -S --time=1.5 --wait=30 --base=2 --leaf="$" --color="1,3,9,11" --multiplier=16 --life=70
    else
       command cbonsai "$@"
    fi
