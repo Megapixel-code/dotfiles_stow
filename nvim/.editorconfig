@@ -7,15 +7,16 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 
 [*.{sh,zsh}]
-# --language-dialect
+# https://github.com/mvdan/sh
+# [language-dialect]
 shell_variant      = posix
 simplify           = true
 binary_next_line   = true
-# --case-indent
+# [case-indent]
 switch_case_indent = true
 space_redirects    = true
 keep_padding       = true
-# --func-next-line
+# [func-next-line]
 function_next_line = false
 minify             = false
 
@@ -73,8 +74,8 @@ align_chain_expr = always
 
 # [line space]
 # The following configuration supports four expressions
-# keep  
-# fixed(n)   
+# keep
+# fixed(n)
 # min(n)
 # max(n)
 # for eg. min(2)
@@ -92,7 +93,7 @@ line_space_around_block = fixed(1)
 
 # [line break]
 break_all_list_when_line_exceed = true
-auto_collapse_lines = false 
+auto_collapse_lines = false
 # ^?
 break_before_braces = false
 
