@@ -3,9 +3,9 @@ return {
    lazy = false,
    config = function()
       -- set keymap
-      vim.keymap.set("n", "<leader>st", "<cmd>Themery<CR>", { desc = "Search Themes" })
+      vim.keymap.set( "n", "<leader>st", "<cmd>Themery<CR>", { desc = "Search Themes" } )
 
-      require("themery").setup({
+      require( "themery" ).setup( {
          livePreview = true,
          themes = {
             --[[ dark themes : ]]
@@ -60,9 +60,9 @@ return {
                before = [[
                   vim.g.gruvbox_material_background = 'soft'
                   vim.cmd('set background=light')
-               ]]
+               ]],
             },
          },
-      })
-   end
+      } )
+   end,
 }

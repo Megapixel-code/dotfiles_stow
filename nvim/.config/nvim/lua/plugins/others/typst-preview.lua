@@ -1,16 +1,16 @@
 return {
-   'chomosuke/typst-preview.nvim',
-   ft = 'typst',
-   version = '1.*',
+   "chomosuke/typst-preview.nvim",
+   ft = "typst",
+   version = "1.*",
    config = function()
-      require("typst-preview").setup {
+      require( "typst-preview" ).setup( {
          -- Setting this true will enable logging debug information to
          -- `vim.fn.stdpath 'data' .. '/typst-preview/log.txt'`
          debug = false,
 
          -- Custom format string to open the output link provided with %s
          -- Example: open_cmd = 'firefox %s -P typst-preview --class typst-preview'
-         open_cmd = 'firefox %s -P typst-preview --class typst-preview',
+         open_cmd = "firefox %s -P typst-preview --class typst-preview",
 
          -- Custom port to open the preview server. Default is random.
          port = 6969,
@@ -21,7 +21,7 @@ return {
          -- Setting this to '{"rest": "<option>","image": "<option>"}' will apply
          -- your choice of color inversion to images and everything else
          -- separately.
-         invert_colors = 'never',
+         invert_colors = "never",
 
          -- Whether the preview will follow the cursor in the source file
          follow_cursor = true,
@@ -31,8 +31,8 @@ return {
          -- Warning: Be aware that your version might be older than the one
          -- required.
          dependencies_bin = {
-            ['tinymist'] = 'tinymist',
-            ['websocat'] = nil
+            ["tinymist"] = "tinymist",
+            ["websocat"] = nil,
          },
 
          -- A list of extra arguments (or nil) to be passed to previewer.
@@ -40,21 +40,21 @@ return {
          extra_args = nil,
 
          -- This function will be called to determine the root of the typst project
-         get_root = function(path_of_main_file)
-            local root = os.getenv 'TYPST_ROOT'
+         get_root = function( path_of_main_file )
+            local root = os.getenv( "TYPST_ROOT" )
             if root then
                return root
             end
-            return vim.fn.fnamemodify(path_of_main_file, ':p:h')
+            return vim.fn.fnamemodify( path_of_main_file, ":p:h" )
          end,
 
          -- This function will be called to determine the main file of the typst
          -- project.
-         get_main_file = function(path_of_buffer)
+         get_main_file = function( path_of_buffer )
             return path_of_buffer
          end,
-      }
+      } )
 
-      vim.keymap.set("n", "<leader>p", ":TypstPreview<CR>", { desc = "Preview typst file" })
+      vim.keymap.set( "n", "<leader>p", ":TypstPreview<CR>", { desc = "Preview typst file" } )
    end,
 }

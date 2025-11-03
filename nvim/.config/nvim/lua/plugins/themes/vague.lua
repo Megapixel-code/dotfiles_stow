@@ -32,5 +32,5 @@ return {
          builtin_types = "bold",
          builtin_variables = "none",
       },
-   }
+   },
 }

@@ -1,9 +1,9 @@
 return {
    {
-      'maxmx03/fluoromachine.nvim',
+      "maxmx03/fluoromachine.nvim",
       config = function()
-         require("fluoromachine").setup {
-            theme = 'delta',
+         require( "fluoromachine" ).setup( {
+            theme = "delta",
             brightness = 0.05,
             glow = false,
             transparent = false,
@@ -45,7 +45,7 @@ return {
                tree = true,
                wk = true,
             },
-         }
-      end
-   }
+         } )
+      end,
+   },
 }

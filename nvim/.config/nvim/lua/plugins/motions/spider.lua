@@ -3,13 +3,13 @@ return {
    lazy = true,
 
    config = function()
-      require("spider").setup {
+      require( "spider" ).setup( {
          skipInsignificantPunctuation = false,
          consistentOperatorPending = false,
          subwordMovement = true,
          -- customPatterns = { "[()]", "[[]]", "[{}]" },
          -- overrideDefault = false,
-      }
+      } )
    end,
    keys = {
       { "w", "<cmd>lua require('spider').motion('w')<CR>", mode = { "n", "o", "x" } },

@@ -1,13 +1,13 @@
 return {
-   'nvim-lualine/lualine.nvim',
+   "nvim-lualine/lualine.nvim",
    config = function()
-      require('lualine').setup {
+      require( "lualine" ).setup( {
          options = {
             icons_enabled = true,
-            theme = 'auto',
+            theme = "auto",
             -- https://www.nerdfonts.com/cheat-sheet : search for "ple"
-            component_separators = { left = '', right = '' },
-            section_separators = { left = '', right = '' },
+            component_separators = { left = "", right = "" },
+            section_separators = { left = "", right = "" },
             disabled_filetypes = {
                statusline = {},
                winbar = {},
@@ -22,39 +22,39 @@ return {
                winbar = 1000,
                refresh_time = 16, -- ~60fps
                events = {
-                  'WinEnter',
-                  'BufEnter',
-                  'BufWritePost',
-                  'SessionLoadPost',
-                  'FileChangedShellPost',
-                  'VimResized',
-                  'Filetype',
-                  'CursorMoved',
-                  'CursorMovedI',
-                  'ModeChanged',
+                  "WinEnter",
+                  "BufEnter",
+                  "BufWritePost",
+                  "SessionLoadPost",
+                  "FileChangedShellPost",
+                  "VimResized",
+                  "Filetype",
+                  "CursorMoved",
+                  "CursorMovedI",
+                  "ModeChanged",
                },
-            }
+            },
          },
          sections = {
-            lualine_a = { 'mode' },
+            lualine_a = { "mode" },
             lualine_b = {},
-            lualine_c = { 'branch', 'diff', 'diagnostics' },
-            lualine_x = { 'filename' },
+            lualine_c = { "branch", "diff", "diagnostics" },
+            lualine_x = { "filename" },
             lualine_y = {},
-            lualine_z = { 'progress' }
+            lualine_z = { "progress" },
          },
          inactive_sections = {
             lualine_a = {},
             lualine_b = {},
-            lualine_c = { 'filename' },
-            lualine_x = { 'location' },
+            lualine_c = { "filename" },
+            lualine_x = { "location" },
             lualine_y = {},
-            lualine_z = {}
+            lualine_z = {},
          },
          tabline = {},
          winbar = {},
          inactive_winbar = {},
-         extensions = {}
-      }
+         extensions = {},
+      } )
    end,
 }

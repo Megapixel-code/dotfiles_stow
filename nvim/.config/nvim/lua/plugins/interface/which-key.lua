@@ -2,27 +2,27 @@ return {
    "folke/which-key.nvim",
    event = "VeryLazy",
    opts = {
-      ---@type false | "classic" | "modern" | "helix"
+      --- @type false | "classic" | "modern" | "helix"
       preset = "classic",
       -- Delay before showing the popup. Can be a number or a function that returns a number.
-      ---@type number | fun(ctx: { keys: string, mode: string, plugin?: string }):number
+      --- @type number | fun(ctx: { keys: string, mode: string, plugin?: string }):number
       delay = 700,
-      ---@param mapping wk.Mapping
+      --- @param mapping wk.Mapping
       --- You can add any mappings here, or use `require('which-key').add()` later
-      ---@type wk.Spec
+      --- @type wk.Spec
       spec = {},
       -- show a warning when issues were detected with your mappings
       notify = true,
       -- Which-key automatically sets up triggers for your mappings.
       -- Check the docs for more info.
-      ---@type wk.Spec
+      --- @type wk.Spec
       triggers = {
          { "<auto>", mode = "nxso" },
       },
       -- Start hidden and wait for a key to be pressed before showing the popup
       -- Only used by enabled xo mapping modes.
-      ---@param ctx { mode: string, operator: string }
-      defer = function(ctx)
+      --- @param ctx { mode: string, operator: string }
+      defer = function( ctx )
          return ctx.mode == "V" or ctx.mode == "<C-V>"
       end,
       plugins = {
@@ -42,7 +42,7 @@ return {
             g = true,            -- bindings for prefixed with g
          },
       },
-      ---@type wk.Win.opts
+      --- @type wk.Win.opts
       win = {
          no_overlap = true, -- don't allow the popup to overlap with the cursor
          -- width = 1,
@@ -68,7 +68,7 @@ return {
          scroll_down = "<c-d>", -- binding to scroll down inside the popup
          scroll_up = "<c-u>",   -- binding to scroll up inside the popup
       },
-      ---@type (string|wk.Sorter)[]
+      --- @type (string|wk.Sorter)[]
       --- Mappings are sorted using configured sorters and natural sort of the keys
       --- Available sorters:
       --- * local: buffer-local mappings first
@@ -79,13 +79,13 @@ return {
       --- * manual: the order the mappings were added
       --- * case: lower-case first
       sort = { "local", "order", "group", "alphanum", "mod" },
-      ---@type number|fun(node: wk.Node):boolean?
+      --- @type number|fun(node: wk.Node):boolean?
       expand = 0, -- expand groups when <= n mappings
-      ---@type table<string, ({[1]:string, [2]:string}|fun(str:string):string)[]>
+      --- @type table<string, ({[1]:string, [2]:string}|fun(str:string):string)[]>
       replace = { -- Functions/Lua Patterns for formatting the labels
          key = {
-            function(key)
-               return require("which-key.view").format(key)
+            function( key )
+               return require( "which-key.view" ).format( key )
             end,
             -- { "<Space>", "SPC" },
          },
@@ -111,7 +111,7 @@ return {
          mappings = true,
          --- See `lua/which-key/icons.lua` for more details
          --- Set to `false` to disable keymap icons from rules
-         ---@type wk.IconRule[]|false
+         --- @type wk.IconRule[]|false
          rules = {},
          -- use the highlights from mini.icons
          -- When `false`, it will use `WhichKeyIcon` instead
@@ -161,15 +161,15 @@ return {
       {
          "<leader>?",
          function()
-            require("which-key").show({ global = false })
+            require( "which-key" ).show( { global = false } )
          end,
          desc = "Buffer Local Keymaps (which-key)",
       },
    },
    config = function()
-      require("which-key").add({            -- [ add groups ]
+      require( "which-key" ).add( {         -- [ add groups ]
          { "<leader>s", group = "Search" }, -- search group
          { "g",         group = "Go" },     -- Go group
-      })
-   end
+      } )
+   end,
 }

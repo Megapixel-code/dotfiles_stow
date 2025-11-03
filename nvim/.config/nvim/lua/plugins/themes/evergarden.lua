@@ -1,21 +1,21 @@
 -- https://github.com/everviolet/nvim
 
 return {
-   'everviolet/nvim',
-   name = 'evergarden',
+   "everviolet/nvim",
+   name = "evergarden",
    opts = {
       theme = {
-         accent = 'pink',
+         accent = "pink",
       },
       editor = {
          transparent_background = false,
-         sign = { color = 'none' },
+         sign = { color = "none" },
          float = {
-            color = 'mantle',
+            color = "mantle",
             solid_border = false,
          },
          completion = {
-            color = 'surface0',
+            color = "surface0",
          },
       },
 
@@ -24,7 +24,7 @@ return {
          cmp = true,
          fzf_lua = true,
          gitsigns = true,
-         indent_blankline = { enable = true, scope_color = 'green' },
+         indent_blankline = { enable = true, scope_color = "green" },
          mini = {
             enable = true,
             animate = true,
@@ -57,5 +57,5 @@ return {
          which_key = true,
          neotree = true,
       },
-   }
+   },
 }

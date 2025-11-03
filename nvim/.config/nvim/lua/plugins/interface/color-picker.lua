@@ -1,9 +1,9 @@
 return {
    "uga-rosa/ccc.nvim",
    config = function()
-      local ccc = require("ccc")
+      local ccc = require( "ccc" )
 
-      ccc.setup({
+      ccc.setup( {
          highlighter = {
             auto_enable = true, -- start the highlighter on file open
             excludes = {},      -- ft to deactivate highlight
@@ -31,21 +31,21 @@ return {
             ccc.picker.css_oklab,
             ccc.picker.css_oklch,
 
-            ccc.picker.custom_entries({ -- custom pickers when a word apears
+            ccc.picker.custom_entries( { -- custom pickers when a word apears
                red = "#FF0000",
                green = "#00FF00",
                blue = "#0000FF",
                yellow = "#FFFF00",
                cyan = "#00FFFF",
                purple = "#FF00FF",
-            }),
+            } ),
          },
-      })
+      } )
       -- set the hex to uppercase
-      ccc.output.hex.setup({ uppercase = true })
-      ccc.output.hex_short.setup({ uppercase = true })
+      ccc.output.hex.setup( { uppercase = true } )
+      ccc.output.hex_short.setup( { uppercase = true } )
 
       -- keymap
-      vim.keymap.set("n", "<leader>c", ":CccPick<CR>", { desc = "Color" })
-   end
+      vim.keymap.set( "n", "<leader>c", ":CccPick<CR>", { desc = "Color" } )
+   end,
 }

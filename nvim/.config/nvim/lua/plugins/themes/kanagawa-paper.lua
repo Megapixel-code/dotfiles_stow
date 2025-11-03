@@ -31,6 +31,6 @@ return {
             -- rainbow_delimiters = true
             -- which_key = false
          },
-      }
+      },
    },
 }

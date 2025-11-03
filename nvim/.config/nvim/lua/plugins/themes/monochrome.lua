@@ -1,3 +1,3 @@
 return {
-   'kdheepak/monochrome.nvim',
+   "kdheepak/monochrome.nvim",
 }

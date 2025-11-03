@@ -24,19 +24,19 @@ return {
          local ensure_installed = {}
 
          -- DAP
-         vim.list_extend(ensure_installed, {
+         vim.list_extend( ensure_installed, {
             "java-debug-adapter",
             "java-test",
-         })
+         } )
 
          -- Formatters
-         vim.list_extend(ensure_installed, {
+         vim.list_extend( ensure_installed, {
             "emmylua-codeformat", -- lua
-         })
+         } )
 
-         require("mason-tool-installer").setup({
+         require( "mason-tool-installer" ).setup( {
             ensure_installed = ensure_installed,
-         })
+         } )
       end,
    },
 
@@ -55,17 +55,17 @@ return {
       },
       config = function()
          -- capabilities for completion
-         local capabilities = require("blink.cmp").get_lsp_capabilities()
+         local capabilities = require( "blink.cmp" ).get_lsp_capabilities()
 
          -- per language config, dont add jdtls here
-         vim.lsp.config("lua_ls", { capabilities = capabilities })
-         vim.lsp.config("clangd", { capabilities = capabilities })
-         vim.lsp.config("bashls", {
+         vim.lsp.config( "lua_ls", { capabilities = capabilities } )
+         vim.lsp.config( "clangd", { capabilities = capabilities } )
+         vim.lsp.config( "bashls", {
             capabilities = capabilities,
             filetypes = { "bash", "sh", "zsh" },
-         })
-         vim.lsp.config("html", { capabilities = capabilities })
-         vim.lsp.config("tinymist", { capabilities = capabilities })
+         } )
+         vim.lsp.config( "html", { capabilities = capabilities } )
+         vim.lsp.config( "tinymist", { capabilities = capabilities } )
       end,
    },
 }

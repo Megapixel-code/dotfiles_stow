@@ -117,7 +117,7 @@ local function drawing_desert()
          "   |  '---'| |                                          ",
          "   '------.| |                                  _____   ",
          "   ((_))  || |      (  _                       / /|\\ \\  ",
-         "   (o o)  || |      ))(\"),                    | | | | | ",
+         '   (o o)  || |      ))("),                    | | | | | ',
          "____\\_/___||_|_____((__^_))____________________\\_\\|/_/_ ",
       },
       highlight = "Statement",
@@ -135,24 +135,24 @@ local function drawing_insect()
       title = "Header",
       margin = 5,
       content = {
-         '                                                              ',
-         '                                                              ',
-         '                                                              ',
-         '                                                              ',
-         '    ⢀⣀⣤⣤⣤⠤⢤⣤⣤⣤⣤⣄⣀⡀           ⢀⣠⣤⣄⡀            ⣀⣀⣀⣤⣤⣤⣤⣤⣤⣤⣤⣀⡀   ',
-         ' ⢀⣤⠚⠩⠁⡄ ⠠⣤⠒⠒⣂ ⢈⣨⣭⣿⠛⠶⣦⣤⣄⡀   ⢠⣾⡟⠉⠉⠝⠿⠇    ⢀⣠⡤⠔⠒⣻⠟⠋⠩⠉⢁⣀⡀  ⣶  ⠙⡛⠷  ',
-         ' ⠸⢟⡠⠒⢊⡤  ⠋⣠ ⠈⣉⣉⣉⣉⣀⣛⣿⡒⠭⡿⢿⣷⣤⣤⣀⣽⣇⣴⠆⣴⡃⢀⣠⣤⠴⣚⣫⡥ ⠒⠛⠁⣀⣉⣉⣙⢏⡉  ⢀⣼⣤⣜⠳⡦⠂  ',
-         '   ⠐⠚⠫⣤⠖⢣⣤⡕ ⠉⣩⣤⠔ ⠂⣋⣭⣥⣤⠴⠛⣛⠈⢩⣿⠿⠛⢉  ⡐⠞⠫⢍⠙⣓⠢⠴⣥⣍⣙⠛⢓⡢⢤⣬⠉⠅ ⣤⡜⢛⠻⠛⠉⠁   ',
-         '      ⠘⢔⢎⣡⡔⠂⣠⡿⠁⠒⢛⡻⢛⣩⠅  ⠉  ⠚⣯⣄⢠⣿⢀⣾⠇ ⠓ ⠁⠂⠈⠍⠐⠈⡉⣿⠛⣛⠛⠉⣤⣰⣿⣿⡟⠛⠁      ',
-         '        ⠙⠛⠐⠚⠋ ⠒⣲⡿⠇⣋        ⢺⡏⠈⣀ ⠉⠈        ⠙⢿⠟⢰⣖⡢ ⠂⠒⠚⠉         ',
-         '             ⣴⠛⠅⢀⣾⠟⢃       ⢹⠃⠠⠁⠈⠩         ⢠⣿ ⣀⢹⣿⡷             ',
-         '             ⢿⣤⢚⣫⠅         ⢸⠇ ⢚ ⢀         ⣸⡇ ⠉⣿⣿⠇             ',
-         '             ⠈⠛⢻⣥⡚⠔⣠⢣⣄⡀    ⢸⡇ ⢘ ⠈ ⠠⠈    ⣀⣰⡿⣧⣄⠾⠋⠁              ',
-         '                ⠈⠑⠁        ⠘⣿⡀⣈⣀    ⠈  ⠈⠙⠁                    ',
-         '                            ⠘⣷⠁                               ',
-         '                             ⠙⣤                               ',
-         '                              ⠛⠂                              ',
-         '                                                              '
+         "                                                              ",
+         "                                                              ",
+         "                                                              ",
+         "                                                              ",
+         "    ⢀⣀⣤⣤⣤⠤⢤⣤⣤⣤⣤⣄⣀⡀           ⢀⣠⣤⣄⡀            ⣀⣀⣀⣤⣤⣤⣤⣤⣤⣤⣤⣀⡀   ",
+         " ⢀⣤⠚⠩⠁⡄ ⠠⣤⠒⠒⣂ ⢈⣨⣭⣿⠛⠶⣦⣤⣄⡀   ⢠⣾⡟⠉⠉⠝⠿⠇    ⢀⣠⡤⠔⠒⣻⠟⠋⠩⠉⢁⣀⡀  ⣶  ⠙⡛⠷  ",
+         " ⠸⢟⡠⠒⢊⡤  ⠋⣠ ⠈⣉⣉⣉⣉⣀⣛⣿⡒⠭⡿⢿⣷⣤⣤⣀⣽⣇⣴⠆⣴⡃⢀⣠⣤⠴⣚⣫⡥ ⠒⠛⠁⣀⣉⣉⣙⢏⡉  ⢀⣼⣤⣜⠳⡦⠂  ",
+         "   ⠐⠚⠫⣤⠖⢣⣤⡕ ⠉⣩⣤⠔ ⠂⣋⣭⣥⣤⠴⠛⣛⠈⢩⣿⠿⠛⢉  ⡐⠞⠫⢍⠙⣓⠢⠴⣥⣍⣙⠛⢓⡢⢤⣬⠉⠅ ⣤⡜⢛⠻⠛⠉⠁   ",
+         "      ⠘⢔⢎⣡⡔⠂⣠⡿⠁⠒⢛⡻⢛⣩⠅  ⠉  ⠚⣯⣄⢠⣿⢀⣾⠇ ⠓ ⠁⠂⠈⠍⠐⠈⡉⣿⠛⣛⠛⠉⣤⣰⣿⣿⡟⠛⠁      ",
+         "        ⠙⠛⠐⠚⠋ ⠒⣲⡿⠇⣋        ⢺⡏⠈⣀ ⠉⠈        ⠙⢿⠟⢰⣖⡢ ⠂⠒⠚⠉         ",
+         "             ⣴⠛⠅⢀⣾⠟⢃       ⢹⠃⠠⠁⠈⠩         ⢠⣿ ⣀⢹⣿⡷             ",
+         "             ⢿⣤⢚⣫⠅         ⢸⠇ ⢚ ⢀         ⣸⡇ ⠉⣿⣿⠇             ",
+         "             ⠈⠛⢻⣥⡚⠔⣠⢣⣄⡀    ⢸⡇ ⢘ ⠈ ⠠⠈    ⣀⣰⡿⣧⣄⠾⠋⠁              ",
+         "                ⠈⠑⠁        ⠘⣿⡀⣈⣀    ⠈  ⠈⠙⠁                    ",
+         "                            ⠘⣷⠁                               ",
+         "                             ⠙⣤                               ",
+         "                              ⠛⠂                              ",
+         "                                                              ",
       },
       highlight = "Statement",
       default_color = "",
@@ -174,7 +174,6 @@ local function content()
          { " Open Terminal", "FloatingTerminal", "<leader>t" },
          { " Search Themes", "Themery", "<leader>st" },
          { "󰋖 Search Help", "Telescope help_tags", "<leader>sh" },
-
       },
       highlight = "String",
       default_color = "",
@@ -183,7 +182,7 @@ local function content()
 end
 
 local function random_drawing()
-   math.randomseed(os.time())
+   math.randomseed( os.time() )
    local drawings = {
       drawing_periodic_table(),
       drawing_montain(),
@@ -191,14 +190,18 @@ local function random_drawing()
       drawing_desert(),
       drawing_insect(),
    }
-   return drawings[math.random(#drawings)]
+   return drawings[math.random( #drawings )]
 end
 
 return {
    "startup-nvim/startup.nvim",
-   dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope-file-browser.nvim" },
+   dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-file-browser.nvim",
+   },
    config = function()
-      require "startup".setup({
+      require( "startup" ).setup( {
          header = random_drawing(), -- drawing section
          body = content(),          -- main section
          options = {
@@ -227,9 +230,9 @@ return {
             folded_section = "#56b6c2", -- the color of folded sections
             -- this can also be changed with the `StartupFoldedSection` highlight group
          },
-         parts = { "header", "body" } -- all sections in order
-      })
-   end
+         parts = { "header", "body" }, -- all sections in order
+      } )
+   end,
 }
 
 --[[
