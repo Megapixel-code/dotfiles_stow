@@ -25,6 +25,7 @@ y() {
 git() {
    if [[ $@ == "pr" ]]; then
       command git pull --rebase
+      # if the rebase did not work do git rebase --abort
    else
       command git "$@"
    fi
