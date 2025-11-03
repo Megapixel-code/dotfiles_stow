@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# du -sh {dir} show size of directory 
+# du -sh {dir} show size of directory
 
 # A = show hidden files
 # o = long listing format without group information
@@ -15,11 +15,11 @@ ll() {
 }
 
 y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
+   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+   yazi "$@" --cwd-file="$tmp"
+   IFS= read -r -d '' cwd < "$tmp"
+   [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+   rm -f -- "$tmp"
 }
 
 git() {
@@ -31,7 +31,14 @@ git() {
    fi
 }
 
+cbonsai() {
+   if [[ $@ == "" ]]; then
+      command cbonsai -S --time=0.1 --wait=2 --base=2 --leaf="$" --color="1,3,9,11" --multiplier=16 --life=70
+   else
+      command cbonsai "$@"
+   fi
+}
+
 alias "git pr"="git pull --rebase"
 alias lt='tree -a'
 alias python=python3
-
