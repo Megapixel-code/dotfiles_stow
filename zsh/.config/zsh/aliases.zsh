@@ -22,6 +22,14 @@ y() {
 	rm -f -- "$tmp"
 }
 
+git() {
+   if [[ $@ == "pr" ]]; then
+      command git pull --rebase
+   else
+      command git "$@"
+   fi
+}
+
 alias "git pr"="git pull --rebase"
 alias lt='tree -a'
 alias python=python3
