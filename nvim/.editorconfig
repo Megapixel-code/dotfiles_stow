@@ -5,119 +5,58 @@ quote_style = double
 call_arg_parentheses = always
 continuation_indent = 3
 max_line_length = 120
-end_of_line = auto
 trailing_table_separator = smart
 detect_end_of_line = false
 insert_final_newline = true
+table_separator_style = none
 
-# whitespace options
+# [whitespace options]
 space_around_table_field_list = true
 space_before_attribute = true
 space_before_function_open_parenthesis = false
 space_before_function_call_open_parenthesis = false
 space_before_closure_open_parenthesis = false
-space_before_function_call_single_arg = always
-# look : https://github.com/CppCXY/EmmyLuaCodeStyle/blob/master/docs/format_config_EN.md#space_before_open_square_bracket
-## extend option
-# continuation_indent.before_block = 4
-# continuation_indent.in_expr = 4
-# continuation_indent.in_table = 4
-
-# this mean utf8 length , if this is 'unset' then the line width is no longer checked
-# this option decides when to chopdown the code
-
-# optional crlf/lf/cr/auto, if it is 'auto', in windows it is crlf other platforms are lf
-# in neovim the value 'auto' is not a valid option, please use 'unset' 
-
-#  none/ comma / semicolon / only_kv_colon
-table_separator_style = none
-
-
-# keep/remove/remove_table_only/remove_string_only
-
-
-
-
-
-
-
-
-# optional always/only_string/only_table/none
-# or true/false
-## extend option
-## always/keep/none
-# space_before_function_call_single_arg.table = always
-## always/keep/none
-# space_before_function_call_single_arg.string = always
-
+space_before_function_call_single_arg = true
 space_before_open_square_bracket = false
-
-space_inside_function_call_parentheses = false
-
-space_inside_function_param_list_parentheses = false
-
+space_inside_function_call_parentheses = true
+space_inside_function_param_list_parentheses = true
 space_inside_square_brackets = false
-
-# like t[#t+1] = 1
 space_around_table_append_operator = false
-
 ignore_spaces_inside_function_call = false
-
-# detail number or 'keep'
 space_before_inline_comment = 1
+space_after_comment_dash = true
 
-# convert '---' to '--- ' or '--' to '-- '
-space_after_comment_dash = false
-
-# [operator space]
+# [operator blank]
 space_around_math_operator = true
-# space_around_math_operator.exponent = false
-
 space_after_comma = true
-
 space_after_comma_in_for_statement = true
-
-# true/false or none/always/no_space_asym
 space_around_concat_operator = true
-
 space_around_logical_operator = true
-
-# true/false or none/always/no_space_asym
 space_around_assign_operator = true
 
 # [align]
-
-align_call_args = false
-
+align_call_args = true
 align_function_params = true
-
-# true/false or always
 align_continuous_assign_statement = true
-
 align_continuous_rect_table_field = true
-
-align_continuous_line_space = 2
-
 align_if_branch = false
-
-# option none / always / contain_curly/
 align_array_table = true
-
+align_continuous_inline_comment = true
 align_continuous_similar_call_args = false
 
-align_continuous_inline_comment = true
+# [indent]
+never_indent_before_if_condition = false
+never_indent_comment_on_if_branch = false
+keep_indents_on_empty_lines = false
+allow_non_indented_comments = false
+
+
+
 # option none / always / only_call_stmt
 align_chain_expr = none
 
 # [indent]
 
-never_indent_before_if_condition = false
-
-never_indent_comment_on_if_branch = false
-
-keep_indents_on_empty_lines = false
-
-allow_non_indented_comments = false
 # [line space]
 
 # The following configuration supports four expressions
