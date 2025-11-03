@@ -1,4 +1,5 @@
 [*.lua]
+# https://github.com/CppCXY/EmmyLuaCodeStyle/tree/master
 indent_style = space
 indent_size = 3
 quote_style = double
