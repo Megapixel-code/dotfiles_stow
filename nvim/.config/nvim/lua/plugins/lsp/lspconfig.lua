@@ -31,6 +31,8 @@ return {
 
          -- Formatters
          vim.list_extend( ensure_installed, {
+            "shfmt",              -- bash
+
             "emmylua-codeformat", -- lua
          } )
 
