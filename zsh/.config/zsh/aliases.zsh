@@ -32,11 +32,27 @@ git() {
 }
 
 cbonsai() {
-   if [[ $@ == "" ]]; then
-      command cbonsai -S --time=1.5 --wait=30 --base=2 --leaf="$" --color="1,3,9,11" --multiplier=16 --life=70
-   else
+   if [[ $@ != "" ]]; then
       command cbonsai "$@"
+      return
    fi
+
+   while :; do
+      # gen colors
+      leafs_dark=$(("$RANDOM" % 8))
+
+      offset=$((1 + "$RANDOM" % 7))
+      bark_dark=$((("$leafs_dark" + "$offset") % 8))
+
+      leafs_light=$(("$leafs_dark" + 8))
+      bark_light=$(("$bark_dark" + 8))
+
+      # gen fortune
+      fortune=$(fortune -us)
+
+      # execute cmd
+      command cbonsai -lWC -m "$fortune" --time=1.5 --wait=30 --base=2 --leaf="$" --color="$leafs_dark,$bark_dark,$leafs_light,$bark_dark" --multiplier=16 --life=70
+   done
 }
 
 alias "git pr"="git pull --rebase"
