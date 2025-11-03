@@ -31,8 +31,8 @@ local live_multigrep = function( opts )
                args,
                { "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" },
             } )
-            :flatten()
-            :totable()
+                   :flatten()
+                   :totable()
       end,
       entry_maker = make_entry.gen_from_vimgrep( opts ),
       cwd = opts.cwd,
