@@ -11,7 +11,7 @@
 # color=always = forces color
 # sed -> removes the second argument (number of hard links)
 ll() {
-   ls -Aohp --group-directories-first --time-style=iso --color=always | sed -E '2,$s/ +[0-9]+//'
+   ls -Aohp --group-directories-first --time-style=iso --color=always $@ | sed -E '2,$s/ +[0-9]+//'
 }
 
 y() {
@@ -22,6 +22,7 @@ y() {
 	rm -f -- "$tmp"
 }
 
+alias "git pr"="git pull --rebase"
 alias lt='tree -a'
 alias python=python3
 
