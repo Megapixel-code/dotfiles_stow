@@ -60,17 +60,16 @@ align_chain_expr = always
 # max(n)
 # for eg. min(2)
 
-line_space_after_if_statement = fixed(0)
-line_space_after_do_statement = fixed(0)
-line_space_after_while_statement = fixed(0)
-line_space_after_repeat_statement = fixed(0)
-line_space_after_for_statement = fixed(0)
-line_space_after_local_or_assign_statement = max(2)
-line_space_after_function_statement = fixed(3)
-line_space_after_expression_statement = max(2)
-line_space_after_comment = max(2)
+line_space_after_if_statement = max(3)
+line_space_after_do_statement = max(3)
+line_space_after_while_statement = max(3)
+line_space_after_repeat_statement = max(3)
+line_space_after_for_statement = max(3)
+line_space_after_local_or_assign_statement = max(4)
+line_space_after_function_statement = fixed(4)
+line_space_after_expression_statement = max(3)
+line_space_after_comment = max(3)
 line_space_around_block = fixed(1)
-# ^?
 
 # [line break]
 break_all_list_when_line_exceed = true
@@ -82,5 +81,5 @@ break_before_braces = false
 ignore_space_after_colon = false
 remove_call_expression_list_finish_comma = false
 # ^?
-end_statement_with_semicolon = same_line
+end_statement_with_semicolon = keep
 # ^ keep / always / same_line / replace_with_newline / never
