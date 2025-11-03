@@ -6,14 +6,14 @@ return {
       "mason-org/mason-lspconfig.nvim",
       opts = {
          ensure_installed = {
-            "clangd",   --c and cpp
-            "bashls",   --bash
+            "clangd",   -- c and cpp
+            "bashls",   -- bash
 
             "lua_ls",   -- lua
             "jdtls",    -- java; do not configure, configured in java.lua
 
-            "html",     --html
-            "tinymist", --typst
+            "html",     -- html
+            "tinymist", -- typst
          },
       },
    },
@@ -21,20 +21,30 @@ return {
    {
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       config = function()
-         require('mason-tool-installer').setup({
-            ensure_installed = {
-               "java-debug-adapter",
-               "java-test",
-            }
+         local ensure_installed = {}
+
+         -- DAP
+         vim.list_extend(ensure_installed, {
+            "java-debug-adapter",
+            "java-test",
          })
-      end
+
+         -- Formatters
+         vim.list_extend(ensure_installed, {
+            "emmylua-codeformat", -- lua
+         })
+
+         require("mason-tool-installer").setup({
+            ensure_installed = ensure_installed,
+         })
+      end,
    },
 
    {
       "neovim/nvim-lspconfig",
       dependencies = {
-         'saghen/blink.cmp',
-         'folke/lazydev.nvim',
+         "saghen/blink.cmp",
+         "folke/lazydev.nvim",
          opts = {
             library = {
                -- See the configuration section for more details
@@ -44,11 +54,8 @@ return {
          },
       },
       config = function()
-         -- keymaps
-         vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "Hover Information" })
-
          -- capabilities for completion
-         local capabilities = require('blink.cmp').get_lsp_capabilities()
+         local capabilities = require("blink.cmp").get_lsp_capabilities()
 
          -- per language config, dont add jdtls here
          vim.lsp.config("lua_ls", { capabilities = capabilities })
@@ -59,31 +66,6 @@ return {
          })
          vim.lsp.config("html", { capabilities = capabilities })
          vim.lsp.config("tinymist", { capabilities = capabilities })
-
-         -- Auto-format ("lint") on save.
-         vim.api.nvim_create_autocmd('LspAttach', {
-            callback = function(args)
-               local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-               if not client then return end
-
-               if client:supports_method('textDocument/formatting') then
-                  vim.api.nvim_create_autocmd('BufWritePre', {
-                     group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
-                     buffer = args.buf,
-                     callback = function()
-                        vim.lsp.buf.format({
-                           bufnr = args.buf,
-                           id = client.id,
-                           timeout_ms = 1000,
-                           formatting_options = {
-                              tabSize = 3,
-                           },
-                        })
-                     end,
-                  })
-               end
-            end,
-         })
       end,
    },
 }

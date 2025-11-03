@@ -9,6 +9,42 @@ vim.api.nvim_create_autocmd("TextYankPost", {
    end,
 })
 
+-- [[ Auto-format ("lint") on save ]]
+vim.api.nvim_create_autocmd('LspAttach', {
+   group = vim.api.nvim_create_augroup('my.lsp', {}),
+
+   callback = function(args)
+      local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+
+      if client:supports_method('textDocument/formatting') then
+         vim.api.nvim_create_autocmd('BufWritePre', {
+            group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
+            buffer = args.buf,
+            callback = function()
+               -- vim.lsp.buf.format({
+               --    bufnr = args.buf,
+               --    id = client.id,
+               --    timeout_ms = 1000,
+               --    formatting_options = {
+               --       tabSize = 3,
+               --    },
+               -- })
+
+               require("conform").format({
+                  bufnr = args.buf,
+                  id = client.id,
+                  timeout_ms = 1000,
+                  lsp_format="fallback",
+                  formatting_options = {
+                     tabSize = 3,
+                  },
+               })
+            end,
+         })
+      end
+   end,
+})
+
 -- [[ options when opening a terminal ]]
 vim.api.nvim_create_autocmd("TermOpen", {
    group = vim.api.nvim_create_augroup("term-open", { clear = true }),
