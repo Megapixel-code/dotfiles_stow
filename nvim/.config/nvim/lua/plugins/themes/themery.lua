@@ -32,6 +32,10 @@ return {
 
             --[[ medium themes : ]]
             {
+               colorscheme = "kanagawa-dragon",
+               name = "kanagawa-dragon",
+            },
+            {
                colorscheme = "kanagawa-paper-ink",
                name = "kanagawa-paper-ink",
             },
