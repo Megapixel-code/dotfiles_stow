@@ -66,8 +66,11 @@ return {
             capabilities = capabilities,
             filetypes = { "bash", "sh", "zsh" },
          } )
-         vim.lsp.config( "html",     { capabilities = capabilities } )
-         vim.lsp.config( "tinymist", { capabilities = capabilities } )
+         vim.lsp.config( "html", { capabilities = capabilities } )
+         vim.lsp.config( "tinymist", {
+            capabilities = capabilities,
+            settings = { formatterMode = "typstyle" },
+         } )
       end,
    },
 }
