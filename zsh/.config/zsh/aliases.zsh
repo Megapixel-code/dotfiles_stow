@@ -38,16 +38,19 @@ cbonsai() {
    fi
 
    # gen colors
-   leafs_dark=$(("$RANDOM" % 8))
+   leafs_dark=$((1 + "$RANDOM" % 7))
 
-   offset=$((1 + "$RANDOM" % 7))
-   bark_dark=$((("$leafs_dark" + "$offset") % 8))
+   bark_dark=$((1 + ("$leafs_dark" + "$RANDOM") % 7))
+   while [[ bark_dark == leafs_dark ]]; do
+      bark_dark=$((1 + ("$leafs_dark" + "$RANDOM") % 7))
+   done
 
    leafs_light=$(("$leafs_dark" + 8))
    bark_light=$(("$bark_dark" + 8))
 
    # execute cmd
-   command cbonsai -liWC --time=5 --wait=60 --base=2 --leaf="$" --color="$leafs_dark,$bark_dark,$leafs_light,$bark_dark" --multiplier=9 --life=45
+   command cbonsai -S --time=5 --wait=60 --base=2 --leaf="$" --color="$leafs_dark,$bark_dark,$leafs_light,$bark_dark" --multiplier=9 --life=45
+   # command cbonsai -liWC --time=5 --wait=60 --base=2 --leaf="$" --color="$leafs_dark,$bark_dark,$leafs_light,$bark_dark" --multiplier=9 --life=45
 }
 
 alias "git pr"="git pull --rebase"
