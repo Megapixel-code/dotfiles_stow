@@ -1,7 +1,7 @@
 -- ~~~ [[ Basic Keymaps ]] ~~~
 
 -- [Reload nvim config]
-vim.keymap.set( "n", "<leader>o", "<cmd>update<CR> <cmd>source<CR>", { desc = "Rel[O]ad file" } )
+vim.keymap.set( "n", "<leader>o", "<cmd>update<CR><cmd>source<CR>", { desc = "Rel[O]ad file" } )
 
 -- [Clear highlights]
 vim.keymap.set( "n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clears higlighting of search" } )
@@ -41,3 +41,11 @@ vim.keymap.set( "n", "<C-k>",      "<C-w><C-k>",  { desc = "Move focus to the up
 vim.keymap.set( "n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>",                  { desc = "toggle Git Diff" } )
 vim.keymap.set( "n", "<leader>gh", "<cmd>Gitsigns toggle_linehl<CR>",             { desc = "toggle Git Highlights" } )
 vim.keymap.set( "n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", { desc = "toggle Git line Blame" } )
+
+-- [ccc]
+vim.keymap.set(
+   "n",
+   "<leader>rc",
+   "<cmd>CccHighlighterDisable<CR><cmd>CccHighlighterEnable<CR>",
+   { desc = "Refresh CCC plugin" }
+)
