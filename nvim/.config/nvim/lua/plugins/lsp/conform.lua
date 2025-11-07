@@ -6,6 +6,9 @@ return {
          zsh = { "shfmt" },
 
          lua = { "emmylua-codeformat" }, -- lua formatter, look in .editorconfig
+
+         html = { "prettierd" },         -- angular, css, flow, graphql, html, json, jsx, javascript, less, markdown, scss, typescript, vue, yaml formatter
+         css = { "prettierd" },
       },
       notify_on_error = true,
       notify_no_formatters = true,

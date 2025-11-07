@@ -34,6 +34,8 @@ return {
             "shfmt",              -- bash
 
             "emmylua-codeformat", -- lua
+
+            "prettierd",          -- angular, css, flow, graphql, html, json, jsx, javascript, less, markdown, scss, typescript, vue, yaml
          } )
 
          require( "mason-tool-installer" ).setup( {
