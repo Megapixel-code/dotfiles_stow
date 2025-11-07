@@ -54,6 +54,34 @@ vim.api.nvim_create_autocmd( "TermOpen", {
    end,
 } )
 
+-- [[ restore cursor position when opening file ]]
+vim.api.nvim_create_autocmd( "BufReadPost", {
+   callback = function( args )
+      local mark = vim.api.nvim_buf_get_mark( args.buf, '"' ) -- last position when exited the buffer
+      local line_count = vim.api.nvim_buf_line_count( args.buf )
+      if mark[1] > 0 and mark[1] <= line_count then
+         vim.api.nvim_win_set_cursor( 0, mark )
+         -- defer centering so its applyed after render
+         vim.schedule( function()
+            vim.cmd( "normal! zz" )
+         end )
+      end
+   end,
+} )
+
+-- [[ resize splits when window size changes ]]
+vim.api.nvim_create_autocmd( "VimResized", {
+   command = "wincmd =",
+} )
+
+-- [[ syntax highlighting on env files ]]
+vim.api.nvim_create_autocmd( "BufRead", {
+   pattern = { ".env", ".env.*" },
+   callback = function()
+      vim.bo.filetype = "dosini"
+   end,
+} )
+
 -- [[ automatically change terminal theme on quit ]]
 local function autoscheme()
    if not vim.g.terminal_color_0 then
