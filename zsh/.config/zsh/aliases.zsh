@@ -49,10 +49,14 @@ cbonsai() {
    bark_light=$(("$bark_dark" + 8))
 
    # execute cmd
-   command cbonsai -S --time=5 --wait=60 --base=2 --leaf="$" --color="$leafs_dark,$bark_dark,$leafs_light,$bark_dark" --multiplier=9 --life=45
-   # command cbonsai -liWC --time=5 --wait=60 --base=2 --leaf="$" --color="$leafs_dark,$bark_dark,$leafs_light,$bark_dark" --multiplier=9 --life=45
+   command cbonsai -S --time=0.05 --wait=5 --base=2 --leaf="$" --color="$leafs_dark,$bark_dark,$leafs_light,$bark_dark" --multiplier=9 --life=45
 }
 
+batdiff() {
+    git diff --name-only --relative --diff-filter=d -z | xargs -0 batcat --diff
+}
+
+alias -g -- --help='--help 2>&1 | batcat --language=help --style=plain' # overide --help to use batcat
 alias "git pr"="git pull --rebase"
 alias lt='tree -a'
 alias python=python3
