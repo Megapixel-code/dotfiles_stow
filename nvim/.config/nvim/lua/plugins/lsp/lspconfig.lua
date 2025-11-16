@@ -14,6 +14,7 @@ return {
 
             "html",     -- html
             "tinymist", -- typst
+            "qmlls",    -- qml
          },
       },
    },
@@ -73,6 +74,7 @@ return {
             capabilities = capabilities,
             settings = { formatterMode = "typstyle" },
          } )
+         vim.lsp.config( "qmlls", { capabilities = capabilities } )
       end,
    },
 }
