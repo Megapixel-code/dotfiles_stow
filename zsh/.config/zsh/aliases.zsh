@@ -2,16 +2,18 @@
 
 # du -sh {dir} show size of directory
 
+# LC_COLLATE=C = dont ignore dots when sorting
 # A = show hidden files
 # o = long listing format without group information
 # h = humain readable
 # p = indicator for dirs (/)
+# v = natural sort of (version) numbers within text
 # group-directories-first = pretty explicit
 # time-style=iso = show either Y-M-D or M-D H:m depending if current year or not
 # color=always = forces color
 # sed -> removes the second argument (number of hard links)
 ll() {
-   ls -Aohp --group-directories-first --time-style=iso --color=always $@ | sed -E '2,$s/ +[0-9]+//'
+   LC_COLLATE=C ls -Aohpv --group-directories-first --time-style=iso --color=always $@ | sed -E '2,$s/ +[0-9]+//'
 }
 
 y() {
