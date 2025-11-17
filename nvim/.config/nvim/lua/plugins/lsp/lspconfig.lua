@@ -15,6 +15,8 @@ return {
             "html",     -- html
             "tinymist", -- typst
             "qmlls",    -- qml
+            -- "nixd", -- nix
+            "nil_ls" -- nix also
          },
       },
    },
