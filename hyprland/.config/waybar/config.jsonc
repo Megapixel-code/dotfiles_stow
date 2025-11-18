@@ -7,25 +7,25 @@
     "height": 0, // Waybar height
     // "width": 1280, // Waybar width
 
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
+    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
     "modules-center": ["clock"],
     "modules-right": ["bluetooth", "network", "pulseaudio", "battery"],
 
     // Modules configuration
 
-    "sway/workspaces": {
+    "hyprland/workspaces": {
        "on-click-right": "echo right clicked on a workspace", // important to make them look clickable
     },
-    "sway/mode": {
-        "format": "<span weight=\"bold\" text_transform=\"uppercase\">{}</span>"
+    "hyprland/submap": {
+       "format": {},
     },
-    "sway/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
+    // "sway/scratchpad": {
+    //     "format": "{icon} {count}",
+    //     "show-empty": false,
+    //     "format-icons": ["", ""],
+    //     "tooltip": true,
+    //     "tooltip-format": "{app}: {title}"
+    // },
     "clock": {
         "interval": 1,
         "format": "{:%d %B %Y | %H:%M:%S}",
@@ -81,11 +81,14 @@
     "position": "bottom",
     "height": 0,
 
-    "modules-left": ["sway/workspaces"],
+    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
     "modules-right": ["clock"],
 
-    "sway/workspaces": {
+    "hyprland/workspaces": {
        "on-click-right": "echo right clicked on a workspace",
+    },
+    "hyprland/submap": {
+       "format": {},
     },
 
     "clock": {
