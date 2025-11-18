@@ -32,18 +32,18 @@
         "tooltip": false,
     },
     "bluetooth": {
-        "format-on": "bt: on",
-        "format-connected": "bt: {controller_alias}",
-        "format-no-controller": "bt: disconnected",
+        "format-on": "bt : on",
+        "format-connected": "bt : {controller_alias}",
+        "format-no-controller": "bt : disconnected",
         "on-click-right": "~/.config/waybar/scripts/open_setting.sh ~/dotfiles_stow/_install_files/5_bluetui__bluetooth_control/target/release/bluetui",
     },
     "network": {
-        "format": "ntwk: {essid}",
-        "format-wifi": "wifi: {essid} ({signalStrength}%)",
-        "format-ethernet": "ntwk: eth",
+        "format": "ntwk : {essid}",
+        "format-wifi": "wifi : {essid} ({signalStrength}%)",
+        "format-ethernet": "ntwk : eth",
         "format-disconnected": "no internet",
 
-        "tooltip-format": "ip: {ipaddr}/{cidr}",
+        "tooltip-format": "ip : {ipaddr}/{cidr}",
         // "tooltip-format-wifi": "ip : {ipaddr}/{cidr}",
         // "tooltip-format-ethernet": "ip : {ipaddr}/{cidr}",
         "tooltip-format-disconnected": "HELP ME AHHHHHH",
@@ -56,9 +56,9 @@
         //},
         //"format-source": "",
         //"format-source-muted": "",
-        "tooltip-format": "device: {desc}",
-        "format": "vol: {volume}%", // can add {format_source} and {icon}
-        "format-muted": "vol: muted",
+        "tooltip-format": "device : {desc}",
+        "format": "vol : {volume}%", // can add {format_source} and {icon}
+        "format-muted": "vol : muted",
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle", // mute
            "on-click-right": "~/.config/waybar/scripts/open_setting.sh ~/dotfiles_stow/_install_files/6_ncpamixer__audio_control/build/ncpamixer",
         "scroll-step": 2,
@@ -70,9 +70,9 @@
         //     "critical": 15
         // },
         // "format-icons": ["", "", "", "", ""] can add {icon} to format to have this option
-        "format": "bat: {capacity}%",
-        "format-charging": "bat (charging): {capacity}%",
-        "format-plugged": "bat (plugged): {capacity}%",
+        "format": "bat : {capacity}%",
+        "format-charging": "bat (charging) : {capacity}%",
+        "format-plugged": "bat (plugged) : {capacity}%",
         "format-alt": "{time}",
     },
 }, {
@@ -81,7 +81,7 @@
     "position": "bottom",
     "height": 0,
 
-    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-left": ["hyprland/workspaces", "hyprland/sub"],
     "modules-right": ["clock"],
 
     "hyprland/workspaces": {
