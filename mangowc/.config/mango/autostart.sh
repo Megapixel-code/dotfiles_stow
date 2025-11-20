@@ -8,6 +8,9 @@ waybar > /dev/null 2>&1 &
 # blue light filter
 sunsetr > /dev/null 2>&1 &
 
+# deezer
+deezer-enhanced > /dev/null 2>&1 &
+
 # background
 
 # metropolis :
