@@ -7,17 +7,17 @@
     "height": 0, // Waybar height
     // "width": 1280, // Waybar width
 
-    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-left": ["ext/workspaces", "hyprland/submap"],
     "modules-center": ["clock"],
     "modules-right": ["bluetooth", "network", "pulseaudio", "battery"],
 
     // Modules configuration
 
-    "hyprland/workspaces": {
-       "on-click-right": "echo right clicked on a workspace", // important to make them look clickable
-    },
-    "hyprland/submap": {
-       "format": {},
+    "ext/workspaces": {
+      "format": "{icon}",
+      "ignore-hidden": true,
+      "on-click": "activate",
+      "sort-by-id": true,
     },
     // "sway/scratchpad": {
     //     "format": "{icon} {count}",
@@ -81,11 +81,14 @@
     "position": "bottom",
     "height": 0,
 
-    "modules-left": ["hyprland/workspaces", "hyprland/sub"],
+    "modules-left": ["ext/workspaces", "hyprland/sub"],
     "modules-right": ["clock"],
 
-    "hyprland/workspaces": {
-       "on-click-right": "echo right clicked on a workspace",
+    "ext/workspaces": {
+      "format": "{icon}",
+      "ignore-hidden": true,
+      "on-click": "activate",
+      "sort-by-id": true,
     },
     "hyprland/submap": {
        "format": {},
