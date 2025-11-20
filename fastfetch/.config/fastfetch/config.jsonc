@@ -20,64 +20,113 @@
   },
 
   "display": {
-    "separator": ": ",     // Separator between keys and values
+    "separator": " > ",     // Separator between keys and values
     "color": {
       "title": "light_blue",     // Title color
       "keys": "light_yellow",    // Key color
     },
     "percent": {
-      "type": 1         // 1=number, 2=bar, 3=both, 9=colored number
-    }
+      "type": 1,         // 1=number, 2=bar, 3=both, 9=colored number
+    },
+    "key": {
+       "width": 27,
+    },
+    "constants": [
+       "─────────────────────────", // {$1}
+       "──────────────────────────────────────────────────────────────", // {$2}
+       "╟─ ", // {$3}
+       "╟─", // {$4}
+       "╓─", // {$5}
+       "╙─", // {$6}
+       "─", // {$7} ╢
+       "╖", // {$8}
+       "╜", // {$9}
+    ],
   },
 
   "modules": [
     {
       "type": "title",
-      "format": "{user-name-colored}{at-symbol-colored}{host-name-colored}"
+      "format": "{#magenta}{$5}{$1} {user-name-colored}{at-symbol-colored}{host-name-colored} {#magenta}{$1}{$8}"
     },
-    "separator",
-    "os",
-    "kernel",
-    "packages",
-    "de",
+
+    {
+       "type": "os",
+       "key": "{#magenta}{$3}{#light_yellow}OS",
+    },
+    {
+       "type": "kernel",
+       "key": "{#magenta}{$3}{#light_yellow}Kernel",
+    },
+    {
+       "type": "packages",
+       "key": "{#magenta}{$3}{#light_yellow}Packages",
+    },
+    //"de",
     {
       "type": "wm",
-      "key": "Window Manager",
+      "key": "{#magenta}{$3}{#light_yellow}Window Manager",
     },
     {
       "type": "custom",
-      "key": "Display Manager",
+      "key": "{#magenta}{$3}{#light_yellow}Display Manager",
       "format": "lidm",
     },
-    "terminal",
+    {
+       "type": "terminal",
+       "key": "{#magenta}{$3}{#light_yellow}Terminal",
+    },
     //"uptime",
     //"wmtheme",
     //"shell",
 
-    "separator",
+    {
+       "type":"title",
+       "format": "{#magenta}{$4}{$2}{$7}",
+    },
+
     {
        "type": "host",
-       "key": "Motherboard",
+       "key": "{#magenta}{$3}{#light_yellow}Motherboard",
     },
     {
       "type": "cpu",
+      "key": "{#magenta}{$3}{#light_yellow}CPU",
       "format": "{name}",
     },
     {
       "type": "gpu",
-      "format": "{vendor} {name}"
+      "key": "{#magenta}{$3}{#light_yellow}GPU",
+      "format": "{vendor} {name}",
     },
-    "display",
+    {
+       "type": "display",
+       "key": "{#magenta}{$3}{#light_yellow}Display ({2})",
+    },
 
-    "separator",
+    {
+       "type":"title",
+       "format": "{#magenta}{$4}{$2}{$7}",
+    },
+
     {
       "type":"disk",
-      "key": "Disk",
+      "key": "{#magenta}{$3}{#light_yellow}Disk",
     },
-    "memory",
-    "swap",
+    {
+       "type": "memory",
+       "key": "{#magenta}{$3}{#light_yellow}Memory",
+    },
+    {
+       "type": "swap",
+       "key": "{#magenta}{$3}{#light_yellow}Swap",
+    },
 
-    "separator",
+    {
+       "type":"title",
+       "format": "{#magenta}{$6}{$2}{$9}",
+    },
+
     "colors"
     //"locale",
     //"break"
