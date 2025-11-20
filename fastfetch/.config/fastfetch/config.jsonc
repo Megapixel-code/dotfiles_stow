@@ -1,18 +1,21 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
-  
+
   "logo": {
-    "type": "auto",        // Logo type: auto, builtin, small, file, etc.
-    //"source": "debian",      // Built-in logo name or file path
+    "source": "~/.config/fastfetch/logos/nixos.txt",      // Built-in logo name or file path
+    "type": "file",        // Logo type: auto, builtin, small, file, etc.
+    "position": "left",
     "padding": {
-      "top": 1,          // Top padding
-      "bottom": 1,	 // Bottom padding
-      "left": 1,         // Left padding
-      "right": 2         // Right padding
+      "top": 2,          // Top padding
+      "bottom": 2,	 // Bottom padding
+      "left": 2,         // Left padding
+      "right": 3         // Right padding
     },
     "color": {             // Override logo colors
-      "1": "yellow",
-      "2": "magenta",
+      "1":"red",
+      "2":"green",
+      "3": "blue",
+      "4": "yellow",
     }
   },
 
@@ -50,7 +53,7 @@
     //"uptime",
     //"wmtheme",
     //"shell",
-    
+
     "separator",
     {
        "type": "host",
@@ -65,7 +68,7 @@
       "format": "{vendor} {name}"
     },
     "display",
-    
+
     "separator",
     {
       "type":"disk",
@@ -73,8 +76,9 @@
     },
     "memory",
     "swap",
-    
+
     "separator",
+    "colors"
     //"locale",
     //"break"
     //"theme",
@@ -84,6 +88,5 @@
     //"terminalfont",
     //"localip",
     //"poweradapter",
-    //"colors"
   ]
 }
