@@ -9,7 +9,7 @@ waybar > /dev/null 2>&1 &
 sunsetr > /dev/null 2>&1 &
 
 # deezer
-deezer-enhanced > /dev/null 2>&1 &
+# deezer-enhanced > /dev/null 2>&1 &
 
 # background
 
@@ -19,4 +19,9 @@ deezer-enhanced > /dev/null 2>&1 &
 # swaybg -o "HDMI-A-1" -i "$XDG_CONFIG_HOME/mango/backgrounds/metropolis_vertical.png" -m "fill" > /dev/null 2>&1 &
 
 # nixos
-swaybg -o "*" -i "$XDG_CONFIG_HOME/mango/backgrounds/nix-d-nord-purple.svg" -m "fill" > /dev/null 2>&1 &
+# swaybg -o "*" -i "$XDG_CONFIG_HOME/mango/backgrounds/nix-d-nord-purple.svg" -m "fill" > /dev/null 2>&1 &
+
+# metropolis :
+# swaybg -o "*" -i "$XDG_CONFIG_HOME/mango/backgrounds/pixel_art_city_horizontal.png" -m "fill" > /dev/null 2>&1 &
+swaybg -o "DP-1" -i "$XDG_CONFIG_HOME/mango/backgrounds/pixel_art_city_horizontal.png" -m "fill" > /dev/null 2>&1 &
+swaybg -o "HDMI-A-1" -i "$XDG_CONFIG_HOME/mango/backgrounds/pixel_art_city_vertical.png" -m "fill" > /dev/null 2>&1 &
