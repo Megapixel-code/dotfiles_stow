@@ -4,6 +4,12 @@
 return {
    {
       "mason-org/mason-lspconfig.nvim",
+      cond = function()
+         if os.getenv( "NIXOS_NVIM" ) == "1" then
+            return false
+         end
+         return true
+      end,
       opts = {
          ensure_installed = {
             "clangd",   -- c and cpp
@@ -16,13 +22,19 @@ return {
             "tinymist", -- typst
             "qmlls",    -- qml
             -- "nixd", -- nix
-            "nil_ls" -- nix also
+            "nil_ls",   -- nix also
          },
       },
    },
 
    {
       "WhoIsSethDaniel/mason-tool-installer.nvim",
+      cond = function()
+         if os.getenv( "NIXOS_NVIM" ) == "1" then
+            return false
+         end
+         return true
+      end,
       config = function()
          local ensure_installed = {}
 
@@ -51,32 +63,81 @@ return {
       "neovim/nvim-lspconfig",
       dependencies = {
          "saghen/blink.cmp",
-         "folke/lazydev.nvim",
-         opts = {
-            library = {
-               -- See the configuration section for more details
-               -- Load luvit types when the `vim.uv` word is found
-               { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-            },
-         },
       },
       config = function()
          -- capabilities for completion
          local capabilities = require( "blink.cmp" ).get_lsp_capabilities()
 
-         -- per language config, dont add jdtls here
-         vim.lsp.config( "lua_ls", { capabilities = capabilities } )
-         vim.lsp.config( "clangd", { capabilities = capabilities } )
-         vim.lsp.config( "bashls", {
-            capabilities = capabilities,
-            filetypes = { "bash", "sh", "zsh" },
-         } )
-         vim.lsp.config( "html", { capabilities = capabilities } )
-         vim.lsp.config( "tinymist", {
-            capabilities = capabilities,
-            settings = { formatterMode = "typstyle" },
-         } )
-         vim.lsp.config( "qmlls", { capabilities = capabilities } )
+         if os.getenv( "NIXOS_NVIM" ) == "1" then
+            -- [[ NIXOS CONFIG HERE ]]
+            M = {
+               {
+                  name = "lua_ls",
+                  args = {
+                     capabilities = capabilities,
+                  },
+               },
+               {
+                  name = "clangd",
+                  args = {
+                     capabilities = capabilities,
+                  },
+               },
+               {
+                  name = "bashls",
+                  args = {
+                     capabilities = capabilities,
+                     filetypes = { "bash", "sh", "zsh" },
+                  },
+               },
+               { -- TODO: cant find ?
+                  name = "html",
+                  args = {
+                     capabilities = capabilities,
+                  },
+               },
+               {
+                  name = "tinymist",
+                  args = {
+                     capabilities = capabilities,
+                     settings = { formatterMode = "typstyle" },
+                  },
+               },
+               {
+                  name = "nil_ls",
+                  args = {
+                     capabilities = capabilities,
+                  },
+               },
+               { -- TODO: cant find ?
+                  name = "qmlls",
+                  args = {
+                     capabilities = capabilities,
+                  },
+               },
+            }
+
+            --- @diagnostic disable-next-line: unused-local
+            for i, server in ipairs( M ) do
+               vim.lsp.config( server.name, server.args )
+               vim.lsp.enable( server.name )
+            end
+         else
+            -- [[ OTHER DISTROS CONFIG HERE ]]
+            -- per language config, dont add jdtls here
+            vim.lsp.config( "lua_ls", { capabilities = capabilities } )
+            vim.lsp.config( "clangd", { capabilities = capabilities } )
+            vim.lsp.config( "bashls", {
+               capabilities = capabilities,
+               filetypes = { "bash", "sh", "zsh" },
+            } )
+            vim.lsp.config( "html", { capabilities = capabilities } )
+            vim.lsp.config( "tinymist", {
+               capabilities = capabilities,
+               settings = { formatterMode = "typstyle" },
+            } )
+            vim.lsp.config( "qmlls", { capabilities = capabilities } )
+         end
       end,
    },
 }
