@@ -109,6 +109,12 @@ return {
                      capabilities = capabilities,
                   },
                },
+               {
+                  name = "nixd",
+                  args = {
+                     capabilities = capabilities,
+                  },
+               },
                { -- TODO: cant find ?
                   name = "qmlls",
                   args = {
