@@ -55,10 +55,10 @@ cbonsai() {
 }
 
 batdiff() {
-    git diff --name-only --relative --diff-filter=d -z | xargs -0 batcat --diff
+    git diff --name-only --relative --diff-filter=d -z | xargs -0 bat --diff
 }
 
-alias -g -- --help='--help 2>&1 | batcat --language=help --style=plain' # overide --help to use batcat
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain' # overide --help to use bat
 alias "git pr"="git pull --rebase"
 alias lt='tree -a'
 alias python=python3
