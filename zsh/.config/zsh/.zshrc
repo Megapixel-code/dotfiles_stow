@@ -79,24 +79,26 @@ vim_mode="[I]"
 function zvm_after_select_vi_mode() {
   case $ZVM_MODE in
     "$ZVM_MODE_NORMAL")
-      vim_mode="[N]"
+      vim_mode="%F{blue}[N]%f"
     ;;
     "$ZVM_MODE_INSERT")
-      vim_mode="[I]"
+      vim_mode="%F{green}[I]%f"
     ;;
     "$ZVM_MODE_VISUAL")
-      vim_mode="[V]"
+      vim_mode="%F{purple}[V]%f"
     ;;
     "$ZVM_MODE_VISUAL_LINE")
-      vim_mode="[V-L]"
+      vim_mode="%F{purple}[V-L]%f"
     ;;
     "$ZVM_MODE_REPLACE")
-      vim_mode="[R]"
+      vim_mode="%F{red}[R]%f"
     ;;
   esac
-}
+} # ${vim_mode}
 
-NEWLINE=$'\n'
-GIT=$'$GITSTATUS_PROMPT'
-PROMPT="${GIT}%n %~ ${vim_mode}${NEWLINE}λ "
+NEWLINE=$'\n' # ${NEWLINE}
+GIT=$'$GITSTATUS_PROMPT' # ${GIT}
+# PROMPT="${GIT}%n@%M %~ ${vim_mode}${NEWLINE}λ "
+PROMPT="⌌‐${GIT}%F{blue}%n%f@%F{magenta}%M%f %F{cyan}%~%f
+⌎ %F{red}λ%f "
 zle && zle reset-prompt
