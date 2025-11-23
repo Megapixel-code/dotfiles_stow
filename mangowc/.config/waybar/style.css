@@ -61,7 +61,7 @@ box.module {
    border-right-color: @color-purple-light;
 }
 
-#workspaces button.visible, #workspaces button.visible:hover {
+#workspaces button.active, #workspaces button.active:hover {
    padding-top: 2px;
    border: 2px solid;
    border-radius: 0px;
