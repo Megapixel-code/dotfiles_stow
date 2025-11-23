@@ -11,13 +11,6 @@ export CARGO_HOME="$XDG_CACHE_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
-###
-export EDITOR="nvim"
-export BROWSER="firefox"
-
-### other
-export MOZ_ENABLE_WAYLAND=1 # tells mozilla you are on wayland
-
 # apache tomcat config temp
 export CATALINA_HOME="$HOME/documents/web/school_jee_apache_tomcat"
 export JAVA_HOME="/usr/lib/jvm/default-java"
