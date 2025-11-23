@@ -58,6 +58,9 @@ batdiff() {
     git diff --name-only --relative --diff-filter=d -z | xargs -0 bat --diff
 }
 
+# colored man page, look https://github.com/sharkdp/bat?tab=readme-ov-file#man
+export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
+
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain' # overide --help to use bat
 alias "git pr"="git pull --rebase"
 alias lt='tree -a'
