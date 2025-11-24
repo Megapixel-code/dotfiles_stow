@@ -63,5 +63,5 @@ export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08
 
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain' # overide --help to use bat
 alias "git pr"="git pull --rebase"
-alias lt='tree -a'
+alias lt='tree -a --dirsfirst -I .git/'
 alias python=python3
