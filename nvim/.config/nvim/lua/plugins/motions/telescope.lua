@@ -7,9 +7,29 @@ return {
    },
    config = function()
       require( "telescope" ).setup( {
+         defaults = {
+            layout_strategy = "vertical",
+            layout_config = {
+               vertical = {
+                  prompt_position = "bottom",
+                  height = 0.9,
+                  width = 0.6,
+               },
+            },
+            prompt_prefix = "λ ",
+            selection_caret = " ",
+            borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+
+            file_ignore_patterns = {
+               ".git/",
+               "%.pdf",
+               "%.mp4",
+               "%.mkv",
+            },
+         },
+
          pickers = {
             find_files = {
-               theme = "dropdown",
                hidden = true,
             },
          },
@@ -19,7 +39,7 @@ return {
       require( "telescope" ).load_extension( "fzf" )
 
       vim.keymap.set( "n", "<leader>sf", require( "telescope.builtin" ).find_files, { desc = "Search Files" } )
-      vim.keymap.set( "n", "<leader>sh", require( "telescope.builtin" ).help_tags, { desc = "Search Help" } )
+      vim.keymap.set( "n", "<leader>sh", require( "telescope.builtin" ).help_tags,  { desc = "Search Help" } )
       vim.keymap.set( "n", "<leader>sn", function()
                          require( "telescope.builtin" ).find_files( {
                             cwd = vim.fn.stdpath( "config" ),
