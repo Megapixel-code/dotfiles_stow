@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# TODO: remove later, aleready declared in nix
+
 ### follow XDG base dir specification https://wiki.archlinux.org/title/XDG_Base_Directory
 # main
 export XDG_CONFIG_HOME="$HOME/.config"
