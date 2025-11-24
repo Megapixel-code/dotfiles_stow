@@ -99,6 +99,6 @@ function zvm_after_select_vi_mode() {
 NEWLINE=$'\n' # ${NEWLINE}
 GIT=$'$GITSTATUS_PROMPT' # ${GIT}
 # PROMPT="${GIT}%n@%M %~ ${vim_mode}${NEWLINE}λ "
-PROMPT="⌌‐${GIT}%F{blue}%n%f@%F{magenta}%M%f %F{cyan}%~%f
+PROMPT="⌌ ${GIT}%F{blue}%n%f@%F{magenta}%M%f %F{cyan}%~%f
 ⌎ %F{red}λ%f "
 zle && zle reset-prompt
