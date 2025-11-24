@@ -50,8 +50,9 @@ cbonsai() {
    leafs_light=$(("$leafs_dark" + 8))
    bark_light=$(("$bark_dark" + 8))
 
-   # execute cmd
-   command cbonsai -S --time=0.05 --wait=5 --base=2 --leaf="$" --color="$leafs_dark,$bark_dark,$leafs_light,$bark_dark" --multiplier=9 --life=45
+   # execute cmd  TODO: add back when cbonsai upadates
+   command cbonsai -S --time=0.05 --wait=5 --base=2 --leaf="$" --multiplier=9 --life=45
+   # command cbonsai -S --time=0.05 --wait=5 --base=2 --leaf="$" --color="$leafs_dark,$bark_dark,$leafs_light,$bark_light" --multiplier=9 --life=45
 }
 
 batdiff() {
