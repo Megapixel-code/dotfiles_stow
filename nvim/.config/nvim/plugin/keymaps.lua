@@ -49,3 +49,8 @@ vim.keymap.set(
    "<cmd>CccHighlighterDisable<CR><cmd>CccHighlighterEnable<CR>",
    { desc = "Refresh CCC plugin" }
 )
+
+-- [yazi]
+vim.keymap.set( "n", "<leader>yy", "<cmd>Yazi<cr>",        { desc = "open yazi at the current file" } )
+vim.keymap.set( "n", "<leader>yc", "<cmd>Yazi cwd<cr>",    { desc = "open Yazi in nvim Cwd" } )
+vim.keymap.set( "n", "<leader>ys", "<cmd>Yazi toggle<cr>", { desc = "Resume the last yazi session" } )
