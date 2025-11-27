@@ -71,52 +71,58 @@ return {
          if os.getenv( "NIXOS_NVIM" ) == "1" then
             -- [[ NIXOS CONFIG HERE ]]
             M = {
-               {
+               { -- Lua lsp
                   name = "lua_ls",
                   args = {
                      capabilities = capabilities,
                   },
                },
-               {
+               {                    -- Python lsp
+                  name = "pyrefly", -- FIXME: not working ?
+                  args = {
+                     capabilities = capabilities,
+                  },
+               },
+               { -- C, Cpp, ... lsp
                   name = "clangd",
                   args = {
                      capabilities = capabilities,
                   },
                },
-               {
+               { -- Bash, Zsh lsp
                   name = "bashls",
                   args = {
                      capabilities = capabilities,
                      filetypes = { "bash", "sh", "zsh" },
                   },
                },
-               { -- TODO: cant find ?
-                  name = "html",
+               {                 -- Html lsp
+                  name = "html", -- TODO: cant find ?
                   args = {
                      capabilities = capabilities,
                   },
                },
-               {
+               { -- Typst lsp
                   name = "tinymist",
                   args = {
                      capabilities = capabilities,
                      settings = { formatterMode = "typstyle" },
                   },
                },
-               {
+               { -- Nix lsp
                   name = "nil_ls",
                   args = {
                      capabilities = capabilities,
                   },
                },
-               {
+               { -- Nix lsp
                   name = "nixd",
                   args = {
                      capabilities = capabilities,
                   },
                },
-               { -- TODO: cant find ?
-                  name = "qmlls",
+               {                  -- QML lsp
+                  name = "qmlls", -- TODO: cant find ?
                   args = {
                      capabilities = capabilities,
                   },
