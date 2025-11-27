@@ -171,7 +171,7 @@ local function content()
       content = {
          { " Search File", "Telescope find_files", "<leader>sf" },
          { "󰍉 Search Grep", "Telescope live_grep", "<leader>sg" },
-         { " Open Terminal", "FloatingTerminal", "<leader>t" },
+         { "󰉋 Yazi Change CWD", "lua require('yazi').yazi({change_neovim_cwd_on_close = true})", "<leader>yc" },
          { " Search Themes", "Themery", "<leader>st" },
          { "󰋖 Search Help", "Telescope help_tags", "<leader>sh" },
       },
