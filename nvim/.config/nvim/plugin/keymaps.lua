@@ -1,6 +1,6 @@
 -- ~~~ [[ Basic Keymaps ]] ~~~
 
--- [Reload nvim config]
+-- [Reload file]
 vim.keymap.set( "n", "<leader>o", "<cmd>update<CR><cmd>source<CR>", { desc = "Rel[O]ad file" } )
 
 -- [Clear highlights]
@@ -13,6 +13,9 @@ vim.keymap.set( "n", "<M-k>", "<cmd>cprev<CR>" )
 -- [Diagnostic keymaps]
 vim.keymap.set( "n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" } )
 
+-- [lsp]
+vim.keymap.set( "n", "K", vim.lsp.buf.hover, { desc = "Hover Information" } )
+
 -- [Auto close brackets and stuff]
 vim.keymap.set( "i", "{", "{}<left>", { desc = "Autoclose brackets" } )
 vim.keymap.set( "i", "[", "[]<left>", { desc = "Autoclose square brackets" } )
@@ -20,9 +23,6 @@ vim.keymap.set( "i", "(", "()<left>", { desc = "Autoclose parenteses" } )
 vim.keymap.set( "i", "'", "''<left>", { desc = "Autoclose single quote" } )
 vim.keymap.set( "i", '"', '""<left>', { desc = "Autoclose double quote" } )
 vim.keymap.set( "i", "<", "<><left>", { desc = "Autoclose tag" } )
-
--- [lsp]
-vim.keymap.set( "n", "K", vim.lsp.buf.hover, { desc = "Hover Information" } )
 
 -- [terminal movement]
 vim.keymap.set( "t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" } )
