@@ -96,8 +96,8 @@ return {
                      filetypes = { "bash", "sh", "zsh" },
                   },
                },
-               {                 -- Html lsp
-                  name = "html", -- TODO: cant find ?
+               { -- Html lsp
+                  name = "superhtml",
                   args = {
                      capabilities = capabilities,
                   },
