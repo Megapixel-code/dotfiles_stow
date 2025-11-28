@@ -9,7 +9,7 @@ waybar > /dev/null 2>&1 &
 sunsetr > /dev/null 2>&1 &
 
 # deezer
-deezer-enhanced > /dev/null 2>&1 &
+# deezer-enhanced > /dev/null 2>&1 &
 
 # background
 
