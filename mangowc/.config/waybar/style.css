@@ -1,40 +1,45 @@
-@define-color color-purple-light #CDB4DB;
-@define-color color-purple #9764B4;
-@define-color color-purple-dark #56336B;
-@define-color color-pink-light #FFC8DD;
-@define-color color-pink-dark #FFAFCC;
-@define-color color-blue-light #BDE0FE;
-@define-color color-blue-dark #A2D2FF;
+@define-color color-alpha #1B1B3A;
+@define-color color-beta #693668;
+@define-color color-gamma #A74482;
+@define-color color-delta #F84AA7;
+@define-color color-epsilon #FF3562;
+
+@define-color primary #693668;
+@define-color primary-light #A74482;
+@define-color primary-dark #1B1B3A;
 
 * {
-    font-family: W95FA;
-    font-size: 14px;
+   font-family: W95FA;
+   font-size: 14px;
+   color: @primary-dark;
 
-    padding: 0;
-    margin: 0;
-    min-height: 0;
+   padding: 0;
+   margin: 0;
+   min-height: 0;
 }
 
 window#waybar {
-    background-color: @color-purple;
-    border-top: 2px solid @color-purple-light;
+   background-color: @primary;
+   border-top: 2px solid @primary-light;
 }
 
 label.module:first-child {
    margin-left: 2px;
 }
+
 label.module:last-child {
    margin-right: 2px;
 }
 
-box.module {
-}
+box.module {}
+
 /* center module */
 .modules-center .module {}
 
 /* all modules exept workspaces */
-.modules-center .module, .modules-right .module{
-   background-color: @color-purple;
+.modules-center .module,
+.modules-right .module {
+   background-color: @primary;
    margin-top: 4px;
    margin-bottom: 4px;
 
@@ -44,35 +49,38 @@ box.module {
    padding-top: 2px;
 
    border: 2px solid;
-   border-top-color: @color-purple-dark;
-   border-left-color: @color-purple-dark;
-   border-bottom-color: @color-purple-light;
-   border-right-color: @color-purple-light;
+   border-top-color: @primary-dark;
+   border-left-color: @primary-dark;
+   border-bottom-color: @primary-light;
+   border-right-color: @primary-light;
 }
 
-.modules-left{
-   background-color: @color-purple;
+.modules-left {
+   background-color: @primary;
    margin: 4px;
 
    border: 2px solid;
-   border-top-color: @color-purple-dark;
-   border-left-color: @color-purple-dark;
-   border-bottom-color: @color-purple-light;
-   border-right-color: @color-purple-light;
+   border-top-color: @primary-dark;
+   border-left-color: @primary-dark;
+   border-bottom-color: @primary-light;
+   border-right-color: @primary-light;
 }
 
-#workspaces button.active, #workspaces button.active:hover {
+#workspaces button.active,
+#workspaces button.active:hover {
    padding-top: 2px;
    border: 2px solid;
    border-radius: 0px;
-   border-top-color: @color-purple-light;
-   border-left-color: @color-purple-light;
-   border-bottom-color: @color-purple-dark;
-   border-right-color: @color-purple-dark;
+   border-top-color: @primary-light;
+   border-left-color: @primary-light;
+   border-bottom-color: @primary-dark;
+   border-right-color: @primary-dark;
 }
-#workspaces button, #workspaces button:hover {
+
+#workspaces button,
+#workspaces button:hover {
    padding-top: 2px;
-   background-color: @color-purple;
+   background-color: @primary;
    box-shadow: none;
    text-shadow: none;
    background: none;
@@ -83,6 +91,7 @@ box.module {
    border-color: transparent;
 }
 
+/*
 #mode,
 #clock,
 #battery,
@@ -137,3 +146,4 @@ box.module {
 #keyboard-state > label.locked,
 #scratchpad,
 #scratchpad.empty{}
+*/

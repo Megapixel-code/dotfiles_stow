@@ -1,21 +1,22 @@
 #!/bin/sh
-color_purple_light="CDB4DB" #CDB4DB
-color_purple="9764B4AA" #9764B4
-color_purple_dark="56336B" #56336B
-color_pink_light="FFC8DD" #FFC8DD
-color_pink_dark="FFAFCC" #FFAFCC
-color_blue_light="BDE0FE" #BDE0FE
-color_blue_dark="A2D2FF" #A2D2FF
+#1B1B3A
+#693668
+#A74482
+#F84AA7
+#FF3562
+
+color_light="CF4794" #CF4794
+color_dark="1B1B3A" #1B1B3A
 
 # https://gitlab.com/mildlyparallel/pscircle
 pscircle \
-   --background-color="$color_pink_dark" \
-	--link-color-min="$color_purple" \
-	--link-color-max="$color_purple" \
-	--dot-color-min="$color_purple" \
-	--dot-color-max="$color_purple" \
-	--dot-border-color-min="$color_purple" \
-	--dot-border-color-max="$color_purple" \
+   --background-color="$color_light" \
+	--link-color-min="$color_dark" \
+	--link-color-max="$color_dark" \
+	--dot-color-min="$color_dark" \
+	--dot-color-max="$color_dark" \
+	--dot-border-color-min="$color_dark" \
+	--dot-border-color-max="$color_dark" \
 	--tree-font-color=000000CC \
 \
 	--tree-font-size=12 \
