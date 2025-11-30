@@ -96,6 +96,12 @@ return {
                      filetypes = { "bash", "sh", "zsh" },
                   },
                },
+               { -- CSS lsp
+                  name = "cssls",
+                  args = {
+                     capabilities = capabilities,
+                  },
+               },
                { -- Html lsp
                   name = "superhtml",
                   args = {
