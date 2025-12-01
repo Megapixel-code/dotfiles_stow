@@ -96,6 +96,12 @@ return {
                      filetypes = { "bash", "sh", "zsh" },
                   },
                },
+               { -- Json, Jsonc lsp
+                  name = "jsonls",
+                  args = {
+                     capabilities = capabilities,
+                  },
+               },
                { -- CSS lsp
                   name = "cssls",
                   args = {
