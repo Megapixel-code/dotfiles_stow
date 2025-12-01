@@ -5,6 +5,9 @@
 # obs
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots > /dev/null 2>&1
 
+# notify
+swaync > /dev/null 2>&1 &
+
 # bar
 waybar > /dev/null 2>&1 &
 
