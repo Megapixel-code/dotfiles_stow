@@ -5,21 +5,27 @@
 #F84AA7
 #FF3562
 
-color_light="CF4794" #CF4794
-color_dark="1B1B3A" #1B1B3A
-color_mid="693668" #693668
+#000000
+#C0C0C0
+#F9F9FA
+#008080
+
+color_background="008080" #008080
+color_text="000000" #000000
+color_dots="00000088" #00000077
+color_links="00000077" #00000077
 
 
 # https://gitlab.com/mildlyparallel/pscircle
 pscircle \
-   --background-color="$color_light" \
-	--link-color-min="$color_mid" \
-	--link-color-max="$color_mid" \
-	--dot-color-min="$color_dark" \
-	--dot-color-max="$color_dark" \
-	--dot-border-color-min="$color_dark" \
-	--dot-border-color-max="$color_mid" \
-	--tree-font-color="$color_dark" \
+   --background-color="$color_background" \
+	--link-color-min="$color_links" \
+	--link-color-max="$color_links" \
+	--dot-color-min="$color_dots" \
+	--dot-color-max="$color_dots" \
+	--dot-border-color-min="$color_dots" \
+	--dot-border-color-max="$color_dots" \
+	--tree-font-color="$color_text" \
 \
 	--tree-font-size=12 \
 	--tree-font-face="BlexMono Nerd Font Mono" \

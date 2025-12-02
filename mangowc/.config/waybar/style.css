@@ -4,9 +4,9 @@
 @define-color color-delta #F84AA7;
 @define-color color-epsilon #FF3562;
 
-@define-color primary #693668;
-@define-color primary-light #A74482;
-@define-color primary-dark #1B1B3A;
+@define-color primary #C0C0C0;
+@define-color primary-light #F9F9F9;
+@define-color primary-dark #000000;
 
 * {
    font-family: W95FA;
