@@ -12,8 +12,8 @@
 
 color_background="008080" #008080
 color_text="000000" #000000
-color_dots="00000088" #00000077
-color_links="00000077" #00000077
+color_dots="00000066" #00000066
+color_links="00000066" #00000066
 
 
 # https://gitlab.com/mildlyparallel/pscircle
