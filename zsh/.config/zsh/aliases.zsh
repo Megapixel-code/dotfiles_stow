@@ -66,5 +66,5 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain' # overide -
 alias "git pr"="git pull --rebase"
 alias lt='tree -a --dirsfirst -I .git/'
 alias python=python3
-alias tmux="$XDG_CONFIG_HOME/scripts/tmux-session-dispensary.sh $HOME > /dev/null 2>&1 ; tmux attach"
-alias nrs=sudo nixos-rebuild switch
+alias tmux="tmux attach"
+alias nrs="sudo nixos-rebuild switch"

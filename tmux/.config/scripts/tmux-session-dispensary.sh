@@ -2,7 +2,7 @@
 # https://github.com/SylvanFranklin/.config/blob/main/scripts/tmux-session-dispensary.sh
 
 DIRS=(
-   "$HOME"
+   "$HOME/"
    "$HOME/documents/"
    "$HOME/documents/projects/"
 )

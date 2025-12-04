@@ -23,3 +23,7 @@ swww-daemon > /dev/null 2>&1 &
 
 # pscircle
 "$XDG_CONFIG_HOME/mango/scripts/pscircle_bg.sh" > /dev/null 2>&1 &
+
+# start tmux
+"$XDG_CONFIG_HOME"/scripts/tmux-session-dispensary.sh "$HOME" > /dev/null 2>&1 &
+
