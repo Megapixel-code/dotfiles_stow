@@ -1,5 +1,0 @@
-#include "version.hpp"
-
-const char GIT_VERSION[] = "@GIT_VERSION@";
-const char BUILD_TYPE[] = "@BUILD_TYPE@";
-const char BUILD_DATE[] = "@BUILD_DATE@";
