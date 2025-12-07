@@ -1,4 +1,15 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+cmd_output=$(wlr-randr | grep "eDP-1")
+
+if [[ $cmd_output == "" ]]; then
+   # "main computer"
+   output="DP-1"
+else
+   # "school computer"
+   output="eDP-1"
+fi
+
 #1B1B3A
 #693668
 #A74482
@@ -49,7 +60,7 @@ pscircle \
 swww img -o "HDMI-A-1" "$XDG_CONFIG_HOME/mango/backgrounds/nix_horizontal.png"
 
 while inotifywait -e close_write "$XDG_CONFIG_HOME/mango/backgrounds/pscircle_out.png"; do
-   swww img -o "DP-1" "$XDG_CONFIG_HOME/mango/backgrounds/pscircle_out.png" --transition-type "grow" --transition-pos "center"
+   swww img -o "$output" "$XDG_CONFIG_HOME/mango/backgrounds/pscircle_out.png" --transition-type "grow" --transition-pos "center"
 done
 
 
