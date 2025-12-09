@@ -32,7 +32,7 @@ vim.o.linebreak = true     -- wrap by word instead of letter
 vim.o.breakindent = true   -- wrapped lines will be indented
 
 -- [[ utilities ]]
-vim.o.mouse = "a"              -- enable mouse mode
+vim.o.mouse = ""               -- enable mouse mode
 vim.o.undofile = true          -- save undo history
 vim.o.confirm = true           -- ask confirmation when you quit while unsaved
 vim.o.ignorecase = true        -- case-insensitive searching
