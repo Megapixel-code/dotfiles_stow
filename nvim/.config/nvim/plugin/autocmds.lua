@@ -1,24 +1,24 @@
 -- ~~~ [[ Autocommands ]] ~~~
 
 -- [[ highlight when yanking text ]]
-vim.api.nvim_create_autocmd( "TextYankPost", {
+vim.api.nvim_create_autocmd("TextYankPost", {
    desc = "Highlight when yanking text",
-   group = vim.api.nvim_create_augroup( "kickstart-highlight-yank", { clear = true } ),
+   group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
    callback = function()
       vim.hl.on_yank()
    end,
-} )
+})
 
 -- [[ Auto-format ("lint") on save ]]
-vim.api.nvim_create_autocmd( "LspAttach", {
-   group = vim.api.nvim_create_augroup( "my.lsp", {} ),
+vim.api.nvim_create_autocmd("LspAttach", {
+   group = vim.api.nvim_create_augroup("my.lsp", {}),
 
-   callback = function( args )
-      local client = assert( vim.lsp.get_client_by_id( args.data.client_id ) )
+   callback = function(args)
+      local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
-      if client:supports_method( "textDocument/formatting" ) then
-         vim.api.nvim_create_autocmd( "BufWritePre", {
-            group = vim.api.nvim_create_augroup( "my.lsp", { clear = false } ),
+      if client:supports_method("textDocument/formatting") then
+         vim.api.nvim_create_autocmd("BufWritePre", {
+            group = vim.api.nvim_create_augroup("my.lsp", { clear = false }),
             buffer = args.buf,
             callback = function()
                -- vim.lsp.buf.format({
@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd( "LspAttach", {
                --    },
                -- })
 
-               require( "conform" ).format( {
+               require("conform").format({
                   bufnr = args.buf,
                   id = client.id,
                   timeout_ms = 1000,
@@ -38,49 +38,49 @@ vim.api.nvim_create_autocmd( "LspAttach", {
                   formatting_options = {
                      tabSize = 3,
                   },
-               } )
+               })
             end,
-         } )
+         })
       end
    end,
-} )
+})
 
 -- [[ options when opening a terminal ]]
-vim.api.nvim_create_autocmd( "TermOpen", {
-   group = vim.api.nvim_create_augroup( "term-open", { clear = true } ),
+vim.api.nvim_create_autocmd("TermOpen", {
+   group = vim.api.nvim_create_augroup("term-open", { clear = true }),
    callback = function()
       vim.opt.number = false
       vim.opt.relativenumber = false
    end,
-} )
+})
 
 -- [[ restore cursor position when opening file ]]
-vim.api.nvim_create_autocmd( "BufReadPost", {
-   callback = function( args )
-      local mark = vim.api.nvim_buf_get_mark( args.buf, '"' ) -- last position when exited the buffer
-      local line_count = vim.api.nvim_buf_line_count( args.buf )
+vim.api.nvim_create_autocmd("BufReadPost", {
+   callback = function(args)
+      local mark = vim.api.nvim_buf_get_mark(args.buf, '"')   -- last position when exited the buffer
+      local line_count = vim.api.nvim_buf_line_count(args.buf)
       if mark[1] > 0 and mark[1] <= line_count then
-         vim.api.nvim_win_set_cursor( 0, mark )
+         vim.api.nvim_win_set_cursor(0, mark)
          -- defer centering so its applyed after render
-         vim.schedule( function()
-            vim.cmd( "normal! zz" )
-         end )
+         vim.schedule(function()
+            vim.cmd("normal! zz")
+         end)
       end
    end,
-} )
+})
 
 -- [[ resize splits when window size changes ]]
-vim.api.nvim_create_autocmd( "VimResized", {
+vim.api.nvim_create_autocmd("VimResized", {
    command = "wincmd =",
-} )
+})
 
 -- [[ syntax highlighting on env files ]]
-vim.api.nvim_create_autocmd( "BufRead", {
+vim.api.nvim_create_autocmd("BufRead", {
    pattern = { ".env", ".env.*" },
    callback = function()
       vim.bo.filetype = "dosini"
    end,
-} )
+})
 
 -- [[ automatically change terminal theme on quit ]]
 local function autoscheme()
@@ -88,15 +88,15 @@ local function autoscheme()
       return
    end
 
-   vim.cmd( "e $HOME/.config/kitty/current-theme.conf" )
-   vim.api.nvim_win_set_cursor( 0, { 1, 0 } )
-   vim.cmd( ".,$d" )
+   vim.cmd("e $HOME/.config/kitty/current-theme.conf")
+   vim.api.nvim_win_set_cursor(0, { 1, 0 })
+   vim.cmd(".,$d")
 
    -- https://stackoverflow.com/questions/27870682/how-to-get-the-background-color-in-vim
-   local bg = vim.api.nvim_exec2( 'echo synIDattr(hlID("Normal"), "bg")', { output = true } ).output
-   local fg = vim.api.nvim_exec2( 'echo synIDattr(hlID("Normal"), "fg")', { output = true } ).output
+   local bg = vim.api.nvim_exec2('echo synIDattr(hlID("Normal"), "bg")', { output = true }).output
+   local fg = vim.api.nvim_exec2('echo synIDattr(hlID("Normal"), "fg")', { output = true }).output
 
-   vim.api.nvim_buf_set_lines( 0, 0, 25, false, {
+   vim.api.nvim_buf_set_lines(0, 0, 25, false, {
       "background " .. bg,
       "foreground " .. fg,
       "selection_background " .. fg,
@@ -118,19 +118,28 @@ local function autoscheme()
       "color13 " .. vim.g.terminal_color_13,
       "color14 " .. vim.g.terminal_color_14,
       "color15 " .. vim.g.terminal_color_15,
-   } )
-   vim.cmd( "w | noh | bd" )
+   })
+   vim.cmd("w | noh | bd")
 
-   vim.cmd( "term kill -SIGUSR1 $(pidof kitty)" ) -- reload terminal
+   vim.cmd("term kill -SIGUSR1 $(pidof kitty)")   -- reload terminal
 end
 
-vim.api.nvim_create_autocmd( "VimLeavePre", {
+vim.api.nvim_create_autocmd("VimLeavePre", {
    desc = "Set terminal theme when nvim quit",
    callback = autoscheme,
-} )
+})
 
---[[ document-higligting
-autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
-autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
-autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
---]]
+-- [[ document-higligting ]]
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+   group = vim.api.nvim_create_augroup("hover-highlight", { clear = false }),
+   callback = function()
+      vim.lsp.buf.document_highlight()
+   end,
+})
+
+vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI"  }, {
+   group = vim.api.nvim_create_augroup("hover-highlight", { clear = false }),
+   callback = function()
+      vim.lsp.buf.clear_references()
+   end,
+})
