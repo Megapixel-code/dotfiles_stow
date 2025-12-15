@@ -8,25 +8,33 @@ return {
       require("themery").setup({
          livePreview = true,
          themes = {
+            --
+            --
             --[[ dark themes : ]]
             {
                colorscheme = "github_dark_default",
                name = "github",
             },
             {
-               colorscheme = "lackluster",
-               name = "lackluster",
+               colorscheme = "vscode",
+               name = "vscode",
             },
             {
-               colorscheme = "moonfly",
-               name = "moonfly",
+               colorscheme = "lackluster",
+               name = "lackluster",
             },
             {
                colorscheme = "vague",
                name = "vague",
             },
-
-            --[[ medium themes : ]]
+            {
+               colorscheme = "kanso-ink",
+               name = "kanso-ink",
+            },
+            {
+               colorscheme = "kanso-mist",
+               name = "kanso-mist",
+            },
             {
                colorscheme = "kanagawa-dragon",
                name = "kanagawa-dragon",
@@ -36,31 +44,20 @@ return {
                name = "kanagawa-paper-ink",
             },
             {
+               colorscheme = "tokyobones",
+               name = "tokyobones",
+            },
+            {
+               colorscheme = "rosebones",
+               name = "rosebones",
+            },
+            {
+               colorscheme = "neobones",
+               name = "neobones",
+            },
+            {
                colorscheme = "evergarden-winter",
                name = "evergarden",
-            },
-
-            --[[ original themes : ]]
-            {
-               colorscheme = "sonokai",
-               name = "sonokai_espresso",
-               before = [[
-                  vim.g.sonokai_style = 'espresso'
-               ]],
-            },
-            {
-               colorscheme = "fluoromachine",
-               name = "fluoromachine",
-            },
-
-            --[[ light themes : ]]
-            {
-               colorscheme = "gruvbox-material",
-               name = "gruvbox_light",
-               before = [[
-                  vim.g.gruvbox_material_background = 'soft'
-                  vim.cmd('set background=light')
-               ]],
             },
          },
       })
