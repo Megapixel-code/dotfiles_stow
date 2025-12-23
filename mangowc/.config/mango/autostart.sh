@@ -5,6 +5,9 @@
 # obs
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots > /dev/null 2>&1
 
+# termfilechooser temporary solution
+~/.config/xdg-desktop-portal-termfilechooser/startup.sh > /dev/null 2>&1 &
+
 # notify
 swaync > /dev/null 2>&1 &
 
@@ -26,4 +29,3 @@ swww-daemon > /dev/null 2>&1 &
 
 # start tmux
 "$XDG_CONFIG_HOME"/scripts/tmux-session-dispensary.sh "$HOME" > /dev/null 2>&1 &
-
