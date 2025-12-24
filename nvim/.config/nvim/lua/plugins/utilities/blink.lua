@@ -1,6 +1,5 @@
 return {
    "saghen/blink.cmp",
-   dependencies = { "rafamadriz/friendly-snippets" },
    version = "1.*",
 
    --- @module 'blink.cmp'
@@ -17,6 +16,10 @@ return {
       },
 
       completion = { documentation = { auto_show = false } },
+
+      snippets = {
+         preset = "luasnip"
+      },
 
       sources = {
          default = { "lsp", "path", "snippets", "buffer" },
