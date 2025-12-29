@@ -92,6 +92,7 @@ local function docs_snip(args)
    insert = insert + 1
 
    t({ "", " * " })
+   t({ "", " * " })
 
    for indx, arg in ipairs(vim.split(args[2][1], ", ")) do
       local arg_type = vim.split(arg, " ")[1]
