@@ -18,9 +18,16 @@ return {
       completion = { -- box appearing when you start typing
          documentation = { auto_show = false },
          menu = {
-            border = "none",       -- same as :h winborder
+            border = "single",    -- same as :h winborder
             draw = {
-               padding = { 1, 1 }, -- padding on both sides
+               align_to = "none", -- if set to cursor, follows the cursor when writing
+               -- columns = {},
+               -- components = {},
+               -- cursorline_priority = {},
+               gap = 1,            -- gap between the icon and the text
+               padding = { 1, 1 }, -- padding on each side
+               snippet_indicator = " ",
+               -- treesitter = {},
             }
          },
       },

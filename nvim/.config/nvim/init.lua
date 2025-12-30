@@ -19,6 +19,7 @@ vim.o.showmode = false      -- show mode in the last line, disabled because we h
 vim.o.signcolumn = "yes"    -- keep signcolumn on by default
 vim.g.have_nerd_font = true -- true if you have a Nerd Font installed and selected in the terminal
 vim.o.termguicolors = true  -- enable true color support
+vim.o.winborder = "single"  -- default win border type
 
 -- [[ formatting ]]
 -- vim.g.python_recommended_style = 0
