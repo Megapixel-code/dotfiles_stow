@@ -15,7 +15,19 @@ return {
          nerd_font_variant = "mono",
       },
 
-      completion = { documentation = { auto_show = false } },
+      completion = { -- box appearing when you start typing
+         documentation = { auto_show = false },
+         menu = {
+            border = "none",       -- same as :h winborder
+            draw = {
+               padding = { 1, 1 }, -- padding on both sides
+            }
+         },
+      },
+      signature = { -- box with documentation when filling function variables
+         enabled = true,
+         window = { border = 'single' },
+      },
 
       snippets = {
          preset = "luasnip"
@@ -26,8 +38,6 @@ return {
       },
 
       fuzzy = { implementation = "prefer_rust_with_warning" },
-
-      signature = { enabled = true },
    },
    opts_extend = { "sources.default" },
 }
