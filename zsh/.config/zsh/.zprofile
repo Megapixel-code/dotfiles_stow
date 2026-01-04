@@ -1,21 +1,10 @@
 #!/bin/sh
 
-# TODO: remove later, aleready declared in nix
+# Use XDG dirs for completion and history files
 
-### follow XDG base dir specification https://wiki.archlinux.org/title/XDG_Base_Directory
-# main
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
-# partialy suported
-export CARGO_HOME="$XDG_CACHE_HOME/cargo"
-export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+[ -d "$XDG_STATE_HOME"/zsh ] || mkdir -p "$XDG_STATE_HOME"/zsh
+HISTFILE="$XDG_STATE_HOME"/zsh/history
 
-# apache tomcat config temp
-export CATALINA_HOME="$HOME/documents/web/school_jee_apache_tomcat"
-export JAVA_HOME="/usr/lib/jvm/default-java"
-PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
-export PATH
-export JRE_HOME
+[ -d "$XDG_CACHE_HOME"/zsh ] || mkdir -p "$XDG_CACHE_HOME"/zsh
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
