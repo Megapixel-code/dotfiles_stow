@@ -32,33 +32,51 @@ return {
                name = "kanso-ink",
             },
             {
-               colorscheme = "kanso-mist",
-               name = "kanso-mist",
-            },
-            {
-               colorscheme = "kanagawa-dragon",
-               name = "kanagawa-dragon",
-            },
-            {
                colorscheme = "kanagawa-paper-ink",
                name = "kanagawa-paper-ink",
-            },
-            {
-               colorscheme = "tokyobones",
-               name = "tokyobones",
             },
             {
                colorscheme = "rosebones",
                name = "rosebones",
             },
             {
+               colorscheme = "tokyobones",
+               name = "tokyobones",
+            },
+            {
                colorscheme = "neobones",
                name = "neobones",
             },
+
+            -- BEGIN TEMP
+
             {
-               colorscheme = "evergarden-winter",
-               name = "evergarden",
+               colorscheme = "base16-ashes",
+               name = "base16-ashes",
             },
+            {
+               colorscheme = "base16-horizon-dark",
+               name = "base16-horizon-dark",
+            },
+            {
+               colorscheme = "base16-kanagawa-dragon",
+               name = "base16-kanagawa-dragon",
+            },
+            {
+               colorscheme = "base16-vulcan",
+               name = "base16-vulcan",
+            },
+            {
+               colorscheme = "base16-tarot",
+               name = "base16-tarot",
+            },
+            {
+               colorscheme = "base16-darkviolet",
+               name = "base16-darkviolet",
+            },
+
+            -- END TEMP
+
          },
       })
    end,
