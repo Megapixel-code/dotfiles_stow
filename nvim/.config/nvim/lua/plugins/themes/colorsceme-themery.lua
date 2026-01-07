@@ -47,9 +47,6 @@ return {
                colorscheme = "neobones",
                name = "neobones",
             },
-
-            -- BEGIN TEMP
-
             {
                colorscheme = "base16-ashes",
                name = "base16-ashes",
@@ -74,9 +71,6 @@ return {
                colorscheme = "base16-darkviolet",
                name = "base16-darkviolet",
             },
-
-            -- END TEMP
-
          },
       })
    end,
