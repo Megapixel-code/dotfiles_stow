@@ -42,7 +42,7 @@ zmodload zsh/complist
 
 
 ### history
-HISTFILE="$XDG_CACHE_HOME/.zsh_history"
+HISTFILE="$XDG_STATE_HOME"/zsh/history
 HISTSIZE=100000
 SAVEHIST=100000
 HISTCONTROL=ignoreboth # consecutive duplicates & commands starting with space are not saved
