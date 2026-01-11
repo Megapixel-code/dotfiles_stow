@@ -57,7 +57,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 -- [[ restore cursor position when opening file ]]
 vim.api.nvim_create_autocmd("BufReadPost", {
    callback = function(args)
-      local mark = vim.api.nvim_buf_get_mark(args.buf, '"')   -- last position when exited the buffer
+      local mark = vim.api.nvim_buf_get_mark(args.buf, '"') -- last position when exited the buffer
       local line_count = vim.api.nvim_buf_line_count(args.buf)
       if mark[1] > 0 and mark[1] <= line_count then
          vim.api.nvim_win_set_cursor(0, mark)
@@ -121,7 +121,7 @@ local function autoscheme()
    })
    vim.cmd("w | noh | bd")
 
-   vim.cmd("term kill -SIGUSR1 $(pidof kitty)")   -- reload terminal
+   vim.cmd("term kill -SIGUSR1 $(pidof kitty)") -- reload terminal
 end
 
 vim.api.nvim_create_autocmd("VimLeavePre", {
@@ -130,16 +130,28 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
 })
 
 -- [[ document-higligting ]]
+local no_highlight_table = { "json" }
+
 vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
    group = vim.api.nvim_create_augroup("hover-highlight", { clear = false }),
    callback = function()
+      for _, v in pairs(no_highlight_table) do
+         if vim.bo.filetype == v then
+            return
+         end
+      end
       vim.lsp.buf.document_highlight()
    end,
 })
 
-vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI"  }, {
+vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
    group = vim.api.nvim_create_augroup("hover-highlight", { clear = false }),
    callback = function()
+      for _, v in pairs(no_highlight_table) do
+         if vim.bo.filetype == v then
+            return
+         end
+      end
       vim.lsp.buf.clear_references()
    end,
 })
