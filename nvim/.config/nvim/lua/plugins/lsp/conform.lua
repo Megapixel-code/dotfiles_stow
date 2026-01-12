@@ -9,6 +9,7 @@ return {
 
          typst = { "typstyle" }, -- typst
          nix = { "nixfmt" },     -- nix
+         make = { "bake" },      -- makefiles FIX: not working
       },
 
       notify_on_error = true,
