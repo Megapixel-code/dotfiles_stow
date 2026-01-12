@@ -88,36 +88,27 @@ local function docs_snip(args)
    local nodes = {
       t("/**"),
       t({ "", " * " }), i(1, "A short description"),
+      t({ "", " *" })
    }
    insert = insert + 1
 
-   t({ "", " * " })
-   t({ "", " * " })
-
    for indx, arg in ipairs(vim.split(args[2][1], ", ")) do
-      local arg_type = vim.split(arg, " ")[1]
-      local arg_name = vim.split(arg, " ")[2]
-
-      if arg_type then
-         vim.list_extend(
-            nodes,
-            { t({ "", " * @param " .. arg_type }) }
-         )
-      end
-      if arg_name then
-         vim.list_extend(
-            nodes,
-            { t(" " .. arg_name .. " "), i(insert, "desc") }
-         )
-         insert = insert + 1
-      end
+      vim.list_extend(
+         nodes,
+         { t({ "", " * @param " .. arg }) }
+      )
+      vim.list_extend(
+         nodes,
+         { t(", "), i(insert, "desc") }
+      )
+      insert = insert + 1
    end
 
    -- return
    if args[1][1] ~= "void" then
       vim.list_extend(
          nodes,
-         { t({ "", " *" }), t({ " ", " * @return " }), i(insert) }
+         { t({ "", " *" }), t({ "", " * @return " }), i(insert) }
       )
       insert = insert + 1
    end
