@@ -108,7 +108,7 @@ local function docs_snip(args)
    if args[1][1] ~= "void" then
       vim.list_extend(
          nodes,
-         { t({ "", " *" }), t({ "", " * @return " }), i(insert) }
+         { t({ "", " *" }), t({ "", " * @return " .. args[1][1] .. ", " }), i(insert) }
       )
       insert = insert + 1
    end
