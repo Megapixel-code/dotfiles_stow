@@ -28,16 +28,16 @@ return {
                padding = { 1, 1 }, -- padding on each side
                snippet_indicator = " ",
                -- treesitter = {},
-            }
+            },
          },
       },
       signature = { -- box with documentation when filling function variables
          enabled = true,
-         window = { border = 'single' },
+         window = { border = "single" },
       },
 
       snippets = {
-         preset = "luasnip"
+         preset = "luasnip",
       },
 
       sources = {

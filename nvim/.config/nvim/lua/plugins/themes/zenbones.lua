@@ -7,5 +7,5 @@ return {
 
    config = function()
       vim.g.zenbones_compat = 1
-   end
+   end,
 }

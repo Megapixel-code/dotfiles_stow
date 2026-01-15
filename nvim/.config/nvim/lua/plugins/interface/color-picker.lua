@@ -16,9 +16,9 @@ return {
             ccc.output.css_hsl,
          },
          convert = {
-            { ccc.picker.hex,    ccc.output.css_rgb },
-            { ccc.picker.css_rgb,ccc.output.css_hsl },
-            { ccc.picker.css_hsl,ccc.output.hex },
+            { ccc.picker.hex,     ccc.output.css_rgb },
+            { ccc.picker.css_rgb, ccc.output.css_hsl },
+            { ccc.picker.css_hsl, ccc.output.hex },
          },
          pickers = {
             ccc.picker.hex,

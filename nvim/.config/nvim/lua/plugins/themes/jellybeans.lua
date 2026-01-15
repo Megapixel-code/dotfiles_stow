@@ -1,3 +1,3 @@
 return {
-	"metalelf0/jellybeans-nvim",
+   "metalelf0/jellybeans-nvim",
 }

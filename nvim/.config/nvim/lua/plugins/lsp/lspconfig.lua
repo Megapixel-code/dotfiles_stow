@@ -5,7 +5,7 @@ return {
    {
       "mason-org/mason-lspconfig.nvim",
       cond = function()
-         if os.getenv("NIXOS_NVIM") == "1" then
+         if os.getenv( "NIXOS_NVIM" ) == "1" then
             return false
          end
          return true
@@ -30,7 +30,7 @@ return {
    {
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       cond = function()
-         if os.getenv("NIXOS_NVIM") == "1" then
+         if os.getenv( "NIXOS_NVIM" ) == "1" then
             return false
          end
          return true
@@ -39,23 +39,23 @@ return {
          local ensure_installed = {}
 
          -- DAP
-         vim.list_extend(ensure_installed, {
+         vim.list_extend( ensure_installed, {
             "java-debug-adapter",
             "java-test",
-         })
+         } )
 
          -- Formatters
-         vim.list_extend(ensure_installed, {
+         vim.list_extend( ensure_installed, {
             "shfmt",              -- bash
 
             "emmylua-codeformat", -- lua
 
             "prettierd",          -- angular, css, flow, graphql, html, json, jsx, javascript, less, markdown, scss, typescript, vue, yaml
-         })
+         } )
 
-         require("mason-tool-installer").setup({
+         require( "mason-tool-installer" ).setup( {
             ensure_installed = ensure_installed,
-         })
+         } )
       end,
    },
 
@@ -66,9 +66,9 @@ return {
       },
       config = function()
          -- capabilities for completion
-         local capabilities = require("blink.cmp").get_lsp_capabilities()
+         local capabilities = require( "blink.cmp" ).get_lsp_capabilities()
 
-         if os.getenv("NIXOS_NVIM") == "1" then
+         if os.getenv( "NIXOS_NVIM" ) == "1" then
             -- [[ NIXOS CONFIG HERE ]]
             M = {
                { -- Lua lsp
@@ -142,25 +142,25 @@ return {
             }
 
             --- @diagnostic disable-next-line: unused-local
-            for i, server in ipairs(M) do
-               vim.lsp.config(server.name, server.args)
-               vim.lsp.enable(server.name)
+            for i, server in ipairs( M ) do
+               vim.lsp.config( server.name, server.args )
+               vim.lsp.enable( server.name )
             end
          else
             -- [[ OTHER DISTROS CONFIG HERE ]]
             -- per language config, dont add jdtls here
-            vim.lsp.config("lua_ls", { capabilities = capabilities })
-            vim.lsp.config("clangd", { capabilities = capabilities })
-            vim.lsp.config("bashls", {
+            vim.lsp.config( "lua_ls", { capabilities = capabilities } )
+            vim.lsp.config( "clangd", { capabilities = capabilities } )
+            vim.lsp.config( "bashls", {
                capabilities = capabilities,
                filetypes = { "bash", "sh", "zsh" },
-            })
-            vim.lsp.config("html", { capabilities = capabilities })
-            vim.lsp.config("tinymist", {
+            } )
+            vim.lsp.config( "html", { capabilities = capabilities } )
+            vim.lsp.config( "tinymist", {
                capabilities = capabilities,
                settings = { formatterMode = "typstyle" },
-            })
-            vim.lsp.config("qmlls", { capabilities = capabilities })
+            } )
+            vim.lsp.config( "qmlls", { capabilities = capabilities } )
          end
       end,
    },
