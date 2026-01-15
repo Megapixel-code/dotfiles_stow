@@ -1,3 +1,10 @@
+local function get_themes()
+   local theme_list = {
+      "tes",
+   }
+end
+
+
 return {
    "zaldih/themery.nvim",
    lazy = false,
@@ -48,16 +55,16 @@ return {
                name = "neobones",
             },
             {
+               colorscheme = "spaceduck",
+               name = "spaceduck",
+            },
+            {
                colorscheme = "jellybeans-nvim",
-               name = "jellybeans-nvim",
+               name = "jellybeans",
             },
             {
                colorscheme = "base16-ashes",
                name = "base16-ashes",
-            },
-            {
-               colorscheme = "base16-horizon-dark",
-               name = "base16-horizon-dark",
             },
             {
                colorscheme = "base16-kanagawa-dragon",
@@ -71,10 +78,18 @@ return {
                colorscheme = "base16-tarot",
                name = "base16-tarot",
             },
+
+
+            -- PROBATION
+
             {
-               colorscheme = "base16-darkviolet",
-               name = "base16-darkviolet",
+               colorscheme = "tempus_classic",
+               name = "tempus_classic",
             },
+
+
+
+
          },
       } )
    end,
