@@ -25,50 +25,44 @@ vim.keymap.set( { "i", "s" }, "<A-p>", function()
 
 -- --[[ GIT ]]--
 
-ls.add_snippets( "gitcommit", {
-   s( "git_feat", {
-      t( "feat(" ),
-      i( 1 ),
-      t( "): " ),
-      i( 2 ),
-   } ),
-   s( "git_fix", {
-      t( "fix(" ),
-      i( 1 ),
-      t( "): " ),
-      i( 2 ),
-   } ),
-   s( "git_docs", {
-      t( "docs(" ),
-      i( 1 ),
-      t( "): " ),
-      i( 2 ),
-   } ),
-   s( "git_style", {
-      t( "style(" ),
-      i( 1 ),
-      t( "): " ),
-      i( 2 ),
-   } ),
-   s( "git_refactor", {
-      t( "refactor(" ),
-      i( 1 ),
-      t( "): " ),
-      i( 2 ),
-   } ),
-   s( "git_test", {
-      t( "test(" ),
-      i( 1 ),
-      t( "): " ),
-      i( 2 ),
-   } ),
-   s( "git_chore", {
-      t( "chore(" ),
-      i( 1 ),
-      t( "): " ),
-      i( 2 ),
-   } ),
-} )
+local function git_snippet( type )
+   local node = {
+      s( "git_" .. type, {
+         t( type .. "(" ),
+         i( 1 ),
+         t( "): " ),
+         i( 2 ),
+         t( { "", "" } ),
+         t( { "", "" } ),
+      } ),
+   }
+   return node
+end
+
+local function get_git_snippets()
+   local types = {
+      "feat",
+      "fix",
+      "docs",
+      "style",
+      "refactor",
+      "test",
+      "chore",
+   }
+
+   local nodes = {}
+
+   for _, v in pairs( types ) do
+      vim.list_extend(
+         nodes,
+         git_snippet( v )
+      )
+   end
+
+   return nodes
+end
+
+ls.add_snippets( "gitcommit", get_git_snippets() )
 
 
 -- --[[ HTML ]]--
