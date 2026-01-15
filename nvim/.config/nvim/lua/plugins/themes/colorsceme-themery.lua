@@ -1,7 +1,47 @@
 local function get_themes()
-   local theme_list = {
-      "tes",
+   local theme_table = {
+      "github_dark_default",
+      "vscode",
+      "lackluster",
+      "vague",
+      "kanso-ink",
+      "kanagawa-paper-ink",
+      "rosebones",
+      "tokyobones",
+      "neobones",
+      "spaceduck",
+      "jellybeans-nvim",
+      "base16-ashes",
+      "base16-kanagawa-dragon",
+      "base16-vulcan",
+      "base16-tarot",
+
+      -- [PROBATION]
    }
+
+   local overide_dict = {
+      ["github_dark_default"] = "github",
+      ["jellybeans-nvim"] = "jellybeans",
+   }
+
+   local result = {}
+   local name_arg
+
+   for _, arg in ipairs( theme_table ) do
+      name_arg = arg
+
+      if overide_dict[arg] ~= nil then
+         name_arg = overide_dict[arg]
+      end
+
+      vim.list_extend( result, {
+         {
+            colorscheme = arg,
+            name = name_arg,
+         },
+      } )
+   end
+   return result
 end
 
 
@@ -9,88 +49,11 @@ return {
    "zaldih/themery.nvim",
    lazy = false,
    config = function()
-      -- set keymap
       vim.keymap.set( "n", "<leader>st", "<cmd>Themery<CR>", { desc = "Search Themes" } )
 
       require( "themery" ).setup( {
          livePreview = true,
-         themes = {
-            --
-            --
-            --[[ dark themes : ]]
-            {
-               colorscheme = "github_dark_default",
-               name = "github",
-            },
-            {
-               colorscheme = "vscode",
-               name = "vscode",
-            },
-            {
-               colorscheme = "lackluster",
-               name = "lackluster",
-            },
-            {
-               colorscheme = "vague",
-               name = "vague",
-            },
-            {
-               colorscheme = "kanso-ink",
-               name = "kanso-ink",
-            },
-            {
-               colorscheme = "kanagawa-paper-ink",
-               name = "kanagawa-paper-ink",
-            },
-            {
-               colorscheme = "rosebones",
-               name = "rosebones",
-            },
-            {
-               colorscheme = "tokyobones",
-               name = "tokyobones",
-            },
-            {
-               colorscheme = "neobones",
-               name = "neobones",
-            },
-            {
-               colorscheme = "spaceduck",
-               name = "spaceduck",
-            },
-            {
-               colorscheme = "jellybeans-nvim",
-               name = "jellybeans",
-            },
-            {
-               colorscheme = "base16-ashes",
-               name = "base16-ashes",
-            },
-            {
-               colorscheme = "base16-kanagawa-dragon",
-               name = "base16-kanagawa-dragon",
-            },
-            {
-               colorscheme = "base16-vulcan",
-               name = "base16-vulcan",
-            },
-            {
-               colorscheme = "base16-tarot",
-               name = "base16-tarot",
-            },
-
-
-            -- PROBATION
-
-            {
-               colorscheme = "tempus_classic",
-               name = "tempus_classic",
-            },
-
-
-
-
-         },
+         themes = get_themes(),
       } )
    end,
 }
