@@ -1,0 +1,3 @@
+return {
+   "ChausseBenjamin/friffle-vim",
+}

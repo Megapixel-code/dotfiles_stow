@@ -1,0 +1,3 @@
+return {
+   "andreiamatuni/slightlyclownish.nvim",
+}

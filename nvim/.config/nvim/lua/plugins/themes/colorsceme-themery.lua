@@ -10,18 +10,18 @@ local function get_themes()
       "tokyobones",
       "neobones",
       "spaceduck",
-      "jellybeans-nvim",
+      "slightlyclownish",
       "base16-ashes",
       "base16-kanagawa-dragon",
       "base16-vulcan",
       "base16-tarot",
 
       -- [PROBATION]
+      "friffle",
    }
 
    local overide_dict = {
       ["github_dark_default"] = "github",
-      ["jellybeans-nvim"] = "jellybeans",
    }
 
    local result = {}
