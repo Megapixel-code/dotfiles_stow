@@ -48,6 +48,10 @@ return {
                name = "neobones",
             },
             {
+               colorscheme = "jellybeans-nvim",
+               name = "jellybeans-nvim",
+            },
+            {
                colorscheme = "base16-ashes",
                name = "base16-ashes",
             },
