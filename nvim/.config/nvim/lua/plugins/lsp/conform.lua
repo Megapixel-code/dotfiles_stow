@@ -12,6 +12,21 @@ return {
          make = { "bake" },      -- makefiles FIX: not working
       },
 
+      formatters = {
+         shfmt = {
+            inherit = true,
+            prepend_args = {
+               "-i=0",     -- indent_style = tab
+               "-ln=bash", -- shell_variant = bash
+               "-s",       -- simplify = true
+               "-bn",      -- binary_next_line = true
+               "-ci",      -- switch_case_indent = true
+               "-sr",      -- space_redirects = true
+               "-kp",      -- keep_padding = true
+            },
+         },
+      },
+
       notify_on_error = true,
       notify_no_formatters = true,
       log_level = vim.log.levels.TRACE,
