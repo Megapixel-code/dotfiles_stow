@@ -12,3 +12,5 @@ vim.keymap.set("n", "<leader>tp", ":TypstPreview<CR>", { desc = "Preview typst f
 vim.keymap.set("n", "<leader>tc", ":!typst compile %:p %:p:h/out/%:t:r.pdf<CR>", { desc = "Compile typst file" })
 
 vim.keymap.set("i", "$", "$$<left>", { desc = "autoclose math" })
+
+vim.cmd("set spell") -- enable spelling

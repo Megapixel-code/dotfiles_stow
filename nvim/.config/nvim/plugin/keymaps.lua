@@ -3,6 +3,9 @@
 -- [Reload file]
 vim.keymap.set( "n", "<leader>o", "<cmd>update<CR><cmd>source<CR>", { desc = "Rel[O]ad file" } )
 
+-- [Toggle settings]
+vim.keymap.set( "n", "<leader>ts", "<cmd>set spell!<CR>", { desc = "Toggle Spelling" } )
+
 -- [Clear highlights]
 vim.keymap.set( "n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clears higlighting of search" } )
 

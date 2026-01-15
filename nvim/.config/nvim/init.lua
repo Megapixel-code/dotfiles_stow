@@ -43,15 +43,14 @@ vim.o.timeoutlen = 500         -- mapped sequence wait time
 vim.o.inccommand = "split"     -- preview substitutions live, as you type!
 vim.o.splitbelow = true        -- new splits open on the bottom
 vim.o.splitright = true        -- new splits open on the right
-vim.cmd("set spelllang=en_us") -- choose English spelling
-vim.cmd("set spell")           -- enable spelling
+vim.cmd( "set spelllang=en_us" ) -- choose English spelling
 
 -- ~~~ [[ OTHER ]] ~~~
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
-vim.schedule(function()
+vim.schedule( function()
    vim.opt.clipboard = "unnamedplus"
-end)
+end )
 
 -- ~~~ [[ LOADING PLUGINS ]] ~~~
-require("config.lazy")
+require( "config.lazy" )
