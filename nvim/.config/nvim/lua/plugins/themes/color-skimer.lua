@@ -95,8 +95,13 @@ local options = {
    },
 }
 
-local cs = require( "color-skimer" )
-
-cs.setup( options )
-
-vim.api.nvim_set_keymap( "n", "<leader>st", "", { callback = cs.toggle, desc = "Search themes" } )
+return {
+   "Megapixel-code/color-skimer.nvim",
+   opts = {
+      -- options,
+   },
+   config = function()
+      -- local cs = require( "color-skimer" )
+      -- vim.api.nvim_set_keymap( "n", "<leader>st", "", { callback = cs.toggle, desc = "Search themes" } )
+   end,
+}
