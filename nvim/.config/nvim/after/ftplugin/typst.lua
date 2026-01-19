@@ -1,5 +1,3 @@
-vim.keymap.set( "n", "<leader>tp", ":TypstPreview<CR>", { desc = "Preview typst file" } )
-
 -- NOTE: more info :h expand
 -- % file path relative to CWD
 -- %:p full path from /
@@ -10,7 +8,6 @@ vim.keymap.set( "n", "<leader>tp", ":TypstPreview<CR>", { desc = "Preview typst 
 -- %:p:h directory of the file from /
 -- %:t:r the file name alone without the extension
 vim.keymap.set( "n", "<leader>tc", ":!typst compile %:p %:p:h/out/%:t:r.pdf<CR>", { desc = "Compile typst file" } )
-
-vim.keymap.set( "i", "$",          "$$<left>",                                    { desc = "autoclose math" } )
+vim.keymap.set( "n", "<leader>tp", ":TypstPreview<CR>",                           { desc = "Preview typst file" } )
 
 vim.cmd( "set spell" ) -- enable spelling
