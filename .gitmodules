@@ -1,6 +1,3 @@
-[submodule "nvim/.config/nvim/lua/my-plugins/--force"]
-	path = nvim/.config/nvim/lua/my-plugins/--force
-	url = https://github.com/Megapixel-code/color-skimer.git
 [submodule "nvim/.config/nvim/lua/my-plugins/color-skimer"]
 	path = nvim/.config/nvim/lua/my-plugins/color-skimer
 	url = https://github.com/Megapixel-code/color-skimer.git
