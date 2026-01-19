@@ -1,102 +1,38 @@
-# introduction
+# INTRODUCTION
 
-this config has only been tested on debian testing, some parts might not work on other distros.
-
-# Dependencies :
-
-### all :
-```sh
-```
-
-#### lidm
-```sh
-sudo apt install git make libpam0g-dev gcc
-```
-#### sway
-```sh
-sudo apt install sway swaybg waybar wofi brightnessctl pulseaudio network-manager inotify-tools psmisc autotiling
-```
-
-bluetooth :
-```sh
-sudo apt install bluez libdbus-1-dev pkg-config
-```
-
-volume control :
-```sh
-sudo apt install pulseaudio cmake gcc pandoc libncurses-dev libpulse-dev
-```
-
-to make pulseaudio work :
-```sh
-systemctl --user restart pulseaudio.service
-```
-
-#### my nvim config
-```sh
-sudo apt install git make curl unzip tar gzip gcc wl-clipboard fzf ripgrep
-```
-for language server :
-```sh
-#java
-sudo apt install default-jre default-jdk nodejs
-#bash
-sudo apt install npm shellcheck
-```
-#### zsh
-```sh
-sudo apt install zsh zsh-syntax-highlighting
-```
-#### kitty
-```sh
-sudo apt install kitty
-```
-#### fastfetch
-```sh
-sudo apt install fastfetch
-```
-#### tmux
-```sh
-sudo apt install tmux
-```
-#### other
-be able to mount ntfs filesystems
-```sh
-sudo apt install ntfs-3g
-```
-tree filestructure:
-```sh
-sudo apt install tree
-```
+this config has only been tested on nixos, some parts might not work on other distros.
 
 
-# Step 0
+# INSTALL
+
+## Step 0
 create a backup of your config files.
 
-# Step 1
-clone repo :
+## Step 1
+clone repo with submodules:
 
-```git clone https://github.com/Megapixel-code/dotfiles_stow.git```
-
-# Step 2
-
-/!\ you have to be inside the folder you just cloned /!\
+```sh
+git clone --recurse-submodules https://github.com/Megapixel-code/dotfiles_stow.git
 ```
+
+## Step 2
+/!\ you have to be inside the folder you just cloned /!\
+
+```sh
 cd dotfiles_stow
 ```
 
-# Step 3
-
+## Step 3
 use stow to slink thoses files
 
-for most packages :
-
-```
-stow "package file name"
+```sh
+stow "file name"
 ```
 
-for non-home packages :
+# UPDATING THE SUBMODULES
 
+you can update the submodules with the following cmd:
+```sh
+git submodule update --remote
 ```
-stow -t / "package file name"
-```
+
