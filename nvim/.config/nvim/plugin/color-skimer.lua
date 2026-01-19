@@ -68,7 +68,6 @@ local options = {
       "base16-tarot",
 
       -- [PROBATION]
-      "friffle",
       -- TODO: look back at the paper theme with the light theme
    },
 
@@ -78,25 +77,17 @@ local options = {
 
    pre_function = { -- < this will be called before each preview of the colorscheme
       ["*"] = function()
-         -- you can use the star to execute before each
-         -- unless the colorscheme is in the table
-         -- [Example]
-         -- Here it would print "aww" for every colorscheme
-         -- exept github_dark_default where it would print "eww"
-         print( "aww !" )
-      end,
-      ["vscode"] = function()
-         print( "eww" )
+         vim.o.background = "dark"
       end,
    },
    post_function = { -- < this will be called after each preview of the colorscheme
       -- same options as pre_function
    },
 
-   pre_callback = { -- < this will be called before we save the colorscheme
+   pre_callback = { -- < this will be called before we save the colorscheme to memory
       -- same options as pre_function
    },
-   post_callback = { -- < this will be called after we save the colorscheme
+   post_callback = { -- < this will be called after we save the colorscheme to memory
       -- same options as pre_function
       ["*"] = function()
          autoscheme()
@@ -108,4 +99,5 @@ local cs = require( "my-plugins.color-skimer" )
 
 cs.setup( options )
 
-vim.api.nvim_set_keymap( "n", "<leader>st", "", { callback = cs.toggle } )
+vim.api.nvim_set_keymap( "n", "<leader>st", "", { callback = cs.toggle, desc = "Search themes" } )
+vim.api.nvim_create_user_command( "ColorSkimerToggle", cs.toggle, { desc = "command to toggle color-skimer plugin" } )
