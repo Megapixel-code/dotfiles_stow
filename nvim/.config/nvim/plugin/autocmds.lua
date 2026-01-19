@@ -85,13 +85,15 @@ vim.api.nvim_create_autocmd( "BufRead", {
 -- [[ automatically change terminal theme on quit ]]
 local function autoscheme()
    if not vim.g.terminal_color_0 then
+      print( "autoscheme: unable to change terminal theme, no terminal_color" )
       return
    end
 
    vim.cmd( "e $HOME/.config/kitty/current-theme.conf" )
    vim.api.nvim_win_set_cursor( 0, { 1, 0 } )
-   vim.cmd( ".,$d" )
+   vim.cmd( ".,$d" ) -- delete to end of file
 
+   -- addapted from :
    -- https://stackoverflow.com/questions/27870682/how-to-get-the-background-color-in-vim
    local bg = vim.api.nvim_exec2( 'echo synIDattr(hlID("Normal"), "bg")', { output = true } ).output
    local fg = vim.api.nvim_exec2( 'echo synIDattr(hlID("Normal"), "fg")', { output = true } ).output
