@@ -111,4 +111,4 @@ local options = {
    },
 }
 
-require( "my-plugins.color-skimer.color-skimer" ).setup( options )
+require( "my-plugins.color-skimer" ).setup( options )
