@@ -1,3 +1,0 @@
-[submodule "nvim/.config/nvim/lua/my-plugins/color-skimer"]
-	path = nvim/.config/nvim/lua/my-plugins/color-skimer
-	url = https://github.com/Megapixel-code/color-skimer.git

@@ -96,12 +96,16 @@ local options = {
 }
 
 return {
-   "Megapixel-code/color-skimer.nvim",
-   opts = {
-      -- options,
-   },
+   -- "Megapixel-code/color-skimer.nvim",
+   -- OR localy:
+   dir = "~/documents/projects/color-skimer.nvim",
+
+   opts = options,
    config = function()
-      -- local cs = require( "color-skimer" )
-      -- vim.api.nvim_set_keymap( "n", "<leader>st", "", { callback = cs.toggle, desc = "Search themes" } )
+      local cs = require( "color-skimer" )
+
+      cs.setup( options )
+
+      vim.api.nvim_set_keymap( "n", "<leader>st", "<cmd>ColorSkimerToggle<CR>", { desc = "Search themes" } )
    end,
 }
