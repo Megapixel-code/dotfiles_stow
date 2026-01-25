@@ -42,6 +42,8 @@ vim.keymap.set( "n", "<C-k>",      "<C-w><C-k>",  { desc = "Move focus to the up
 
 -- [telescope]
 local telescope_builtins = require( "telescope.builtin" )
+local telescope_config = require( "config.telescope" )
+
 vim.keymap.set( "n", "<leader>sf", telescope_builtins.find_files,    { desc = "Search Files" } )
 vim.keymap.set( "n", "<leader>sh", telescope_builtins.help_tags,     { desc = "Search Help" } )
 vim.keymap.set( "n", "<leader>sm", telescope_builtins.marks,         { desc = "Search Marks" } )
@@ -56,6 +58,7 @@ vim.keymap.set( "n", "<leader>sp", function()
                       cwd = vim.fs.joinpath( vim.fn.stdpath( "data" ), "lazy" ),
                    } )
                 end, { desc = "Search Plugins" } )
+vim.keymap.set( "n", "<leader>sg", telescope_config.multigrep, { desc = "Search Grep" } )
 
 -- [gitsigns]
 vim.keymap.set( "n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>",                  { desc = "toggle Git Diff" } )

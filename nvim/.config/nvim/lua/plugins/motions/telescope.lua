@@ -19,6 +19,7 @@ return {
                   width = 0.6,
                },
             },
+
             prompt_prefix = "λ ",
             selection_caret = " ",
             borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
@@ -41,7 +42,5 @@ return {
       } )
 
       telescope.load_extension( "fzf" )
-
-      require( "config.telescope.multigrep" ).setup()
    end,
 }
