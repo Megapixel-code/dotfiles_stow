@@ -6,10 +6,14 @@ return {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
    },
    config = function()
-      require( "telescope" ).setup( {
+      local telescope = require( "telescope" )
+      local telescope_builtins = require( "telescope.builtin" )
+
+      telescope.setup( {
          defaults = {
             layout_strategy = "vertical",
             layout_config = {
+               -- TODO: adjust with editor width and height
                vertical = {
                   prompt_position = "bottom",
                   height = 0.9,
@@ -37,17 +41,18 @@ return {
          fzf = {},
       } )
 
-      require( "telescope" ).load_extension( "fzf" )
+      telescope.load_extension( "fzf" )
 
-      vim.keymap.set( "n", "<leader>sf", require( "telescope.builtin" ).find_files, { desc = "Search Files" } )
-      vim.keymap.set( "n", "<leader>sh", require( "telescope.builtin" ).help_tags,  { desc = "Search Help" } )
+      vim.keymap.set( "n", "<leader>sf", telescope_builtins.find_files, { desc = "Search Files" } )
+      vim.keymap.set( "n", "<leader>sh", telescope_builtins.help_tags,  { desc = "Search Help" } )
+      vim.keymap.set( "n", "<leader>sm", telescope_builtins.marks,      { desc = "Search Marks" } )
       vim.keymap.set( "n", "<leader>sn", function()
-                         require( "telescope.builtin" ).find_files( {
+                         telescope_builtins.find_files( {
                             cwd = vim.fn.stdpath( "config" ),
                          } )
                       end, { desc = "Search Neovim" } )
       vim.keymap.set( "n", "<leader>sp", function()
-                         require( "telescope.builtin" ).find_files( {
+                         telescope_builtins.find_files( {
                             cwd = vim.fs.joinpath( vim.fn.stdpath( "data" ), "lazy" ),
                          } )
                       end, { desc = "Search Plugins" } )
