@@ -62,7 +62,6 @@ local options = {
       "neobones",
       "spaceduck",
       "no-clown-fiesta-dark",
-      "slightlyclownish",
       "base16-ashes",
       "base16-kanagawa-dragon",
       "base16-vulcan",

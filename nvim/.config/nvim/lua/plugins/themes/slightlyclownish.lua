@@ -1,3 +1,0 @@
-return {
-   "andreiamatuni/slightlyclownish.nvim",
-}
