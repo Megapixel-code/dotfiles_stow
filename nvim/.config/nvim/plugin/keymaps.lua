@@ -40,6 +40,23 @@ vim.keymap.set( "n", "<C-k>",      "<C-w><C-k>",  { desc = "Move focus to the up
 
 -- ~~~ [[ Plugins Keymaps ]] ~~~
 
+-- [telescope]
+local telescope_builtins = require( "telescope.builtin" )
+vim.keymap.set( "n", "<leader>sf", telescope_builtins.find_files,    { desc = "Search Files" } )
+vim.keymap.set( "n", "<leader>sh", telescope_builtins.help_tags,     { desc = "Search Help" } )
+vim.keymap.set( "n", "<leader>sm", telescope_builtins.marks,         { desc = "Search Marks" } )
+vim.keymap.set( "n", "<leader>ss", telescope_builtins.spell_suggest, { desc = "Search Spelling" } )
+vim.keymap.set( "n", "<leader>sn", function()
+                   telescope_builtins.find_files( {
+                      cwd = vim.fn.stdpath( "config" ),
+                   } )
+                end, { desc = "Search Neovim" } )
+vim.keymap.set( "n", "<leader>sp", function()
+                   telescope_builtins.find_files( {
+                      cwd = vim.fs.joinpath( vim.fn.stdpath( "data" ), "lazy" ),
+                   } )
+                end, { desc = "Search Plugins" } )
+
 -- [gitsigns]
 vim.keymap.set( "n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>",                  { desc = "toggle Git Diff" } )
 vim.keymap.set( "n", "<leader>gh", "<cmd>Gitsigns toggle_linehl<CR>",             { desc = "toggle Git Highlights" } )
