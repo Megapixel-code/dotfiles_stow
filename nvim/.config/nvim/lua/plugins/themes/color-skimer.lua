@@ -61,6 +61,7 @@ local options = {
       "tokyobones",
       "neobones",
       "spaceduck",
+      "no-clown-fiesta-dark",
       "slightlyclownish",
       "base16-ashes",
       "base16-kanagawa-dragon",
@@ -68,7 +69,7 @@ local options = {
       "base16-tarot",
 
       -- [PROBATION]
-      -- TODO: look back at the paper theme with the light theme
+      "PaperColor",
    },
 
    name_override = { -- < this will override the name in the preview menu
@@ -78,6 +79,9 @@ local options = {
    pre_function = { -- < this will be called before each preview of the colorscheme
       ["*"] = function()
          vim.o.background = "dark"
+      end,
+      ["PaperColor"] = function()
+         vim.o.background = "light"
       end,
    },
    post_function = { -- < this will be called after each preview of the colorscheme
