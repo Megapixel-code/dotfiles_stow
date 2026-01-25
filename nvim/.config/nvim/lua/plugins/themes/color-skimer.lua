@@ -54,6 +54,7 @@ local options = {
       "github_dark_default",
       "vscode",
       "lackluster",
+      "no-clown-fiesta-dark",
       "vague",
       "kanso-ink",
       "kanagawa-paper-ink",
@@ -61,14 +62,12 @@ local options = {
       "tokyobones",
       "neobones",
       "spaceduck",
-      "no-clown-fiesta-dark",
       "base16-ashes",
       "base16-kanagawa-dragon",
       "base16-vulcan",
       "base16-tarot",
 
       -- [PROBATION]
-      "PaperColor",
    },
 
    name_override = { -- < this will override the name in the preview menu
