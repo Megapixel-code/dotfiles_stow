@@ -10,16 +10,21 @@ return {
 
       telescope.setup( {
          defaults = {
-            layout_strategy = "vertical",
+            layout_strategy = "flex",
             layout_config = {
-               -- TODO: adjust with editor width and height
                vertical = {
                   prompt_position = "bottom",
-                  height = 0.9,
-                  width = 0.6,
+                  preview_height = .6,
+                  height = 0.8,
+                  width = 0.7,
+               },
+               horizontal = {
+                  prompt_position = "bottom",
+                  preview_width = .6,
+                  height = 0.8,
+                  width = 0.8,
                },
             },
-
             prompt_prefix = "λ ",
             selection_caret = " ",
             borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
