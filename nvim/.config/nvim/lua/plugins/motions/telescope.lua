@@ -43,9 +43,10 @@ return {
 
       telescope.load_extension( "fzf" )
 
-      vim.keymap.set( "n", "<leader>sf", telescope_builtins.find_files, { desc = "Search Files" } )
-      vim.keymap.set( "n", "<leader>sh", telescope_builtins.help_tags,  { desc = "Search Help" } )
-      vim.keymap.set( "n", "<leader>sm", telescope_builtins.marks,      { desc = "Search Marks" } )
+      vim.keymap.set( "n", "<leader>sf", telescope_builtins.find_files,    { desc = "Search Files" } )
+      vim.keymap.set( "n", "<leader>sh", telescope_builtins.help_tags,     { desc = "Search Help" } )
+      vim.keymap.set( "n", "<leader>sm", telescope_builtins.marks,         { desc = "Search Marks" } )
+      vim.keymap.set( "n", "<leader>ss", telescope_builtins.spell_suggest, { desc = "Search Spelling" } )
       vim.keymap.set( "n", "<leader>sn", function()
                          telescope_builtins.find_files( {
                             cwd = vim.fn.stdpath( "config" ),
