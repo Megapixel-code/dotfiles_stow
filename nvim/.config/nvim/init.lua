@@ -33,17 +33,17 @@ vim.o.linebreak = true     -- wrap by word instead of letter
 vim.o.breakindent = true   -- wrapped lines will be indented
 
 -- [[ utilities ]]
-vim.o.mouse = ""                 -- enable mouse mode
-vim.o.undofile = true            -- save undo history
-vim.o.confirm = true             -- ask confirmation when you quit while unsaved
-vim.o.ignorecase = true          -- case-insensitive searching
-vim.o.smartcase = true           -- removes case-insensitive searching if one or more capital letter
-vim.o.updatetime = 250           -- time with nothing typed before writing swap to disk (ex crash recovery)
-vim.o.timeoutlen = 500           -- mapped sequence wait time
-vim.o.inccommand = "split"       -- preview substitutions live, as you type!
-vim.o.splitbelow = true          -- new splits open on the bottom
-vim.o.splitright = true          -- new splits open on the right
-vim.cmd( "set spelllang=en_us" ) -- choose English spelling
+vim.o.mouse = ""           -- enable mouse mode
+vim.o.undofile = true      -- save undo history
+vim.o.confirm = true       -- ask confirmation when you quit while unsaved
+vim.o.ignorecase = true    -- case-insensitive searching
+vim.o.smartcase = true     -- removes case-insensitive searching if one or more capital letter
+vim.o.updatetime = 250     -- time with nothing typed before writing swap to disk (ex crash recovery)
+vim.o.timeoutlen = 500     -- mapped sequence wait time
+vim.o.inccommand = "split" -- preview substitutions live, as you type!
+vim.o.splitbelow = true    -- new splits open on the bottom
+vim.o.splitright = true    -- new splits open on the right
+vim.o.spelllang = "en_us"  -- choose English spelling
 
 -- ~~~ [[ OTHER ]] ~~~
 -- Sync clipboard between OS and Neovim.
