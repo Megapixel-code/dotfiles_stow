@@ -1,4 +1,4 @@
--- [[ automatically change terminal theme on quit ]]
+--- Automatically change terminal theme on quit
 local function autoscheme()
    if not vim.g.terminal_color_0 then
       print( "autoscheme: unable to change terminal theme, no terminal_color" )
@@ -48,7 +48,7 @@ local function autoscheme()
 end
 
 
-
+--- @type color_skimer_config
 local options = {
    colorscheme = { -- < your colorschemes names
       "github_dark_default",
@@ -77,9 +77,6 @@ local options = {
    pre_function = { -- < this will be called before each preview of the colorscheme
       ["*"] = function()
          vim.o.background = "dark"
-      end,
-      ["PaperColor"] = function()
-         vim.o.background = "light"
       end,
    },
    post_function = { -- < this will be called after each preview of the colorscheme
