@@ -76,19 +76,19 @@ local options = {
       ["github_dark_default"] = "github",
    },
 
-   pre_function = { -- < this will be called before each preview of the colorscheme
+   pre_preview = { -- < this will be called before each preview of the colorscheme
       ["*"] = function()
          vim.o.background = "dark"
       end,
    },
-   post_function = { -- < this will be called after each preview of the colorscheme
+   post_preview = { -- < this will be called after each preview of the colorscheme
       -- same options as pre_function
    },
 
-   pre_callback = { -- < this will be called before we save the colorscheme to memory
+   pre_save = { -- < this will be called before we save the colorscheme to memory
       -- same options as pre_function
    },
-   post_callback = { -- < this will be called after we save the colorscheme to memory
+   post_save = { -- < this will be called after we save the colorscheme to memory
       -- same options as pre_function
       ["*"] = function()
          autoscheme()
