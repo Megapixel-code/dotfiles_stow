@@ -1,3 +1,0 @@
-return {
-   "ChausseBenjamin/friffle-vim",
-}
