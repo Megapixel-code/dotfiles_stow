@@ -83,10 +83,11 @@ vim.api.nvim_create_autocmd( "BufRead", {
 } )
 
 -- [[ document-higligting ]]
+local hover_highlight_group = vim.api.nvim_create_augroup( "hover-highlight", { clear = false } )
 local no_highlight_table = { "json" }
 
 vim.api.nvim_create_autocmd( { "CursorHold", "CursorHoldI" }, {
-   group = vim.api.nvim_create_augroup( "hover-highlight", { clear = false } ),
+   group = hover_highlight_group,
    callback = function()
       for _, v in pairs( no_highlight_table ) do
          if vim.bo.filetype == v then
@@ -98,7 +99,7 @@ vim.api.nvim_create_autocmd( { "CursorHold", "CursorHoldI" }, {
 } )
 
 vim.api.nvim_create_autocmd( { "CursorMoved", "CursorMovedI" }, {
-   group = vim.api.nvim_create_augroup( "hover-highlight", { clear = false } ),
+   group = hover_highlight_group,
    callback = function()
       for _, v in pairs( no_highlight_table ) do
          if vim.bo.filetype == v then
@@ -106,5 +107,19 @@ vim.api.nvim_create_autocmd( { "CursorMoved", "CursorMovedI" }, {
          end
       end
       vim.lsp.buf.clear_references()
+   end,
+} )
+
+-- [[ help menu ]]
+
+vim.api.nvim_create_autocmd( "FileType", {
+   pattern = "help",
+   callback = function()
+      local editor_columns = vim.api.nvim_get_option_value( "columns", {} )
+      if editor_columns > 125 then
+         vim.cmd( "wincmd L" )
+      else
+         vim.cmd( "wincmd J" )
+      end
    end,
 } )
