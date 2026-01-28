@@ -133,6 +133,12 @@ return {
                      capabilities = capabilities,
                   },
                },
+               { -- Scala lsp
+                  name = "metals",
+                  args = {
+                     capabilities = capabilities,
+                  },
+               },
                {                  -- QML lsp
                   name = "qmlls", -- TODO: cant find ?
                   args = {
