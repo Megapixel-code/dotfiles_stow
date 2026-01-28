@@ -123,18 +123,23 @@ end
 
 -- --[[ C ]]--
 
-ls.add_snippets( "c", {
-   s( "fn", {
-      d( 4, docs_snip, { 1, 3 } ),
-      t( { "", "" } ),
-      i( 1, "type" ),
-      t( " " ),
-      i( 2, "name" ),
-      t( "(" ),
-      i( 3 ),
-      t( ")" ),
-      t( { " {", "\t" } ),
-      i( 0 ),
-      t( { "", "}" } ),
-   } ),
-} )
+local function c_function_snippet( filetype )
+   ls.add_snippets( filetype, {
+      s( "fn", {
+         d( 4, docs_snip, { 1, 3 } ),
+         t( { "", "" } ),
+         i( 1, "type" ),
+         t( " " ),
+         i( 2, "name" ),
+         t( "(" ),
+         i( 3 ),
+         t( ")" ),
+         t( { " {", "\t" } ),
+         i( 0 ),
+         t( { "", "}" } ),
+      } ),
+   } )
+end
+
+c_function_snippet( "c" )
+c_function_snippet( "cpp" )
