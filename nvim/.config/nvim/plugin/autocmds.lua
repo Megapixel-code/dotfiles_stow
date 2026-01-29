@@ -57,6 +57,11 @@ vim.api.nvim_create_autocmd( "TermOpen", {
 -- [[ restore cursor position when opening file ]]
 vim.api.nvim_create_autocmd( "BufReadPost", {
    callback = function( args )
+      -- we want the cursor on top when commiting messages
+      if (vim.bo.ft == "gitcommit") then
+         return
+      end
+
       local mark = vim.api.nvim_buf_get_mark( args.buf, '"' ) -- last position when exited the buffer
       local line_count = vim.api.nvim_buf_line_count( args.buf )
 
