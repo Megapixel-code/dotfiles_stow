@@ -5,6 +5,5 @@ vim.diagnostic.config( { signs = false, virtual_text = true } ) -- use virtual_t
 vim.filetype.add( {
    extension = {
       [""] = "sh",
-      ["typ"] = "typst",
    },
 } )
