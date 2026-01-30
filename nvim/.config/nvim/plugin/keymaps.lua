@@ -77,5 +77,5 @@ vim.keymap.set(
 vim.keymap.set( "n", "<leader>yy", "<cmd>Yazi<cr>",        { desc = "open Yazi at the current file" } )
 vim.keymap.set( "n", "<leader>ys", "<cmd>Yazi toggle<cr>", { desc = "Resume the last yazi session" } )
 vim.keymap.set( "n", "<leader>yc", function()
-                   require( "yazi" ).yazi( { change_neovim_cwd_on_close = false } )
+                   require( "yazi" ).yazi( { change_neovim_cwd_on_close = true } )
                 end, { desc = "Yazi Change CWD" } )
