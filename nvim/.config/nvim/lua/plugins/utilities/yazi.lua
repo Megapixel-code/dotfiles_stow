@@ -10,11 +10,10 @@ return {
       open_for_directories = false,
       hooks = {
          yazi_opened = function( preselected_path, yazi_buffer_id, config )
-            vim.keymap.del( "t", "<Esc><Esc>" )
-         end,
-
-         yazi_closed_successfully = function( chosen_file, config, state )
-            vim.keymap.set( "t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" } )
+            vim.api.nvim_buf_set_keymap( 0, "t", "<Esc><Esc>", "",
+                                         {
+                                            desc = "remove escaping the terminal for the yazi buffer",
+                                         } )
          end,
       },
       keymaps = {
