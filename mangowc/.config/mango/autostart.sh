@@ -18,10 +18,6 @@ sunsetr > /dev/null 2>&1 &
 # deezer-enhanced > /dev/null 2>&1 &
 
 # wallpaper
-# start daemon :
-swww-daemon > /dev/null 2>&1 &
-
-# pscircle
 "$XDG_CONFIG_HOME/mango/scripts/pscircle_bg.sh" > /dev/null 2>&1 &
 
 # start tmux

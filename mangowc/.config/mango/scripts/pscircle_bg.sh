@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# start daemon :
+swww-daemon > /dev/null 2>&1 &
+
 cmd_output=$(wlr-randr | grep "eDP-1")
 
 if [[ $cmd_output == "" ]]; then
@@ -57,7 +60,7 @@ pscircle \
    --cpulist-show=0 \
    --memlist-show=0 \
 
-swww img -o "HDMI-A-1" "$XDG_CONFIG_HOME/mango/backgrounds/nix_horizontal.png"
+swww img -o "HDMI-A-1" "$XDG_CONFIG_HOME/mango/backgrounds/nix_horizontal.svg"
 
 while inotifywait -e close_write "$XDG_CONFIG_HOME/mango/backgrounds/pscircle_out.png"; do
    swww img -o "$output" "$XDG_CONFIG_HOME/mango/backgrounds/pscircle_out.png" --transition-type "grow" --transition-pos "center"
