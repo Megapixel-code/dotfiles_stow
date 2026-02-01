@@ -79,3 +79,6 @@ vim.keymap.set( "n", "<leader>ys", "<cmd>Yazi toggle<cr>", { desc = "Resume the 
 vim.keymap.set( "n", "<leader>yc", function()
                    require( "yazi" ).yazi( { change_neovim_cwd_on_close = true } )
                 end, { desc = "Yazi Change CWD" } )
+
+-- [color-skimer]
+vim.api.nvim_set_keymap( "n", "<leader>st", "<cmd>ColorSkimerToggle<CR>", { desc = "Search themes" } )

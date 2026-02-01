@@ -47,66 +47,52 @@ local function autoscheme()
    vim.cmd( "silent !kill -SIGUSR1 $(pidof kitty)" ) -- reload terminal
 end
 
-
---- @type color_skimer_config
-local options = {
-   colorscheme = { -- < your colorschemes names
-      "github_dark_default",
-      "vscode",
-      "lackluster",
-      "no-clown-fiesta-dark",
-      "vague",
-      "kanso-ink",
-      "kanagawa-paper-ink",
-      "zenbones",
-      "rosebones",
-      "tokyobones",
-      "neobones",
-      "spaceduck",
-      "terafox",
-      "base16-ashes",
-      "base16-kanagawa-dragon",
-      "base16-vulcan",
-      "base16-tarot",
-
-      -- [PROBATION]
-   },
-
-   name_override = { -- < this will override the name in the preview menu
-      ["github_dark_default"] = "github",
-   },
-
-   pre_preview = { -- < this will be called before each preview of the colorscheme
-      ["*"] = function()
-         vim.o.background = "dark"
-      end,
-   },
-   post_preview = { -- < this will be called after each preview of the colorscheme
-      -- same options as pre_function
-   },
-
-   pre_save = { -- < this will be called before we save the colorscheme to memory
-      -- same options as pre_function
-   },
-   post_save = { -- < this will be called after we save the colorscheme to memory
-      -- same options as pre_function
-      ["*"] = function()
-         autoscheme()
-      end,
-   },
-}
-
 return {
    -- "Megapixel-code/color-skimer.nvim",
    -- OR localy:
    dir = "~/documents/projects/color-skimer.nvim",
 
-   opts = options,
-   config = function()
-      local cs = require( "color-skimer" )
+   --- @module "color-skimer"
+   --- @type color_skimer_config
+   opts = {
+      colorscheme = {
+         "github_dark_default",
+         "vscode",
+         "lackluster",
+         "no-clown-fiesta-dark",
+         "vague",
+         "kanso-ink",
+         "kanagawa-paper-ink",
+         "zenbones",
+         "rosebones",
+         "tokyobones",
+         "neobones",
+         "spaceduck",
+         "terafox",
+         "base16-ashes",
+         "base16-kanagawa-dragon",
+         "base16-vulcan",
+         "base16-tarot",
 
-      cs.setup( options )
+         -- [PROBATION]
+      },
 
-      vim.api.nvim_set_keymap( "n", "<leader>st", "<cmd>ColorSkimerToggle<CR>", { desc = "Search themes" } )
-   end,
+      name_override = {
+         ["github_dark_default"] = "github",
+      },
+
+      pre_preview = {
+         ["*"] = function()
+            vim.o.background = "dark"
+         end,
+      },
+      post_preview = {},
+
+      pre_save = {},
+      post_save = {
+         ["*"] = function()
+            autoscheme()
+         end,
+      },
+   },
 }
