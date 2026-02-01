@@ -104,8 +104,8 @@ local no_highlight_table = { "json" }
 vim.api.nvim_create_autocmd( { "CursorHold", "CursorHoldI" }, {
    group = hover_highlight_group,
    callback = function()
-      for _, v in pairs( no_highlight_table ) do
-         if vim.bo.filetype == v then
+      for _, no_highlight_ft in pairs( no_highlight_table ) do
+         if vim.bo.filetype == no_highlight_ft then
             return
          end
       end
@@ -116,8 +116,8 @@ vim.api.nvim_create_autocmd( { "CursorHold", "CursorHoldI" }, {
 vim.api.nvim_create_autocmd( { "CursorMoved", "CursorMovedI" }, {
    group = hover_highlight_group,
    callback = function()
-      for _, v in pairs( no_highlight_table ) do
-         if vim.bo.filetype == v then
+      for _, no_highlight_ft in pairs( no_highlight_table ) do
+         if vim.bo.filetype == no_highlight_ft then
             return
          end
       end
