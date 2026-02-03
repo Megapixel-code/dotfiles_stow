@@ -67,7 +67,6 @@ return {
          "rosebones",
          "tokyobones",
          "neobones",
-         "spaceduck",
          "terafox",
          "base16-ashes",
          "base16-kanagawa-dragon",
@@ -75,6 +74,10 @@ return {
          "base16-tarot",
 
          -- [PROBATION]
+         "sunset_cloud",
+         "radioactive_waste",
+         "forest_stream",
+         "crimson_moonlight",
       },
 
       name_override = {
