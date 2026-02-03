@@ -40,6 +40,44 @@ vim.keymap.set( "n", "<C-k>",      "<C-w><C-k>",  { desc = "Move focus to the up
 
 -- ~~~ [[ Plugins Keymaps ]] ~~~
 
+-- [typst/markdown]
+-- NOTE: more info :h expand
+-- % file path relative to CWD
+-- %:p full path from /
+-- %:t file name alone (tail)
+-- %:h file directory alone (head)
+-- %:r file with one less extension
+-- %:e file extension
+-- %:p:h directory of the file from /
+-- %:t:r the file name alone without the extension
+vim.keymap.set( "n", "<leader>tc", "", {
+   callback = function()
+      local ft = vim.o.filetype
+      if ft == "typst" then
+         local file_dir = vim.fn.expand( "%:p:h" )
+         print( file_dir )
+         os.execute( "mkdir -p " .. file_dir .. "/out" )
+         vim.cmd( "!typst compile %:p %:p:h/out/%:t:r.pdf" )
+      elseif ft == "markdown" then
+         -- TODO: look pandoc
+      end
+   end,
+   desc = "Compile typ or md file",
+} )
+
+vim.keymap.set( "n", "<leader>tp", "", {
+   callback = function()
+      local ft = vim.o.filetype
+      if ft == "typst" then
+         vim.cmd( "TypstPreview" )
+      elseif ft == "markdown" then
+         vim.cmd( "MarkdownPreview" )
+      end
+   end,
+   desc = "Preview md or typ file",
+} )
+
+
 -- [telescope]
 local telescope_builtins = require( "telescope.builtin" )
 local telescope_config = require( "config.telescope" )
