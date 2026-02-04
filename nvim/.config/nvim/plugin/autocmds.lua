@@ -49,6 +49,7 @@ vim.api.nvim_create_autocmd( "LspAttach", {
 vim.api.nvim_create_autocmd( "TermOpen", {
    group = vim.api.nvim_create_augroup( "term-open", { clear = true } ),
    callback = function()
+      vim.api.nvim_buf_set_keymap( 0, "t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" } )
       vim.opt.number = false
       vim.opt.relativenumber = false
    end,

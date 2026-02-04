@@ -10,10 +10,8 @@ return {
       open_for_directories = false,
       hooks = {
          yazi_opened = function( preselected_path, yazi_buffer_id, config )
-            vim.api.nvim_buf_set_keymap( 0, "t", "<Esc><Esc>", "",
-                                         {
-                                            desc = "remove escaping the terminal for the yazi buffer",
-                                         } )
+            -- remove escaping the terminal for the yazi buffer
+            vim.api.nvim_buf_del_keymap( 0, "t", "<Esc><Esc>" )
          end,
       },
       keymaps = {
