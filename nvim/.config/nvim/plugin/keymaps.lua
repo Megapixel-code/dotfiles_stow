@@ -95,7 +95,9 @@ vim.keymap.set( "n", "<leader>sp", function()
                       cwd = vim.fs.joinpath( vim.fn.stdpath( "data" ), "lazy" ),
                    } )
                 end, { desc = "Search Plugins" } )
-vim.keymap.set( "n", "<leader>sg", telescope_config.multigrep, { desc = "Search Grep" } )
+vim.keymap.set( "n", "<leader>sg", telescope_config.multigrep,   { desc = "Search Grep" } )
+vim.keymap.set( "n", "<leader>st", "<cmd>TodoTelescope<CR>",     { desc = "Search TODOS" } )        -- [todo-comments]
+vim.keymap.set( "n", "<leader>sc", "<cmd>ColorSkimerToggle<CR>", { desc = "Search Colorschemes" } ) -- [color-skimer]
 
 -- [gitsigns]
 vim.keymap.set( "n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>",                  { desc = "toggle Git Diff" } )
@@ -116,6 +118,3 @@ vim.keymap.set( "n", "<leader>ys", "<cmd>Yazi toggle<cr>", { desc = "Resume the 
 vim.keymap.set( "n", "<leader>yc", function()
                    require( "yazi" ).yazi( { change_neovim_cwd_on_close = true } )
                 end, { desc = "Yazi Change CWD" } )
-
--- [color-skimer]
-vim.api.nvim_set_keymap( "n", "<leader>st", "<cmd>ColorSkimerToggle<CR>", { desc = "Search themes" } )
