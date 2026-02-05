@@ -72,12 +72,13 @@ return {
          "base16-kanagawa-dragon",
          "base16-vulcan",
          "base16-tarot",
-
-         -- [PROBATION]
+         "boo",
          "sunset_cloud",
          "radioactive_waste",
          "forest_stream",
          "crimson_moonlight",
+
+         -- [PROBATION]
       },
 
       name_override = {
