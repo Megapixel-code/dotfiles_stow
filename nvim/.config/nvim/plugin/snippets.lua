@@ -1,3 +1,5 @@
+require( "luasnip.session.snippet_collection" ).clear_snippets()
+
 local ls = require( "luasnip" )
 local extras = require( "luasnip.extras" )
 local fmt = require( "luasnip.extras.fmt" )
