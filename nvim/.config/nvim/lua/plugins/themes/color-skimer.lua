@@ -67,7 +67,6 @@ return {
          "rosebones",
          "tokyobones",
          "neobones",
-         "terafox",
          "base16-ashes",
          "base16-kanagawa-dragon",
          "base16-vulcan",
