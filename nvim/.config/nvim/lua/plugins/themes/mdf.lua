@@ -1,3 +1,0 @@
-return {
-   "kungfusheep/mfd.nvim",
-}
