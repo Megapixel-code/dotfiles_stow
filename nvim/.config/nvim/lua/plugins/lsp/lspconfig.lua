@@ -148,8 +148,7 @@ return {
                },
             }
 
-            --- @diagnostic disable-next-line: unused-local
-            for i, server in ipairs( M ) do
+            for _, server in ipairs( M ) do
                vim.lsp.config( server.name, server.args )
                vim.lsp.enable( server.name )
             end
