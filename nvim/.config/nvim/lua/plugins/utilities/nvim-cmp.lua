@@ -16,17 +16,20 @@ return {
    config = function()
       local cmp = require( "cmp" )
       local lspkind = require( "lspkind" )
+      local luasnip = require( "luasnip" )
 
       cmp.setup( {
          expand = function( args )
-            require( "luasnip" ).lsp_expand( args.body )
+            luasnip.lsp_expand( args.body )
          end,
          window = {
-            completion = cmp.config.window.bordered(),
-            documentation = cmp.config.window.bordered(),
+            completion = cmp.config.window.bordered( { max_height = 8 } ),
+            documentation = cmp.config.window.bordered( { max_height = 8 } ),
          },
          mapping = cmp.mapping.preset.insert( {
-            -- add mappings
+            ["<C-u>"] = cmp.mapping.scroll_docs( 4 ),
+            ["<C-d>"] = cmp.mapping.scroll_docs( -4 ),
+            ["<c-y>"] = cmp.mapping.confirm( { select = true } ), -- accept even if not explicitly selected
          } ),
          sources = cmp.config.sources( {
             { name = "nvim_lsp" },
