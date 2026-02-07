@@ -68,6 +68,7 @@ return {
       config = function()
          -- capabilities for completion
          local capabilities = require( "cmp_nvim_lsp" ).default_capabilities()
+         -- FIX: lsp snippet uses tab instad of c-j c-k
 
          if os.getenv( "NIXOS_NVIM" ) == "1" then
             -- [[ NIXOS CONFIG HERE ]]
