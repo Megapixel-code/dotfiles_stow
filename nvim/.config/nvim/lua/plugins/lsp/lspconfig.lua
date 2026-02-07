@@ -1,5 +1,5 @@
--- use ":help lspconfig-all"
--- use ":Mason"
+-- :h lspconfig-all
+-- TODO: remove mason
 
 return {
    {
@@ -61,12 +61,13 @@ return {
 
    {
       "neovim/nvim-lspconfig",
+
       dependencies = {
-         "saghen/blink.cmp",
+         "hrsh7th/cmp-nvim-lsp",
       },
       config = function()
          -- capabilities for completion
-         local capabilities = require( "blink.cmp" ).get_lsp_capabilities()
+         local capabilities = require( "cmp_nvim_lsp" ).default_capabilities()
 
          if os.getenv( "NIXOS_NVIM" ) == "1" then
             -- [[ NIXOS CONFIG HERE ]]
