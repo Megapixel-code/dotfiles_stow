@@ -19,14 +19,6 @@ vim.keymap.set( "n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diag
 -- [lsp]
 vim.keymap.set( "n", "K", vim.lsp.buf.hover, { desc = "Hover Information" } )
 
--- [Auto close brackets and stuff]
-vim.keymap.set( "i", "{", "{}<left>", { desc = "Autoclose brackets" } )
-vim.keymap.set( "i", "[", "[]<left>", { desc = "Autoclose square brackets" } )
-vim.keymap.set( "i", "(", "()<left>", { desc = "Autoclose parenteses" } )
-vim.keymap.set( "i", "'", "''<left>", { desc = "Autoclose single quote" } )
-vim.keymap.set( "i", '"', '""<left>', { desc = "Autoclose double quote" } )
-vim.keymap.set( "i", "<", "<><left>", { desc = "Autoclose tag" } )
-
 -- [terminal movement]
 vim.keymap.set( "n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" } )
 vim.keymap.set( "n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" } )
