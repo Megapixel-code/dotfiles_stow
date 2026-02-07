@@ -25,6 +25,14 @@ return {
                "-kp",      -- keep_padding = true
             },
          },
+         typstyle = {
+            inherit = true,
+            prepend_args = {
+               "--wrap-text",    -- wrap text, not everything on the same line
+               "--indent-width", -- set indent-width
+               "3",              -- of 3
+            },
+         },
       },
 
       notify_on_error = true,
