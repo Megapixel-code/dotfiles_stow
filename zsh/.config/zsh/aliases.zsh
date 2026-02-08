@@ -13,58 +13,61 @@
 # color=always = forces color
 # sed -> removes the second argument (number of hard links)
 ll() {
-   LC_COLLATE=C ls -Aohpv --group-directories-first --time-style=iso --color=always $@ | sed -E '2,$s/ +[0-9]+//'
+	LC_COLLATE=C ls -Aohpv --group-directories-first --time-style=iso --color=always $@ | sed -E '2,$s/ +[0-9]+//'
 }
 
 y() {
-   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-   yazi "$@" --cwd-file="$tmp"
-   IFS= read -r -d '' cwd < "$tmp"
-   [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-   rm -f -- "$tmp"
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
 }
 
 git() {
-   if [[ $@ == "pr" ]]; then
-      command git pull --rebase
-      # if the rebase did not work do git rebase --abort
-   else
-      command git "$@"
-   fi
+	if [[ $@ == "pr" ]]; then
+		command git pull --rebase
+		# if the rebase did not work do git rebase --abort
+	else
+		command git "$@"
+	fi
 }
 
 cbonsai() {
-   if [[ $@ != "" ]]; then
-      command cbonsai "$@"
-      return
-   fi
+	if [[ $@ != "" ]]; then
+		command cbonsai "$@"
+		return
+	fi
 
-   # gen colors
-   leafs_dark=$((1 + "$RANDOM" % 7))
+	# gen colors
+	leafs_dark=$((1 + "$RANDOM" % 7))
 
-   bark_dark=$((1 + ("$leafs_dark" + "$RANDOM") % 7))
-   while [[ bark_dark == leafs_dark ]]; do
-      bark_dark=$((1 + ("$leafs_dark" + "$RANDOM") % 7))
-   done
+	bark_dark=$((1 + ("$leafs_dark" + "$RANDOM") % 7))
+	while [[ bark_dark == leafs_dark ]]; do
+		bark_dark=$((1 + ("$leafs_dark" + "$RANDOM") % 7))
+	done
 
-   leafs_light=$(("$leafs_dark" + 8))
-   bark_light=$(("$bark_dark" + 8))
+	leafs_light=$(("$leafs_dark" + 8))
+	bark_light=$(("$bark_dark" + 8))
 
-   # execute cmd  TODO: add back when cbonsai upadates
-   command cbonsai -S --time=0.05 --wait=5 --base=2 --leaf="$" --multiplier=9 --life=45
-   # command cbonsai -S --time=0.05 --wait=5 --base=2 --leaf="$" --color="$leafs_dark,$bark_dark,$leafs_light,$bark_light" --multiplier=9 --life=45
+	# execute cmd  TODO: add back when cbonsai upadates
+	command cbonsai -S --time=0.05 --wait=5 --base=2 --leaf="$" --multiplier=9 --life=45
+	# command cbonsai -S --time=0.05 --wait=5 --base=2 --leaf="$" --color="$leafs_dark,$bark_dark,$leafs_light,$bark_light" --multiplier=9 --life=45
 }
 
 batdiff() {
-    git diff --name-only --relative --diff-filter=d -z | xargs -0 bat --diff
+	git diff --name-only --relative --diff-filter=d -z | xargs -0 bat --diff
 }
 
 # colored man page, look https://github.com/sharkdp/bat?tab=readme-ov-file#man
 export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
+# overide --help to use bat
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
-alias -g -- --help='--help 2>&1 | bat --language=help --style=plain' # overide --help to use bat
+alias v="nvim"
+alias vim="nvim"
 alias "git pr"="git pull --rebase"
 alias lt='tree -a --dirsfirst -I .git/'
-alias python=python3
+alias python="python3"
 alias t="tmux attach"
 alias nrs="sudo nixos-rebuild switch"
