@@ -1,3 +1,5 @@
+-- TODO: test lazy = false for all colorschemes
+
 --- Automatically change terminal theme on quit
 local function autoscheme()
    if not vim.g.terminal_color_0 then
