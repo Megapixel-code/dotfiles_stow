@@ -22,10 +22,17 @@ return {
                   capabilities = capabilities,
                },
             },
-            {                    -- Python lsp
-               name = "pyrefly", -- FIXME: not working ?
+            { -- Python lsp
+               name = "pyrefly",
                args = {
                   capabilities = capabilities,
+                  settings = {
+                     python = {
+                        pyrefly = {
+                           displayTypeErrors = "force-on",
+                        },
+                     },
+                  },
                },
             },
             { -- C, Cpp, ... lsp
