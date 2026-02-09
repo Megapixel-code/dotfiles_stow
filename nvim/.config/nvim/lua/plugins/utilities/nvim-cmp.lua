@@ -1,14 +1,16 @@
 return {
    "hrsh7th/nvim-cmp",
    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
+
       "hrsh7th/cmp-cmdline",
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
       "petertriho/cmp-git",
 
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+
+      "hrsh7th/cmp-nvim-lsp",
       "onsails/lspkind.nvim",
    },
    event = { "InsertEnter", "CmdlineEnter" },
@@ -17,7 +19,6 @@ return {
       local cmp = require( "cmp" )
       local cmp_autopairs = require( "nvim-autopairs.completion.cmp" )
       local lspkind = require( "lspkind" )
-      local luasnip = require( "luasnip" )
 
       cmp.setup( {
          expand = function( args )
@@ -41,6 +42,7 @@ return {
             ),
          } ),
          sources = cmp.config.sources( {
+            { name = "nvim_lsp_signature_help" },
             { name = "nvim_lsp" },
             { name = "luasnip" },
             { name = "buffer" },
@@ -51,8 +53,8 @@ return {
             format = lspkind.cmp_format( {
                with_text = false;
                menu = {
-                  buffer = "[buf]",
                   nvim_lsp = "[lsp]",
+                  buffer = "[buf]",
                   path = "[path]",
                   luasnip = "[snip]",
                   git = "[git]",
