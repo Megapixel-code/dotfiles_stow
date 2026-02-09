@@ -1,7 +1,7 @@
 local function apply_ts_indent_if_blank()
    local buf = vim.api.nvim_get_current_buf()
    local lnum = vim.api.nvim_win_get_cursor( 0 )[1]
-   local line_content = vim.api.nvim_buf_get_lines( buf, lnum - 1, lnum, false )[1]
+   local line_content = vim.api.nvim_get_current_line()
 
    if line_content ~= "" then
       return
@@ -26,7 +26,7 @@ end
 local function remove_space_chars_empty_lines()
    local buf = vim.api.nvim_get_current_buf()
    local lnum = vim.api.nvim_win_get_cursor( 0 )[1]
-   local line_content = vim.api.nvim_buf_get_lines( buf, lnum - 1, lnum, false )[1]
+   local line_content = vim.api.nvim_get_current_line()
 
    if line_content == "" then
       return
