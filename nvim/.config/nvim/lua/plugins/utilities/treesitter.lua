@@ -4,35 +4,33 @@ return {
    lazy = false,
    build = ":TSUpdate",
 
-   config = function()
-      --- @diagnostic disable-next-line
-      require( "nvim-treesitter.configs" ).setup( {
-         ensure_installed = {
-            "c",
-            "bash",
+   main = "nvim-treesitter.configs",
+   opts = {
+      ensure_installed = {
+         "c",
+         "bash",
 
-            "cpp",
-            "python",
-            "java",
-            "lua",
-            "pascal",
+         "cpp",
+         "python",
+         "java",
+         "lua",
+         "pascal",
 
-            "scala",
-            "nix",
+         "scala",
+         "nix",
 
-            "html",
-            "css",
-            "javascript",
+         "html",
+         "css",
+         "javascript",
 
-            "typst",
-            "markdown",
-            "markdown_inline",
-            "gitcommit",
-         },
+         "typst",
+         "markdown",
+         "markdown_inline",
+         "gitcommit",
+      },
 
-         highlight = {
-            enable = true,
-         },
-      } )
-   end,
+      highlight = {
+         enable = true,
+      },
+   },
 }
