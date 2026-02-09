@@ -1,5 +1,4 @@
 -- :h lspconfig-all
--- FIX: lsp snippet uses tab instad of c-j c-k
 
 return {
    {

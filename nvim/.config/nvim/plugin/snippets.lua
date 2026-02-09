@@ -1,6 +1,41 @@
 require( "luasnip.session.snippet_collection" ).clear_snippets()
 
 local ls = require( "luasnip" )
+
+-- [ luasnip config ]
+
+-- NOTE: this is inspired by tjdevries's config
+-- https://github.com/tjdevries/config.nvim/blob/85172d183c18968c6995ab7f9346a0551d47948c/lua/custom/snippets.lua#L6
+
+vim.snippet.expand = ls.lsp_expand
+
+--- @diagnostic disable-next-line: duplicate-set-field
+vim.snippet.active = function( filter )
+   filter = filter or {}
+   filter.direction = filter.direction or 1
+
+   if filter.direction == 1 then
+      return ls.expand_or_jumpable()
+   else
+      return ls.jumpable( filter.direction )
+   end
+end
+
+--- @diagnostic disable-next-line: duplicate-set-field
+vim.snippet.jump = function( direction )
+   direction = direction or 1
+
+   if ls.expandable() then
+      return ls.expand_or_jump()
+   elseif ls.jumpable( direction ) then
+      ls.jump( direction )
+   end
+end
+
+vim.snippet.stop = ls.unlink_current
+
+-- [ end luasnip config ]
+
 local extras = require( "luasnip.extras" )
 local fmt = require( "luasnip.extras.fmt" )
 local s = ls.snippet

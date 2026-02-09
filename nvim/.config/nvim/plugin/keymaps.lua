@@ -34,6 +34,9 @@ vim.keymap.set( "n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper wi
 -- [luasnip]
 
 local luasnip = require( "luasnip" )
+-- disable tab and s-tab keymap that would otherwise expand the snippet
+vim.keymap.set( { "i", "s" }, "<Tab>",   "<Tab>" )
+vim.keymap.set( { "i", "s" }, "<S-Tab>", "<S-Tab>" )
 vim.keymap.set( { "i", "s" }, "<c-j>", function()
                    if luasnip.expand_or_jumpable() then
                       luasnip.expand_or_jump()
