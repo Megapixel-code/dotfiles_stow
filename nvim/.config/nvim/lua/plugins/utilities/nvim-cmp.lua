@@ -1,6 +1,5 @@
 return {
    "hrsh7th/nvim-cmp",
-
    dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
@@ -12,6 +11,7 @@ return {
 
       "onsails/lspkind.nvim",
    },
+   event = { "InsertEnter", "CmdlineEnter" },
 
    config = function()
       local cmp = require( "cmp" )
