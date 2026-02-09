@@ -72,8 +72,22 @@ return {
          mapping = cmp.mapping.preset.cmdline(),
          sources = cmp.config.sources( {
             { name = "path" },
-            { name = "cmdline", keyword_length = 2 },
+            { name = "cmdline" },
          } ),
+         --- disable the prompt for some cmds
+         enabled = function()
+            local disabled_commands = {
+               q = true,
+               w = true,
+               wq = true,
+            }
+            -- first word of the cmdline
+            local cmd = vim.fn.getcmdline():match( "%S+" )
+
+            -- true if cmd not disabled
+            -- else call and return cmp.close() which return false
+            return not disabled_commands[cmd] or cmp.close()
+         end,
          -- matching = { disallow_symbol_nonprefix_matching = false },
       } )
 
