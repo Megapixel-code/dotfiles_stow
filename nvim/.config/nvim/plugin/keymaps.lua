@@ -87,6 +87,18 @@ vim.keymap.set( "n", "<leader>tp", "", {
 -- [telescope]
 local telescope_builtins = require( "telescope.builtin" )
 local telescope_config = require( "config.telescope" )
+local telescope_todo_keywords = {
+   "FIX",
+   "FIXME",
+   "BUG",
+   "FIXIT",
+   "ISSUE",
+   "WARN",
+   "WARNING",
+   "XXX",
+   "OPTIMIZE",
+   "TODO",
+}
 
 vim.keymap.set( "n", "<leader>sf", telescope_builtins.find_files,    { desc = "Search Files" } )
 vim.keymap.set( "n", "<leader>sh", telescope_builtins.help_tags,     { desc = "Search Help" } )
@@ -102,9 +114,16 @@ vim.keymap.set( "n", "<leader>sp", function()
                       cwd = vim.fs.joinpath( vim.fn.stdpath( "data" ), "lazy" ),
                    } )
                 end, { desc = "Search Plugins" } )
-vim.keymap.set( "n", "<leader>sg", telescope_config.multigrep,   { desc = "Search Grep" } )
-vim.keymap.set( "n", "<leader>st", "<cmd>TodoTelescope<CR>",     { desc = "Search TODOS" } )        -- [todo-comments]
-vim.keymap.set( "n", "<leader>sc", "<cmd>ColorSkimerToggle<CR>", { desc = "Search Colorschemes" } ) -- [color-skimer]
+vim.keymap.set( "n", "<leader>sg", telescope_config.multigrep, { desc = "Search Grep" } )
+vim.keymap.set( "n", "<leader>st",
+                "<cmd>TodoTelescope keywords=" .. table.concat( telescope_todo_keywords, "," ) .. "<CR>",
+                {
+                   desc = "Search TODOS",
+                } ) -- [todo-comments]
+vim.keymap.set( "n", "<leader>sc", "<cmd>ColorSkimerToggle<CR>", {
+   desc =
+   "Search Colorschemes",
+} ) -- [color-skimer]
 
 -- [gitsigns]
 vim.keymap.set( "n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>",                  { desc = "toggle Git Diff" } )
