@@ -96,6 +96,12 @@ return {
                   capabilities = capabilities,
                },
             },
+            {
+               name = "neocmake",
+               args = {
+                  capabilities = capabilities,
+               },
+            },
          }
 
          for _, server in ipairs( M ) do
