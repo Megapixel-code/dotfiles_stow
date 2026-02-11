@@ -5,6 +5,7 @@ return {
    build = "make install_jsregexp",
 
    opts = {
+      history = true,
       updateevents = "TextChanged,TextChangedI",
    },
 }
