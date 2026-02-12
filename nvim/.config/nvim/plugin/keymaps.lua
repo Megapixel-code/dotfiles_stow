@@ -5,6 +5,14 @@ vim.keymap.set( "n", "<leader>o", "<cmd>update<CR><cmd>source<CR>", { desc = "Re
 
 -- [Toggle settings]
 vim.keymap.set( "n", "<leader>ts", "<cmd>set spell!<CR>", { desc = "Toggle Spelling" } )
+vim.keymap.set( "n", "<leader>tf", function()
+                   local current_spelllang = vim.o.spelllang
+                   if current_spelllang == "en_us" then
+                      vim.o.spelllang = "fr"
+                   else
+                      vim.o.spelllang = "en_us"
+                   end
+                end, { desc = "Toggle French spelling" } )
 
 -- [Clear highlights]
 vim.keymap.set( "n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clears higlighting of search" } )
