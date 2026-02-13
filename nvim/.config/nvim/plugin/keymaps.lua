@@ -1,7 +1,9 @@
 -- ~~~ [[ Basic Keymaps ]] ~~~
 
--- [Reload file]
+
+-- [Source file]
 vim.keymap.set( "n", "<leader>o", "<cmd>update<CR><cmd>source<CR>", { desc = "Rel[O]ad file" } )
+
 
 -- [Toggle settings]
 vim.keymap.set( "n", "<leader>ts", "<cmd>set spell!<CR>", { desc = "Toggle Spelling" } )
@@ -14,18 +16,20 @@ vim.keymap.set( "n", "<leader>tf", function()
                    end
                 end, { desc = "Toggle French spelling" } )
 
+
 -- [Clear highlights]
 vim.keymap.set( "n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clears higlighting of search" } )
 
--- [Quickfix]
-vim.keymap.set( "n", "<M-j>", "<cmd>cnext<CR>" )
-vim.keymap.set( "n", "<M-k>", "<cmd>cprev<CR>" )
 
--- [Diagnostic keymaps]
+-- [Quickfix]
+vim.keymap.set( "n", "<M-j>",     "<cmd>cnext<CR>" )
+vim.keymap.set( "n", "<M-k>",     "<cmd>cprev<CR>" )
 vim.keymap.set( "n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" } )
+
 
 -- [lsp]
 vim.keymap.set( "n", "K", vim.lsp.buf.hover, { desc = "Hover Information" } )
+
 
 -- [terminal movement]
 vim.keymap.set( "n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" } )
@@ -37,10 +41,11 @@ vim.keymap.set( "n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper wi
 -- vim.keymap.set( "n", "<C-S-j>",    "<C-w>J",      { desc = "Move window to the lower" } )
 -- vim.keymap.set( "n", "<C-S-k>",    "<C-w>K",      { desc = "Move window to the upper" } )
 
+
 -- ~~~ [[ Plugins Keymaps ]] ~~~
 
--- [luasnip]
 
+-- [luasnip]
 local luasnip = require( "luasnip" )
 -- disable tab and s-tab keymap that would otherwise expand the snippet
 vim.keymap.set( { "i", "s" }, "<Tab>",   "<Tab>" )
@@ -56,6 +61,7 @@ vim.keymap.set( { "i", "s" }, "<c-k>", function()
                       luasnip.jump( -1 )
                    end
                 end, { silent = true, desc = "go to previous snippet jump" } )
+
 
 -- [typst/markdown]
 -- NOTE: more info :h expand
@@ -111,6 +117,7 @@ local telescope_todo_keywords = {
    "TODO",
 }
 
+-- [telescope search]
 vim.keymap.set( "n", "<leader>sf", telescope_builtins.find_files,    { desc = "Search Files" } )
 vim.keymap.set( "n", "<leader>sh", telescope_builtins.help_tags,     { desc = "Search Help" } )
 vim.keymap.set( "n", "<leader>sm", telescope_builtins.marks,         { desc = "Search Marks" } )
@@ -136,10 +143,12 @@ vim.keymap.set( "n", "<leader>sc", "<cmd>ColorSkimerToggle<CR>", {
    "Search Colorschemes",
 } ) -- [color-skimer]
 
+
 -- [gitsigns]
 vim.keymap.set( "n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>",                  { desc = "toggle Git Diff" } )
 vim.keymap.set( "n", "<leader>gh", "<cmd>Gitsigns toggle_linehl<CR>",             { desc = "toggle Git Highlights" } )
 vim.keymap.set( "n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", { desc = "toggle Git line Blame" } )
+
 
 -- [ccc]
 vim.keymap.set(
@@ -148,6 +157,7 @@ vim.keymap.set(
    "<cmd>CccHighlighterDisable<CR><cmd>CccHighlighterEnable<CR>",
    { desc = "Refresh CCC plugin" }
 )
+
 
 -- [yazi]
 vim.keymap.set( "n", "<leader>yy", "<cmd>Yazi<cr>",        { desc = "open Yazi at the current file" } )
