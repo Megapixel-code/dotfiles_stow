@@ -66,6 +66,7 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 alias v="nvim"
 alias vim="nvim"
+alias ff="fastfetch"
 alias "git pr"="git pull --rebase"
 alias lt='tree -a --dirsfirst -I .git/'
 alias python="python3"
