@@ -1,5 +1,7 @@
 -- ~~~~~~ [[ My nvim config :0 ]] ~~~~~~
 
+-- TODO: look at all options
+
 vim.g.mapleader = " "      -- sets space as the leader key
 vim.g.maplocalleader = " " -- must be before loading plugins
 

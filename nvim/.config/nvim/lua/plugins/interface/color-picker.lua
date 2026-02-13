@@ -49,8 +49,5 @@ return {
       -- set the hex to uppercase
       ccc.output.hex.setup( { uppercase = true } )
       ccc.output.hex_short.setup( { uppercase = true } )
-
-      -- keymap
-      vim.keymap.set( "n", "<leader>c", ":CccPick<CR>", { desc = "Color" } )
    end,
 }

@@ -101,10 +101,8 @@ vim.keymap.set( "n", "<leader>tp", "", {
 } )
 
 
--- [telescope]
-local telescope_builtins = require( "telescope.builtin" )
-local telescope_config = require( "config.telescope" )
-local telescope_todo_keywords = {
+-- [todo-comments]
+local todo_keywords = {
    "FIX",
    "FIXME",
    "BUG",
@@ -116,8 +114,25 @@ local telescope_todo_keywords = {
    "OPTIMIZE",
    "TODO",
 }
+vim.keymap.set( "n", "<leader>st",
+                "<cmd>TodoTelescope keywords=" .. table.concat( todo_keywords, "," ) .. "<CR>",
+                {
+                   desc = "Search TODOS",
+                } )
 
--- [telescope search]
+
+-- [color-skimer]
+local color_skimer = require( "color-skimer" )
+vim.keymap.set( "n", "<leader>sc", "<cmd>ColorSkimerToggle<CR>", {
+   desc =
+   "Search Colorschemes",
+} )
+vim.keymap.set( "n", "<leader>cs", color_skimer.set_random_colorscheme, { desc = "Set random colorscheme" } )
+
+
+-- [telescope]
+local telescope_builtins = require( "telescope.builtin" )
+local telescope_config = require( "config.telescope" )
 vim.keymap.set( "n", "<leader>sf", telescope_builtins.find_files,    { desc = "Search Files" } )
 vim.keymap.set( "n", "<leader>sh", telescope_builtins.help_tags,     { desc = "Search Help" } )
 vim.keymap.set( "n", "<leader>sm", telescope_builtins.marks,         { desc = "Search Marks" } )
@@ -133,15 +148,6 @@ vim.keymap.set( "n", "<leader>sp", function()
                    } )
                 end, { desc = "Search Plugins" } )
 vim.keymap.set( "n", "<leader>sg", telescope_config.multigrep, { desc = "Search Grep" } )
-vim.keymap.set( "n", "<leader>st",
-                "<cmd>TodoTelescope keywords=" .. table.concat( telescope_todo_keywords, "," ) .. "<CR>",
-                {
-                   desc = "Search TODOS",
-                } ) -- [todo-comments]
-vim.keymap.set( "n", "<leader>sc", "<cmd>ColorSkimerToggle<CR>", {
-   desc =
-   "Search Colorschemes",
-} ) -- [color-skimer]
 
 
 -- [gitsigns]
@@ -153,10 +159,11 @@ vim.keymap.set( "n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>"
 -- [ccc]
 vim.keymap.set(
    "n",
-   "<leader>rc",
+   "<leader>cr",
    "<cmd>CccHighlighterDisable<CR><cmd>CccHighlighterEnable<CR>",
    { desc = "Refresh CCC plugin" }
 )
+vim.keymap.set( "n", "<leader>cc", ":CccPick<CR>", { desc = "Pick color" } )
 
 
 -- [yazi]
