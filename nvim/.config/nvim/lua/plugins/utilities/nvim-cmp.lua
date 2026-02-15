@@ -1,3 +1,6 @@
+-- TODO: customize the cmp look, for example: custom scroll bar
+-- FIXME: when using <C-n> with empty text
+
 return {
    "hrsh7th/nvim-cmp",
    dependencies = {
