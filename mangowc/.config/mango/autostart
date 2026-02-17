@@ -9,7 +9,7 @@ dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 swaync > /dev/null 2>&1 &
 
 # bar
-waybar > /dev/null 2>&1 &
+~/dotfiles_stow/mangowc/.config/waybar/scripts/toggle_waybar > /dev/null 2>&1 &
 
 # blue light filter
 sunsetr > /dev/null 2>&1 &

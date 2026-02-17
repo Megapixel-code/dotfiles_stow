@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if ps -p "$(cat toggle.pid)"; then
+	kill "$(cat toggle.pid)"
+else
+	waybar &
+	echo "$!" > toggle.pid
+fi
