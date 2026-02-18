@@ -38,10 +38,9 @@
          "format": "{:%d %B %Y | %H:%M:%S}",
          "tooltip": false
       },
-      // FIXME: wrong bluetooth text
       "bluetooth": {
          "format-on": "bt : on",
-         "format-connected": "bt : {controller_alias}",
+         "format-connected": "bt : {device_alias}",
          "format-no-controller": "bt : disconnected",
          "on-click-right": "~/.config/waybar/scripts/open_setting.sh ~/dotfiles_stow/_install_files/5_bluetui__bluetooth_control/target/release/bluetui"
       },
