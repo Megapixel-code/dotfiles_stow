@@ -154,7 +154,7 @@ vim.keymap.set( "n", "<leader>sg", telescope_config.multigrep, { desc = "Search 
 vim.keymap.set( "n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>",                  { desc = "toggle Git Diff" } )
 vim.keymap.set( "n", "<leader>gh", "<cmd>Gitsigns toggle_linehl<CR>",             { desc = "toggle Git Highlights" } )
 vim.keymap.set( "n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", { desc = "toggle Git line Blame" } )
-
+-- TODO: git Preview hunk, go to next hunk in the git *project*, etc...
 
 -- [ccc]
 vim.keymap.set(

@@ -1,6 +1,7 @@
 -- ~~~~~~ [[ My nvim config :0 ]] ~~~~~~
 
 -- TODO: look at all options
+-- TODO: :make > have a quickfix list of errors
 
 vim.g.mapleader = " "      -- sets space as the leader key
 vim.g.maplocalleader = " " -- must be before loading plugins
@@ -46,6 +47,8 @@ vim.o.inccommand = "split" -- preview substitutions live, as you type!
 vim.o.splitbelow = true    -- new splits open on the bottom
 vim.o.splitright = true    -- new splits open on the right
 vim.o.spelllang = "en_us"  -- choose English spelling
+vim.o.complete = ""        -- disable native completion, we use a plugin for completion
+vim.o.completeopt = ""     -- ^
 
 -- ~~~ [[ OTHER ]] ~~~
 -- Sync clipboard between OS and Neovim.
