@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-if ps -p "$(cat toggle.pid)"; then
-	kill "$(cat toggle.pid)"
+file="$HOME/dotfiles_stow/mangowc/.config/waybar/scripts/toggle.pid"
+
+if ps -p "$(cat "$file")"; then
+	kill "$(cat "$file")"
 else
 	waybar &
-	echo "$!" > toggle.pid
+	echo "$!" > "$file"
 fi
