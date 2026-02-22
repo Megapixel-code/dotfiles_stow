@@ -22,3 +22,6 @@ sunsetr > /dev/null 2>&1 &
 
 # start tmux
 "$XDG_CONFIG_HOME"/scripts/tmux-session-dispensary.sh "$HOME" > /dev/null 2>&1 &
+
+# remove trash files older than 100 days
+find "$XDG_DATA_HOME/Trash" -type f -atime +100 -exec rm {} \; > /dev/null 2>&1 &
