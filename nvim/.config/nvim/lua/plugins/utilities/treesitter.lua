@@ -27,6 +27,7 @@ return {
          "markdown",
          "markdown_inline",
          "gitcommit",
+         "editorconfig",
       },
 
       highlight = {
