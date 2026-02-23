@@ -70,9 +70,9 @@ vim.api.nvim_create_autocmd( "VimResized", {
    command = "wincmd =",
 } )
 
--- [[ syntax highlighting on env files ]]
+-- [[ treesitter syntax highlighting on config files ]]
 vim.api.nvim_create_autocmd( "BufRead", {
-   pattern = { ".env", ".env.*" },
+   pattern = { ".env", ".env.*", "*.conf" },
    callback = function()
       vim.bo.filetype = "dosini"
    end,
