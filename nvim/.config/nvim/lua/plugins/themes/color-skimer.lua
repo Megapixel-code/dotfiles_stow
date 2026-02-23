@@ -56,8 +56,9 @@ return {
    --- @type color_skimer_config
    opts = {
       colorscheme = {
-         "github_dark_default",
          "vscode",
+         "gruber-darker",
+         "github_dark_default",
          "lackluster",
          "no-clown-fiesta-dark",
          "vague",
