@@ -65,7 +65,7 @@
          "tooltip-format": "device : {desc}",
          "format": "vol : {volume}%", // can add {format_source} and {icon}
          "format-muted": "vol : muted",
-         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle", // mute
+         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle", // mute
          "on-click-right": "~/.config/waybar/scripts/open_setting.sh ~/dotfiles_stow/_install_files/6_ncpamixer__audio_control/build/ncpamixer",
          "scroll-step": 2
       },
