@@ -64,9 +64,11 @@ return {
          "vague",
          "kanso-ink",
          "kanagawa-paper-ink",
+         "zenwritten",
          "zenbones",
          "rosebones",
          "tokyobones",
+         "lake-dweller",
          "neobones",
          "base16-ashes",
          "base16-kanagawa-dragon",
@@ -77,6 +79,7 @@ return {
          "radioactive_waste",
          "forest_stream",
          "crimson_moonlight",
+         "yoda",
          "mfd-dark",
 
          -- [PROBATION]
