@@ -79,7 +79,6 @@ return {
          "radioactive_waste",
          "forest_stream",
          "crimson_moonlight",
-         "yoda",
          "mfd-dark",
 
          -- [PROBATION]
