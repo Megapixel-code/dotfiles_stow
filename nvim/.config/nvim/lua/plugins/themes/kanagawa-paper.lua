@@ -4,7 +4,7 @@ return {
    opts = {
       undercurl = true,       -- enable undercurls for underlined text
       transparent = false,    -- transparent background
-      gutter = true,          -- highlight background for the left gutter
+      gutter = false,         -- highlight background for the left gutter
       diag_background = true, -- background for diagnostic virtual text
       dim_inactive = true,    -- dim inactive windows.
       terminal_colors = true, -- set colors for terminal buffers
