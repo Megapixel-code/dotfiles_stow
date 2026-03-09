@@ -71,4 +71,5 @@ alias "git pr"="git pull --rebase"
 alias lt='tree -a --dirsfirst -I .git/'
 alias python="python3"
 alias t="tmux attach"
-alias nrs="sudo nixos-rebuild switch"
+# alias nrs="sudo nixos-rebuild switch"
+alias nrs="nh os switch /etc/nixos --ask"
