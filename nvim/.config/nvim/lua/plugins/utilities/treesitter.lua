@@ -23,6 +23,7 @@ return {
          "css",
          "javascript",
 
+         "yaml",
          "typst",
          "markdown",
          "markdown_inline",
