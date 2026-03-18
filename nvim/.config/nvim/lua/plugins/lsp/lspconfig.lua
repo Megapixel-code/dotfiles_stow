@@ -51,6 +51,12 @@ return {
                   capabilities = capabilities,
                },
             },
+            { -- yaml lsp
+               name = "yamlls",
+               args = {
+                  capabilities = capabilities,
+               },
+            },
             { -- CSS lsp
                name = "cssls",
                args = {
