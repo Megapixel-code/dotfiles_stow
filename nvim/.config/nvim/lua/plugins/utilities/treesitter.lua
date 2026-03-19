@@ -1,38 +1,44 @@
 return {
-   "nvim-treesitter/nvim-treesitter",
-   branch = "master",
-   lazy = false,
-   build = ":TSUpdate",
+   {
+      "nvim-treesitter/playground",
+      event = "BufRead",
+   },
+   {
+      "nvim-treesitter/nvim-treesitter",
+      branch = "master",
+      lazy = false,
+      build = ":TSUpdate",
 
-   main = "nvim-treesitter.configs",
-   opts = {
-      ensure_installed = {
-         "c",
-         "bash",
+      main = "nvim-treesitter.configs",
+      opts = {
+         ensure_installed = {
+            "c",
+            "bash",
 
-         "cpp",
-         "python",
-         "java",
-         "lua",
-         "pascal",
+            "cpp",
+            "python",
+            "java",
+            "lua",
+            "pascal",
 
-         "scala",
-         "nix",
+            "scala",
+            "nix",
 
-         "html",
-         "css",
-         "javascript",
+            "html",
+            "css",
+            "javascript",
 
-         "yaml",
-         "typst",
-         "markdown",
-         "markdown_inline",
-         "gitcommit",
-         "editorconfig",
-      },
+            "yaml",
+            "typst",
+            "markdown",
+            "markdown_inline",
+            "gitcommit",
+            "editorconfig",
+         },
 
-      highlight = {
-         enable = true,
+         highlight = {
+            enable = true,
+         },
       },
    },
 }
