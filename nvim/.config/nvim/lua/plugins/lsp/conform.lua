@@ -36,6 +36,6 @@ return {
 
       notify_on_error = true,
       notify_no_formatters = true,
-      log_level = vim.log.levels.TRACE,
+      -- log_level = vim.log.levels.TRACE,
    },
 }
