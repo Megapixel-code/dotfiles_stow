@@ -23,25 +23,32 @@ vim.keymap.set( "n", "<leader>tv", "<cmd>ToggleDiagnosticsVirtualLines<CR>",
 vim.keymap.set( "n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clears higlighting of search" } )
 
 
--- [Quickfix]
-vim.keymap.set( "n", "<M-j>",     "<cmd>cnext<CR>" )
-vim.keymap.set( "n", "<M-k>",     "<cmd>cprev<CR>" )
-vim.keymap.set( "n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" } )
-
-
 -- [lsp]
 vim.keymap.set( "n", "K", vim.lsp.buf.hover, { desc = "Hover Information" } )
 
 
+-- [Quickfix]
+vim.keymap.set( "n", "<leader>j", "<cmd>cnext<CR>", { desc = "next element in the quickfix list" } )
+vim.keymap.set( "n", "<leader>k", "<cmd>cprev<CR>", { desc = "previous element in the quickfix list" } )
+
+
 -- [terminal movement]
-vim.keymap.set( "n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" } )
-vim.keymap.set( "n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" } )
-vim.keymap.set( "n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" } )
-vim.keymap.set( "n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" } )
--- vim.keymap.set( "n", "<C-S-h>",    "<C-w>H",      { desc = "Move window to the left" } )
--- vim.keymap.set( "n", "<C-S-l>",    "<C-w>L",      { desc = "Move window to the right" } )
--- vim.keymap.set( "n", "<C-S-j>",    "<C-w>J",      { desc = "Move window to the lower" } )
--- vim.keymap.set( "n", "<C-S-k>",    "<C-w>K",      { desc = "Move window to the upper" } )
+local tmux = require( "tmux" )
+
+vim.keymap.set( "n", "<C-h>",   tmux.move_left,     { desc = "Move left" } )
+vim.keymap.set( "n", "<C-j>",   tmux.move_bottom,   { desc = "Move bottom" } )
+vim.keymap.set( "n", "<C-k>",   tmux.move_top,      { desc = "Move top" } )
+vim.keymap.set( "n", "<C-l>",   tmux.move_right,    { desc = "Move right" } )
+
+vim.keymap.set( "n", "<M-h>",   tmux.resize_left,   { desc = "Resize left" } )
+vim.keymap.set( "n", "<M-j>",   tmux.resize_bottom, { desc = "Resize bottom" } )
+vim.keymap.set( "n", "<M-k>",   tmux.resize_top,    { desc = "Resize top" } )
+vim.keymap.set( "n", "<M-l>",   tmux.resize_right,  { desc = "Resize right" } )
+
+vim.keymap.set( "n", "<C-M-h>", tmux.swap_left,     { desc = "Swap left" } )
+vim.keymap.set( "n", "<C-M-j>", tmux.swap_bottom,   { desc = "Swap bottom" } )
+vim.keymap.set( "n", "<C-M-k>", tmux.swap_top,      { desc = "Swap top" } )
+vim.keymap.set( "n", "<C-M-l>", tmux.swap_right,    { desc = "Swap right" } )
 
 
 -- ~~~ [[ Plugins Keymaps ]] ~~~
