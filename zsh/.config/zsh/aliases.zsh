@@ -4,7 +4,6 @@
 
 # LC_COLLATE=C = dont ignore dots when sorting
 # A = show hidden files
-# o = long listing format without group information
 # h = humain readable
 # p = indicator for dirs (/)
 # v = natural sort of (version) numbers within text
@@ -13,7 +12,7 @@
 # color=always = forces color
 # sed -> removes the second argument (number of hard links)
 ll() {
-	LC_COLLATE=C ls -Aohpv --group-directories-first --time-style=iso --color=always $@ | sed -E '2,$s/ +[0-9]+//'
+	LC_COLLATE=C ls -lAhpv --group-directories-first --time-style=iso --color=always $@ | sed -E '2,$s/ +[0-9]+//'
 }
 
 y() {
