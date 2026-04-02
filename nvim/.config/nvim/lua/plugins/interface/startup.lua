@@ -170,7 +170,7 @@ local function content()
       margin = 5,
       content = {
          { " Search File", "Telescope find_files", "<leader>sf" },
-         { "󰍉 Search Grep", "Telescope live_grep", "<leader>sg" },
+         { "󰍉 Search Grep", "lua require('config.telescope.multigrep').multigrep()", "<leader>sg" },
          { "󰉋 Yazi Change CWD", "lua require('yazi').yazi({change_neovim_cwd_on_close = true})", "<leader>yc" },
          { " Search Themes", "ColorSkimerToggle", "<leader>sc" },
          { "󰋖 Search Help", "Telescope help_tags", "<leader>sh" },
