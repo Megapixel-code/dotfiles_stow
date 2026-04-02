@@ -23,13 +23,20 @@ M.multigrep = function( opts )
          end
 
          if pieces[2] then
-            table.insert( args, "--include=" )
+            table.insert( args, "--include" )
             table.insert( args, pieces[2] )
          end
 
          return vim.iter( {
                args,
-               { "-r", "--color=never", "--with-filename", "--line-number" },
+               {
+                  "-r",
+                  "--color=never",
+                  "--with-filename",
+                  "--line-number",
+                  "--byte-offset",
+                  '--exclude-dir=".*"',
+               },
             } )
                    :flatten()
                    :totable()
