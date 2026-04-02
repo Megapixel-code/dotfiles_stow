@@ -66,13 +66,16 @@ return {
          test = { "Identifier", "#FF00FF" },
       },
       search = {
-         command = "rg",
+         command = "grep",
          args = {
+            "-r",
             "--color=never",
-            "--no-heading",
             "--with-filename",
             "--line-number",
-            "--column",
+            "--binary-files=without-match",
+            "--byte-offset",
+            '--exclude-dir=".*"',
+            "--extended-regexp",
          },
          -- regex that will be used to match keywords.
          -- don't replace the (KEYWORDS) placeholder
